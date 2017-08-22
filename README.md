@@ -9,7 +9,7 @@ The functions here a a bit of a mish-mash. Several are related to phyloseq and v
 
 Several other functions are related to making tables comparing taxa abundances among treatments, as in the supplementary tables in Zhang, *et.al.*, 2017. A vignette for creating such table is included in this package.
 
-Not all functions from MyRutils have made it here yet, so you ca expect that more will be added as time goes by, especially any I use in my workshops, tutorials and blogs at john-quensen.com.
+Not all functions from MyRutils have made it here yet, so you can expect that more will be added as time goes by, especially any I use in my workshops, tutorials and blogs at john-quensen.com.
 
 Installation
 ------------
