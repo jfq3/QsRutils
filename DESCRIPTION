@@ -5,7 +5,7 @@ Version: 0.0.2.9000
 Author: John Quensen
 Maintainer: John Quensen <quensenj@msu.edu>
 Description: Some functions I have written that simplify community analyses by vegan, phyloseq, etc. 
-Depends: phyloseq, vegan, multcompView, R (>= 3.3.0)
+Depends: phyloseq, vegan, multcompView, R (>= 3.2.0)
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
