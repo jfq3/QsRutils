@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="John Quensen" />
+
+
+<title>Table A-16</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Table A-16</h1>
+<h4 class="author"><em>John Quensen</em></h4>
+<h4 class="date"><em>June 3, 2017</em></h4>
+
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Table A-16 in the appendix of Snedecore and Cochran (1967) was my introduction to the arc sine conversion of percentages to angles. The table was actually reprinted from Bliss (1937), and tabulated values of arc sine(sqrt(percentage/100)). For example, the tabulated value for 15% is 22.79. Angles in <code>R</code> are in radians, not degrees. Thus the <code>arc_sine</code> function in this package does not return the values in Table A-16, but rather the corresponding angle in radians. For example, <code>arc_sine(15)</code> = 0.3976994. To get the angle in degrees, you can convert from radians to degrees with the function <code>rad2deg</code>. Thus <code>rad2deg(arc_sine(15))</code> = 22.786498.</p>
+<p>Just for kicks, the following code reproduces Table A-16:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">part1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="ot">NA</span>, <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {
+  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {
+    x &lt;-<span class="st"> </span><span class="kw">rad2deg</span>(<span class="kw">arc_sine</span>(((i<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">10</span>)<span class="op">+</span>((j<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">100</span>)))
+    part1[i,j] &lt;-<span class="st"> </span><span class="kw">formatC</span>(x, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">format =</span> <span class="st">&quot;f&quot;</span>)
+  }
+}
+col1 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="fl">0.9</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)
+part1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(col1, part1)
+<span class="kw">colnames</span>(part1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)
+
+part2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="ot">NA</span>, <span class="dt">nrow =</span> <span class="dv">98</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">98</span>) {
+  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {
+    x &lt;-<span class="st"> </span><span class="kw">rad2deg</span>(<span class="kw">arc_sine</span>(i<span class="op">+</span>((j<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">10</span>)))
+    part2[i,j] &lt;-<span class="kw">formatC</span>(x, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">format =</span> <span class="st">&quot;f&quot;</span>)
+  }
+}
+col1 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">98</span>, <span class="dt">by =</span> <span class="dv">1</span>)
+part2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(col1, part2)
+<span class="kw">colnames</span>(part2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)
+
+part3 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="ot">NA</span>, <span class="dt">nrow =</span> <span class="dv">11</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">11</span>) {
+  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {
+    m &lt;-<span class="st"> </span><span class="dv">99</span> <span class="op">+</span><span class="st"> </span>((i<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">10</span>)
+    n &lt;-<span class="st"> </span>((j<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">100</span>)
+    <span class="cf">if</span>((m<span class="op">+</span>n) <span class="op">&lt;=</span><span class="st"> </span><span class="dv">100</span>) {
+      x &lt;-<span class="st"> </span><span class="kw">rad2deg</span>(<span class="kw">arc_sine</span>(m<span class="op">+</span>n))
+       part3[i,j] &lt;-<span class="st"> </span><span class="kw">formatC</span>(x, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">format =</span> <span class="st">&quot;f&quot;</span>)
+    }
+  }
+}
+col1 &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">99</span>, <span class="dt">to =</span> <span class="dv">100</span>, <span class="dt">by =</span> <span class="fl">0.1</span>), <span class="dv">1</span>)
+part3 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(col1, part3)
+<span class="kw">colnames</span>(part3) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)
+
+a16 &lt;-<span class="st"> </span><span class="kw">rbind</span>(part1, part2, part3)
+
+knitr<span class="op">::</span><span class="kw">kable</span>(a16, <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Table of Angles Corresponding to Percentages, after Bliss(1937).&quot;</span>)</code></pre></div>
+<table>
+<caption>Table of Angles Corresponding to Percentages, after Bliss(1937).</caption>
+<thead>
+<tr class="header">
+<th align="left">%</th>
+<th align="left">0</th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th align="left">3</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.0</td>
+<td align="left">0.00</td>
+<td align="left">0.57</td>
+<td align="left">0.81</td>
+<td align="left">0.99</td>
+<td align="left">1.15</td>
+<td align="left">1.28</td>
+<td align="left">1.40</td>
+<td align="left">1.52</td>
+<td align="left">1.62</td>
+<td align="left">1.72</td>
+</tr>
+<tr class="even">
+<td align="left">0.1</td>
+<td align="left">1.81</td>
+<td align="left">1.90</td>
+<td align="left">1.99</td>
+<td align="left">2.07</td>
+<td align="left">2.14</td>
+<td align="left">2.22</td>
+<td align="left">2.29</td>
+<td align="left">2.36</td>
+<td align="left">2.43</td>
+<td align="left">2.50</td>
+</tr>
+<tr class="odd">
+<td align="left">0.2</td>
+<td align="left">2.56</td>
+<td align="left">2.63</td>
+<td align="left">2.69</td>
+<td align="left">2.75</td>
+<td align="left">2.81</td>
+<td align="left">2.87</td>
+<td align="left">2.92</td>
+<td align="left">2.98</td>
+<td align="left">3.03</td>
+<td align="left">3.09</td>
+</tr>
+<tr class="even">
+<td align="left">0.3</td>
+<td align="left">3.14</td>
+<td align="left">3.19</td>
+<td align="left">3.24</td>
+<td align="left">3.29</td>
+<td align="left">3.34</td>
+<td align="left">3.39</td>
+<td align="left">3.44</td>
+<td align="left">3.49</td>
+<td align="left">3.53</td>
+<td align="left">3.58</td>
+</tr>
+<tr class="odd">
+<td align="left">0.4</td>
+<td align="left">3.63</td>
+<td align="left">3.67</td>
+<td align="left">3.72</td>
+<td align="left">3.76</td>
+<td align="left">3.80</td>
+<td align="left">3.85</td>
+<td align="left">3.89</td>
+<td align="left">3.93</td>
+<td align="left">3.97</td>
+<td align="left">4.01</td>
+</tr>
+<tr class="even">
+<td align="left">0.5</td>
+<td align="left">4.05</td>
+<td align="left">4.10</td>
+<td align="left">4.14</td>
+<td align="left">4.17</td>
+<td align="left">4.21</td>
+<td align="left">4.25</td>
+<td align="left">4.29</td>
+<td align="left">4.33</td>
+<td align="left">4.37</td>
+<td align="left">4.41</td>
+</tr>
+<tr class="odd">
+<td align="left">0.6</td>
+<td align="left">4.44</td>
+<td align="left">4.48</td>
+<td align="left">4.52</td>
+<td align="left">4.55</td>
+<td align="left">4.59</td>
+<td align="left">4.62</td>
+<td align="left">4.66</td>
+<td align="left">4.70</td>
+<td align="left">4.73</td>
+<td align="left">4.76</td>
+</tr>
+<tr class="even">
+<td align="left">0.7</td>
+<td align="left">4.80</td>
+<td align="left">4.83</td>
+<td align="left">4.87</td>
+<td align="left">4.90</td>
+<td align="left">4.93</td>
+<td align="left">4.97</td>
+<td align="left">5.00</td>
+<td align="left">5.03</td>
+<td align="left">5.07</td>
+<td align="left">5.10</td>
+</tr>
+<tr class="odd">
+<td align="left">0.8</td>
+<td align="left">5.13</td>
+<td align="left">5.16</td>
+<td align="left">5.20</td>
+<td align="left">5.23</td>
+<td align="left">5.26</td>
+<td align="left">5.29</td>
+<td align="left">5.32</td>
+<td align="left">5.35</td>
+<td align="left">5.38</td>
+<td align="left">5.41</td>
+</tr>
+<tr class="even">
+<td align="left">0.9</td>
+<td align="left">5.44</td>
+<td align="left">5.47</td>
+<td align="left">5.50</td>
+<td align="left">5.53</td>
+<td align="left">5.56</td>
+<td align="left">5.59</td>
+<td align="left">5.62</td>
+<td align="left">5.65</td>
+<td align="left">5.68</td>
+<td align="left">5.71</td>
+</tr>
+<tr class="odd">
+<td align="left">1.0</td>
+<td align="left">5.74</td>
+<td align="left">6.02</td>
+<td align="left">6.29</td>
+<td align="left">6.55</td>
+<td align="left">6.80</td>
+<td align="left">7.03</td>
+<td align="left">7.27</td>
+<td align="left">7.49</td>
+<td align="left">7.71</td>
+<td align="left">7.92</td>
+</tr>
+<tr class="even">
+<td align="left">2.0</td>
+<td align="left">8.13</td>
+<td align="left">8.33</td>
+<td align="left">8.53</td>
+<td align="left">8.72</td>
+<td align="left">8.91</td>
+<td align="left">9.10</td>
+<td align="left">9.28</td>
+<td align="left">9.46</td>
+<td align="left">9.63</td>
+<td align="left">9.80</td>
+</tr>
+<tr class="odd">
+<td align="left">3.0</td>
+<td align="left">9.97</td>
+<td align="left">10.14</td>
+<td align="left">10.30</td>
+<td align="left">10.47</td>
+<td align="left">10.63</td>
+<td align="left">10.78</td>
+<td align="left">10.94</td>
+<td align="left">11.09</td>
+<td align="left">11.24</td>
+<td align="left">11.39</td>
+</tr>
+<tr class="even">
+<td align="left">4.0</td>
+<td align="left">11.54</td>
+<td align="left">11.68</td>
+<td align="left">11.83</td>
+<td align="left">11.97</td>
+<td align="left">12.11</td>
+<td align="left">12.25</td>
+<td align="left">12.38</td>
+<td align="left">12.52</td>
+<td align="left">12.66</td>
+<td align="left">12.79</td>
+</tr>
+<tr class="odd">
+<td align="left">5.0</td>
+<td align="left">12.92</td>
+<td align="left">13.05</td>
+<td align="left">13.18</td>
+<td align="left">13.31</td>
+<td align="left">13.44</td>
+<td align="left">13.56</td>
+<td align="left">13.69</td>
+<td align="left">13.81</td>
+<td align="left">13.94</td>
+<td align="left">14.06</td>
+</tr>
+<tr class="even">
+<td align="left">6.0</td>
+<td align="left">14.18</td>
+<td align="left">14.30</td>
+<td align="left">14.42</td>
+<td align="left">14.54</td>
+<td align="left">14.65</td>
+<td align="left">14.77</td>
+<td align="left">14.89</td>
+<td align="left">15.00</td>
+<td align="left">15.12</td>
+<td align="left">15.23</td>
+</tr>
+<tr class="odd">
+<td align="left">7.0</td>
+<td align="left">15.34</td>
+<td align="left">15.45</td>
+<td align="left">15.56</td>
+<td align="left">15.68</td>
+<td align="left">15.79</td>
+<td align="left">15.89</td>
+<td align="left">16.00</td>
+<td align="left">16.11</td>
+<td align="left">16.22</td>
+<td align="left">16.32</td>
+</tr>
+<tr class="even">
+<td align="left">8.0</td>
+<td align="left">16.43</td>
+<td align="left">16.54</td>
+<td align="left">16.64</td>
+<td align="left">16.74</td>
+<td align="left">16.85</td>
+<td align="left">16.95</td>
+<td align="left">17.05</td>
+<td align="left">17.15</td>
+<td align="left">17.26</td>
+<td align="left">17.36</td>
+</tr>
+<tr class="odd">
+<td align="left">9.0</td>
+<td align="left">17.46</td>
+<td align="left">17.56</td>
+<td align="left">17.66</td>
+<td align="left">17.76</td>
+<td align="left">17.85</td>
+<td align="left">17.95</td>
+<td align="left">18.05</td>
+<td align="left">18.15</td>
+<td align="left">18.24</td>
+<td align="left">18.34</td>
+</tr>
+<tr class="even">
+<td align="left">10.0</td>
+<td align="left">18.43</td>
+<td align="left">18.53</td>
+<td align="left">18.63</td>
+<td align="left">18.72</td>
+<td align="left">18.81</td>
+<td align="left">18.91</td>
+<td align="left">19.00</td>
+<td align="left">19.09</td>
+<td align="left">19.19</td>
+<td align="left">19.28</td>
+</tr>
+<tr class="odd">
+<td align="left">11.0</td>
+<td align="left">19.37</td>
+<td align="left">19.46</td>
+<td align="left">19.55</td>
+<td align="left">19.64</td>
+<td align="left">19.73</td>
+<td align="left">19.82</td>
+<td align="left">19.91</td>
+<td align="left">20.00</td>
+<td align="left">20.09</td>
+<td align="left">20.18</td>
+</tr>
+<tr class="even">
+<td align="left">12.0</td>
+<td align="left">20.27</td>
+<td align="left">20.36</td>
+<td align="left">20.44</td>
+<td align="left">20.53</td>
+<td align="left">20.62</td>
+<td align="left">20.70</td>
+<td align="left">20.79</td>
+<td align="left">20.88</td>
+<td align="left">20.96</td>
+<td align="left">21.05</td>
+</tr>
+<tr class="odd">
+<td align="left">13.0</td>
+<td align="left">21.13</td>
+<td align="left">21.22</td>
+<td align="left">21.30</td>
+<td align="left">21.39</td>
+<td align="left">21.47</td>
+<td align="left">21.56</td>
+<td align="left">21.64</td>
+<td align="left">21.72</td>
+<td align="left">21.81</td>
+<td align="left">21.89</td>
+</tr>
+<tr class="even">
+<td align="left">14.0</td>
+<td align="left">21.97</td>
+<td align="left">22.06</td>
+<td align="left">22.14</td>
+<td align="left">22.22</td>
+<td align="left">22.30</td>
+<td align="left">22.38</td>
+<td align="left">22.46</td>
+<td align="left">22.54</td>
+<td align="left">22.63</td>
+<td align="left">22.71</td>
+</tr>
+<tr class="odd">
+<td align="left">15.0</td>
+<td align="left">22.79</td>
+<td align="left">22.87</td>
+<td align="left">22.95</td>
+<td align="left">23.03</td>
+<td align="left">23.11</td>
+<td align="left">23.18</td>
+<td align="left">23.26</td>
+<td align="left">23.34</td>
+<td align="left">23.42</td>
+<td align="left">23.50</td>
+</tr>
+<tr class="even">
+<td align="left">16.0</td>
+<td align="left">23.58</td>
+<td align="left">23.66</td>
+<td align="left">23.73</td>
+<td align="left">23.81</td>
+<td align="left">23.89</td>
+<td align="left">23.97</td>
+<td align="left">24.04</td>
+<td align="left">24.12</td>
+<td align="left">24.20</td>
+<td align="left">24.27</td>
+</tr>
+<tr class="odd">
+<td align="left">17.0</td>
+<td align="left">24.35</td>
+<td align="left">24.43</td>
+<td align="left">24.50</td>
+<td align="left">24.58</td>
+<td align="left">24.65</td>
+<td align="left">24.73</td>
+<td align="left">24.80</td>
+<td align="left">24.88</td>
+<td align="left">24.95</td>
+<td align="left">25.03</td>
+</tr>
+<tr class="even">
+<td align="left">18.0</td>
+<td align="left">25.10</td>
+<td align="left">25.18</td>
+<td align="left">25.25</td>
+<td align="left">25.33</td>
+<td align="left">25.40</td>
+<td align="left">25.47</td>
+<td align="left">25.55</td>
+<td align="left">25.62</td>
+<td align="left">25.70</td>
+<td align="left">25.77</td>
+</tr>
+<tr class="odd">
+<td align="left">19.0</td>
+<td align="left">25.84</td>
+<td align="left">25.91</td>
+<td align="left">25.99</td>
+<td align="left">26.06</td>
+<td align="left">26.13</td>
+<td align="left">26.21</td>
+<td align="left">26.28</td>
+<td align="left">26.35</td>
+<td align="left">26.42</td>
+<td align="left">26.49</td>
+</tr>
+<tr class="even">
+<td align="left">20.0</td>
+<td align="left">26.57</td>
+<td align="left">26.64</td>
+<td align="left">26.71</td>
+<td align="left">26.78</td>
+<td align="left">26.85</td>
+<td align="left">26.92</td>
+<td align="left">26.99</td>
+<td align="left">27.06</td>
+<td align="left">27.13</td>
+<td align="left">27.20</td>
+</tr>
+<tr class="odd">
+<td align="left">21.0</td>
+<td align="left">27.27</td>
+<td align="left">27.35</td>
+<td align="left">27.42</td>
+<td align="left">27.49</td>
+<td align="left">27.56</td>
+<td align="left">27.62</td>
+<td align="left">27.69</td>
+<td align="left">27.76</td>
+<td align="left">27.83</td>
+<td align="left">27.90</td>
+</tr>
+<tr class="even">
+<td align="left">22.0</td>
+<td align="left">27.97</td>
+<td align="left">28.04</td>
+<td align="left">28.11</td>
+<td align="left">28.18</td>
+<td align="left">28.25</td>
+<td align="left">28.32</td>
+<td align="left">28.39</td>
+<td align="left">28.45</td>
+<td align="left">28.52</td>
+<td align="left">28.59</td>
+</tr>
+<tr class="odd">
+<td align="left">23.0</td>
+<td align="left">28.66</td>
+<td align="left">28.73</td>
+<td align="left">28.79</td>
+<td align="left">28.86</td>
+<td align="left">28.93</td>
+<td align="left">29.00</td>
+<td align="left">29.06</td>
+<td align="left">29.13</td>
+<td align="left">29.20</td>
+<td align="left">29.27</td>
+</tr>
+<tr class="even">
+<td align="left">24.0</td>
+<td align="left">29.33</td>
+<td align="left">29.40</td>
+<td align="left">29.47</td>
+<td align="left">29.53</td>
+<td align="left">29.60</td>
+<td align="left">29.67</td>
+<td align="left">29.73</td>
+<td align="left">29.80</td>
+<td align="left">29.87</td>
+<td align="left">29.93</td>
+</tr>
+<tr class="odd">
+<td align="left">25.0</td>
+<td align="left">30.00</td>
+<td align="left">30.07</td>
+<td align="left">30.13</td>
+<td align="left">30.20</td>
+<td align="left">30.26</td>
+<td align="left">30.33</td>
+<td align="left">30.40</td>
+<td align="left">30.46</td>
+<td align="left">30.53</td>
+<td align="left">30.59</td>
+</tr>
+<tr class="even">
+<td align="left">26.0</td>
+<td align="left">30.66</td>
+<td align="left">30.72</td>
+<td align="left">30.79</td>
+<td align="left">30.85</td>
+<td align="left">30.92</td>
+<td align="left">30.98</td>
+<td align="left">31.05</td>
+<td align="left">31.11</td>
+<td align="left">31.18</td>
+<td align="left">31.24</td>
+</tr>
+<tr class="odd">
+<td align="left">27.0</td>
+<td align="left">31.31</td>
+<td align="left">31.37</td>
+<td align="left">31.44</td>
+<td align="left">31.50</td>
+<td align="left">31.56</td>
+<td align="left">31.63</td>
+<td align="left">31.69</td>
+<td align="left">31.76</td>
+<td align="left">31.82</td>
+<td align="left">31.88</td>
+</tr>
+<tr class="even">
+<td align="left">28.0</td>
+<td align="left">31.95</td>
+<td align="left">32.01</td>
+<td align="left">32.08</td>
+<td align="left">32.14</td>
+<td align="left">32.20</td>
+<td align="left">32.27</td>
+<td align="left">32.33</td>
+<td align="left">32.39</td>
+<td align="left">32.46</td>
+<td align="left">32.52</td>
+</tr>
+<tr class="odd">
+<td align="left">29.0</td>
+<td align="left">32.58</td>
+<td align="left">32.65</td>
+<td align="left">32.71</td>
+<td align="left">32.77</td>
+<td align="left">32.83</td>
+<td align="left">32.90</td>
+<td align="left">32.96</td>
+<td align="left">33.02</td>
+<td align="left">33.09</td>
+<td align="left">33.15</td>
+</tr>
+<tr class="even">
+<td align="left">30.0</td>
+<td align="left">33.21</td>
+<td align="left">33.27</td>
+<td align="left">33.34</td>
+<td align="left">33.40</td>
+<td align="left">33.46</td>
+<td align="left">33.52</td>
+<td align="left">33.58</td>
+<td align="left">33.65</td>
+<td align="left">33.71</td>
+<td align="left">33.77</td>
+</tr>
+<tr class="odd">
+<td align="left">31.0</td>
+<td align="left">33.83</td>
+<td align="left">33.90</td>
+<td align="left">33.96</td>
+<td align="left">34.02</td>
+<td align="left">34.08</td>
+<td align="left">34.14</td>
+<td align="left">34.20</td>
+<td align="left">34.27</td>
+<td align="left">34.33</td>
+<td align="left">34.39</td>
+</tr>
+<tr class="even">
+<td align="left">32.0</td>
+<td align="left">34.45</td>
+<td align="left">34.51</td>
+<td align="left">34.57</td>
+<td align="left">34.63</td>
+<td align="left">34.70</td>
+<td align="left">34.76</td>
+<td align="left">34.82</td>
+<td align="left">34.88</td>
+<td align="left">34.94</td>
+<td align="left">35.00</td>
+</tr>
+<tr class="odd">
+<td align="left">33.0</td>
+<td align="left">35.06</td>
+<td align="left">35.12</td>
+<td align="left">35.18</td>
+<td align="left">35.24</td>
+<td align="left">35.30</td>
+<td align="left">35.37</td>
+<td align="left">35.43</td>
+<td align="left">35.49</td>
+<td align="left">35.55</td>
+<td align="left">35.61</td>
+</tr>
+<tr class="even">
+<td align="left">34.0</td>
+<td align="left">35.67</td>
+<td align="left">35.73</td>
+<td align="left">35.79</td>
+<td align="left">35.85</td>
+<td align="left">35.91</td>
+<td align="left">35.97</td>
+<td align="left">36.03</td>
+<td align="left">36.09</td>
+<td align="left">36.15</td>
+<td align="left">36.21</td>
+</tr>
+<tr class="odd">
+<td align="left">35.0</td>
+<td align="left">36.27</td>
+<td align="left">36.33</td>
+<td align="left">36.39</td>
+<td align="left">36.45</td>
+<td align="left">36.51</td>
+<td align="left">36.57</td>
+<td align="left">36.63</td>
+<td align="left">36.69</td>
+<td align="left">36.75</td>
+<td align="left">36.81</td>
+</tr>
+<tr class="even">
+<td align="left">36.0</td>
+<td align="left">36.87</td>
+<td align="left">36.93</td>
+<td align="left">36.99</td>
+<td align="left">37.05</td>
+<td align="left">37.11</td>
+<td align="left">37.17</td>
+<td align="left">37.23</td>
+<td align="left">37.29</td>
+<td align="left">37.35</td>
+<td align="left">37.41</td>
+</tr>
+<tr class="odd">
+<td align="left">37.0</td>
+<td align="left">37.46</td>
+<td align="left">37.52</td>
+<td align="left">37.58</td>
+<td align="left">37.64</td>
+<td align="left">37.70</td>
+<td align="left">37.76</td>
+<td align="left">37.82</td>
+<td align="left">37.88</td>
+<td align="left">37.94</td>
+<td align="left">38.00</td>
+</tr>
+<tr class="even">
+<td align="left">38.0</td>
+<td align="left">38.06</td>
+<td align="left">38.12</td>
+<td align="left">38.17</td>
+<td align="left">38.23</td>
+<td align="left">38.29</td>
+<td align="left">38.35</td>
+<td align="left">38.41</td>
+<td align="left">38.47</td>
+<td align="left">38.53</td>
+<td align="left">38.59</td>
+</tr>
+<tr class="odd">
+<td align="left">39.0</td>
+<td align="left">38.65</td>
+<td align="left">38.70</td>
+<td align="left">38.76</td>
+<td align="left">38.82</td>
+<td align="left">38.88</td>
+<td align="left">38.94</td>
+<td align="left">39.00</td>
+<td align="left">39.06</td>
+<td align="left">39.11</td>
+<td align="left">39.17</td>
+</tr>
+<tr class="even">
+<td align="left">40.0</td>
+<td align="left">39.23</td>
+<td align="left">39.29</td>
+<td align="left">39.35</td>
+<td align="left">39.41</td>
+<td align="left">39.47</td>
+<td align="left">39.52</td>
+<td align="left">39.58</td>
+<td align="left">39.64</td>
+<td align="left">39.70</td>
+<td align="left">39.76</td>
+</tr>
+<tr class="odd">
+<td align="left">41.0</td>
+<td align="left">39.82</td>
+<td align="left">39.87</td>
+<td align="left">39.93</td>
+<td align="left">39.99</td>
+<td align="left">40.05</td>
+<td align="left">40.11</td>
+<td align="left">40.16</td>
+<td align="left">40.22</td>
+<td align="left">40.28</td>
+<td align="left">40.34</td>
+</tr>
+<tr class="even">
+<td align="left">42.0</td>
+<td align="left">40.40</td>
+<td align="left">40.45</td>
+<td align="left">40.51</td>
+<td align="left">40.57</td>
+<td align="left">40.63</td>
+<td align="left">40.69</td>
+<td align="left">40.74</td>
+<td align="left">40.80</td>
+<td align="left">40.86</td>
+<td align="left">40.92</td>
+</tr>
+<tr class="odd">
+<td align="left">43.0</td>
+<td align="left">40.98</td>
+<td align="left">41.03</td>
+<td align="left">41.09</td>
+<td align="left">41.15</td>
+<td align="left">41.21</td>
+<td align="left">41.27</td>
+<td align="left">41.32</td>
+<td align="left">41.38</td>
+<td align="left">41.44</td>
+<td align="left">41.50</td>
+</tr>
+<tr class="even">
+<td align="left">44.0</td>
+<td align="left">41.55</td>
+<td align="left">41.61</td>
+<td align="left">41.67</td>
+<td align="left">41.73</td>
+<td align="left">41.78</td>
+<td align="left">41.84</td>
+<td align="left">41.90</td>
+<td align="left">41.96</td>
+<td align="left">42.02</td>
+<td align="left">42.07</td>
+</tr>
+<tr class="odd">
+<td align="left">45.0</td>
+<td align="left">42.13</td>
+<td align="left">42.19</td>
+<td align="left">42.25</td>
+<td align="left">42.30</td>
+<td align="left">42.36</td>
+<td align="left">42.42</td>
+<td align="left">42.48</td>
+<td align="left">42.53</td>
+<td align="left">42.59</td>
+<td align="left">42.65</td>
+</tr>
+<tr class="even">
+<td align="left">46.0</td>
+<td align="left">42.71</td>
+<td align="left">42.76</td>
+<td align="left">42.82</td>
+<td align="left">42.88</td>
+<td align="left">42.94</td>
+<td align="left">42.99</td>
+<td align="left">43.05</td>
+<td align="left">43.11</td>
+<td align="left">43.17</td>
+<td align="left">43.22</td>
+</tr>
+<tr class="odd">
+<td align="left">47.0</td>
+<td align="left">43.28</td>
+<td align="left">43.34</td>
+<td align="left">43.39</td>
+<td align="left">43.45</td>
+<td align="left">43.51</td>
+<td align="left">43.57</td>
+<td align="left">43.62</td>
+<td align="left">43.68</td>
+<td align="left">43.74</td>
+<td align="left">43.80</td>
+</tr>
+<tr class="even">
+<td align="left">48.0</td>
+<td align="left">43.85</td>
+<td align="left">43.91</td>
+<td align="left">43.97</td>
+<td align="left">44.03</td>
+<td align="left">44.08</td>
+<td align="left">44.14</td>
+<td align="left">44.20</td>
+<td align="left">44.26</td>
+<td align="left">44.31</td>
+<td align="left">44.37</td>
+</tr>
+<tr class="odd">
+<td align="left">49.0</td>
+<td align="left">44.43</td>
+<td align="left">44.48</td>
+<td align="left">44.54</td>
+<td align="left">44.60</td>
+<td align="left">44.66</td>
+<td align="left">44.71</td>
+<td align="left">44.77</td>
+<td align="left">44.83</td>
+<td align="left">44.89</td>
+<td align="left">44.94</td>
+</tr>
+<tr class="even">
+<td align="left">50.0</td>
+<td align="left">45.00</td>
+<td align="left">45.06</td>
+<td align="left">45.11</td>
+<td align="left">45.17</td>
+<td align="left">45.23</td>
+<td align="left">45.29</td>
+<td align="left">45.34</td>
+<td align="left">45.40</td>
+<td align="left">45.46</td>
+<td align="left">45.52</td>
+</tr>
+<tr class="odd">
+<td align="left">51.0</td>
+<td align="left">45.57</td>
+<td align="left">45.63</td>
+<td align="left">45.69</td>
+<td align="left">45.74</td>
+<td align="left">45.80</td>
+<td align="left">45.86</td>
+<td align="left">45.92</td>
+<td align="left">45.97</td>
+<td align="left">46.03</td>
+<td align="left">46.09</td>
+</tr>
+<tr class="even">
+<td align="left">52.0</td>
+<td align="left">46.15</td>
+<td align="left">46.20</td>
+<td align="left">46.26</td>
+<td align="left">46.32</td>
+<td align="left">46.38</td>
+<td align="left">46.43</td>
+<td align="left">46.49</td>
+<td align="left">46.55</td>
+<td align="left">46.61</td>
+<td align="left">46.66</td>
+</tr>
+<tr class="odd">
+<td align="left">53.0</td>
+<td align="left">46.72</td>
+<td align="left">46.78</td>
+<td align="left">46.83</td>
+<td align="left">46.89</td>
+<td align="left">46.95</td>
+<td align="left">47.01</td>
+<td align="left">47.06</td>
+<td align="left">47.12</td>
+<td align="left">47.18</td>
+<td align="left">47.24</td>
+</tr>
+<tr class="even">
+<td align="left">54.0</td>
+<td align="left">47.29</td>
+<td align="left">47.35</td>
+<td align="left">47.41</td>
+<td align="left">47.47</td>
+<td align="left">47.52</td>
+<td align="left">47.58</td>
+<td align="left">47.64</td>
+<td align="left">47.70</td>
+<td align="left">47.75</td>
+<td align="left">47.81</td>
+</tr>
+<tr class="odd">
+<td align="left">55.0</td>
+<td align="left">47.87</td>
+<td align="left">47.93</td>
+<td align="left">47.98</td>
+<td align="left">48.04</td>
+<td align="left">48.10</td>
+<td align="left">48.16</td>
+<td align="left">48.22</td>
+<td align="left">48.27</td>
+<td align="left">48.33</td>
+<td align="left">48.39</td>
+</tr>
+<tr class="even">
+<td align="left">56.0</td>
+<td align="left">48.45</td>
+<td align="left">48.50</td>
+<td align="left">48.56</td>
+<td align="left">48.62</td>
+<td align="left">48.68</td>
+<td align="left">48.73</td>
+<td align="left">48.79</td>
+<td align="left">48.85</td>
+<td align="left">48.91</td>
+<td align="left">48.97</td>
+</tr>
+<tr class="odd">
+<td align="left">57.0</td>
+<td align="left">49.02</td>
+<td align="left">49.08</td>
+<td align="left">49.14</td>
+<td align="left">49.20</td>
+<td align="left">49.26</td>
+<td align="left">49.31</td>
+<td align="left">49.37</td>
+<td align="left">49.43</td>
+<td align="left">49.49</td>
+<td align="left">49.55</td>
+</tr>
+<tr class="even">
+<td align="left">58.0</td>
+<td align="left">49.60</td>
+<td align="left">49.66</td>
+<td align="left">49.72</td>
+<td align="left">49.78</td>
+<td align="left">49.84</td>
+<td align="left">49.89</td>
+<td align="left">49.95</td>
+<td align="left">50.01</td>
+<td align="left">50.07</td>
+<td align="left">50.13</td>
+</tr>
+<tr class="odd">
+<td align="left">59.0</td>
+<td align="left">50.18</td>
+<td align="left">50.24</td>
+<td align="left">50.30</td>
+<td align="left">50.36</td>
+<td align="left">50.42</td>
+<td align="left">50.48</td>
+<td align="left">50.53</td>
+<td align="left">50.59</td>
+<td align="left">50.65</td>
+<td align="left">50.71</td>
+</tr>
+<tr class="even">
+<td align="left">60.0</td>
+<td align="left">50.77</td>
+<td align="left">50.83</td>
+<td align="left">50.89</td>
+<td align="left">50.94</td>
+<td align="left">51.00</td>
+<td align="left">51.06</td>
+<td align="left">51.12</td>
+<td align="left">51.18</td>
+<td align="left">51.24</td>
+<td align="left">51.30</td>
+</tr>
+<tr class="odd">
+<td align="left">61.0</td>
+<td align="left">51.35</td>
+<td align="left">51.41</td>
+<td align="left">51.47</td>
+<td align="left">51.53</td>
+<td align="left">51.59</td>
+<td align="left">51.65</td>
+<td align="left">51.71</td>
+<td align="left">51.77</td>
+<td align="left">51.83</td>
+<td align="left">51.88</td>
+</tr>
+<tr class="even">
+<td align="left">62.0</td>
+<td align="left">51.94</td>
+<td align="left">52.00</td>
+<td align="left">52.06</td>
+<td align="left">52.12</td>
+<td align="left">52.18</td>
+<td align="left">52.24</td>
+<td align="left">52.30</td>
+<td align="left">52.36</td>
+<td align="left">52.42</td>
+<td align="left">52.48</td>
+</tr>
+<tr class="odd">
+<td align="left">63.0</td>
+<td align="left">52.54</td>
+<td align="left">52.59</td>
+<td align="left">52.65</td>
+<td align="left">52.71</td>
+<td align="left">52.77</td>
+<td align="left">52.83</td>
+<td align="left">52.89</td>
+<td align="left">52.95</td>
+<td align="left">53.01</td>
+<td align="left">53.07</td>
+</tr>
+<tr class="even">
+<td align="left">64.0</td>
+<td align="left">53.13</td>
+<td align="left">53.19</td>
+<td align="left">53.25</td>
+<td align="left">53.31</td>
+<td align="left">53.37</td>
+<td align="left">53.43</td>
+<td align="left">53.49</td>
+<td align="left">53.55</td>
+<td align="left">53.61</td>
+<td align="left">53.67</td>
+</tr>
+<tr class="odd">
+<td align="left">65.0</td>
+<td align="left">53.73</td>
+<td align="left">53.79</td>
+<td align="left">53.85</td>
+<td align="left">53.91</td>
+<td align="left">53.97</td>
+<td align="left">54.03</td>
+<td align="left">54.09</td>
+<td align="left">54.15</td>
+<td align="left">54.21</td>
+<td align="left">54.27</td>
+</tr>
+<tr class="even">
+<td align="left">66.0</td>
+<td align="left">54.33</td>
+<td align="left">54.39</td>
+<td align="left">54.45</td>
+<td align="left">54.51</td>
+<td align="left">54.57</td>
+<td align="left">54.63</td>
+<td align="left">54.70</td>
+<td align="left">54.76</td>
+<td align="left">54.82</td>
+<td align="left">54.88</td>
+</tr>
+<tr class="odd">
+<td align="left">67.0</td>
+<td align="left">54.94</td>
+<td align="left">55.00</td>
+<td align="left">55.06</td>
+<td align="left">55.12</td>
+<td align="left">55.18</td>
+<td align="left">55.24</td>
+<td align="left">55.30</td>
+<td align="left">55.37</td>
+<td align="left">55.43</td>
+<td align="left">55.49</td>
+</tr>
+<tr class="even">
+<td align="left">68.0</td>
+<td align="left">55.55</td>
+<td align="left">55.61</td>
+<td align="left">55.67</td>
+<td align="left">55.73</td>
+<td align="left">55.80</td>
+<td align="left">55.86</td>
+<td align="left">55.92</td>
+<td align="left">55.98</td>
+<td align="left">56.04</td>
+<td align="left">56.10</td>
+</tr>
+<tr class="odd">
+<td align="left">69.0</td>
+<td align="left">56.17</td>
+<td align="left">56.23</td>
+<td align="left">56.29</td>
+<td align="left">56.35</td>
+<td align="left">56.42</td>
+<td align="left">56.48</td>
+<td align="left">56.54</td>
+<td align="left">56.60</td>
+<td align="left">56.66</td>
+<td align="left">56.73</td>
+</tr>
+<tr class="even">
+<td align="left">70.0</td>
+<td align="left">56.79</td>
+<td align="left">56.85</td>
+<td align="left">56.91</td>
+<td align="left">56.98</td>
+<td align="left">57.04</td>
+<td align="left">57.10</td>
+<td align="left">57.17</td>
+<td align="left">57.23</td>
+<td align="left">57.29</td>
+<td align="left">57.35</td>
+</tr>
+<tr class="odd">
+<td align="left">71.0</td>
+<td align="left">57.42</td>
+<td align="left">57.48</td>
+<td align="left">57.54</td>
+<td align="left">57.61</td>
+<td align="left">57.67</td>
+<td align="left">57.73</td>
+<td align="left">57.80</td>
+<td align="left">57.86</td>
+<td align="left">57.92</td>
+<td align="left">57.99</td>
+</tr>
+<tr class="even">
+<td align="left">72.0</td>
+<td align="left">58.05</td>
+<td align="left">58.12</td>
+<td align="left">58.18</td>
+<td align="left">58.24</td>
+<td align="left">58.31</td>
+<td align="left">58.37</td>
+<td align="left">58.44</td>
+<td align="left">58.50</td>
+<td align="left">58.56</td>
+<td align="left">58.63</td>
+</tr>
+<tr class="odd">
+<td align="left">73.0</td>
+<td align="left">58.69</td>
+<td align="left">58.76</td>
+<td align="left">58.82</td>
+<td align="left">58.89</td>
+<td align="left">58.95</td>
+<td align="left">59.02</td>
+<td align="left">59.08</td>
+<td align="left">59.15</td>
+<td align="left">59.21</td>
+<td align="left">59.28</td>
+</tr>
+<tr class="even">
+<td align="left">74.0</td>
+<td align="left">59.34</td>
+<td align="left">59.41</td>
+<td align="left">59.47</td>
+<td align="left">59.54</td>
+<td align="left">59.60</td>
+<td align="left">59.67</td>
+<td align="left">59.74</td>
+<td align="left">59.80</td>
+<td align="left">59.87</td>
+<td align="left">59.93</td>
+</tr>
+<tr class="odd">
+<td align="left">75.0</td>
+<td align="left">60.00</td>
+<td align="left">60.07</td>
+<td align="left">60.13</td>
+<td align="left">60.20</td>
+<td align="left">60.27</td>
+<td align="left">60.33</td>
+<td align="left">60.40</td>
+<td align="left">60.47</td>
+<td align="left">60.53</td>
+<td align="left">60.60</td>
+</tr>
+<tr class="even">
+<td align="left">76.0</td>
+<td align="left">60.67</td>
+<td align="left">60.73</td>
+<td align="left">60.80</td>
+<td align="left">60.87</td>
+<td align="left">60.94</td>
+<td align="left">61.00</td>
+<td align="left">61.07</td>
+<td align="left">61.14</td>
+<td align="left">61.21</td>
+<td align="left">61.27</td>
+</tr>
+<tr class="odd">
+<td align="left">77.0</td>
+<td align="left">61.34</td>
+<td align="left">61.41</td>
+<td align="left">61.48</td>
+<td align="left">61.55</td>
+<td align="left">61.61</td>
+<td align="left">61.68</td>
+<td align="left">61.75</td>
+<td align="left">61.82</td>
+<td align="left">61.89</td>
+<td align="left">61.96</td>
+</tr>
+<tr class="even">
+<td align="left">78.0</td>
+<td align="left">62.03</td>
+<td align="left">62.10</td>
+<td align="left">62.17</td>
+<td align="left">62.24</td>
+<td align="left">62.31</td>
+<td align="left">62.38</td>
+<td align="left">62.44</td>
+<td align="left">62.51</td>
+<td align="left">62.58</td>
+<td align="left">62.65</td>
+</tr>
+<tr class="odd">
+<td align="left">79.0</td>
+<td align="left">62.73</td>
+<td align="left">62.80</td>
+<td align="left">62.87</td>
+<td align="left">62.94</td>
+<td align="left">63.01</td>
+<td align="left">63.08</td>
+<td align="left">63.15</td>
+<td align="left">63.22</td>
+<td align="left">63.29</td>
+<td align="left">63.36</td>
+</tr>
+<tr class="even">
+<td align="left">80.0</td>
+<td align="left">63.43</td>
+<td align="left">63.51</td>
+<td align="left">63.58</td>
+<td align="left">63.65</td>
+<td align="left">63.72</td>
+<td align="left">63.79</td>
+<td align="left">63.87</td>
+<td align="left">63.94</td>
+<td align="left">64.01</td>
+<td align="left">64.09</td>
+</tr>
+<tr class="odd">
+<td align="left">81.0</td>
+<td align="left">64.16</td>
+<td align="left">64.23</td>
+<td align="left">64.30</td>
+<td align="left">64.38</td>
+<td align="left">64.45</td>
+<td align="left">64.53</td>
+<td align="left">64.60</td>
+<td align="left">64.67</td>
+<td align="left">64.75</td>
+<td align="left">64.82</td>
+</tr>
+<tr class="even">
+<td align="left">82.0</td>
+<td align="left">64.90</td>
+<td align="left">64.97</td>
+<td align="left">65.05</td>
+<td align="left">65.12</td>
+<td align="left">65.20</td>
+<td align="left">65.27</td>
+<td align="left">65.35</td>
+<td align="left">65.42</td>
+<td align="left">65.50</td>
+<td align="left">65.57</td>
+</tr>
+<tr class="odd">
+<td align="left">83.0</td>
+<td align="left">65.65</td>
+<td align="left">65.73</td>
+<td align="left">65.80</td>
+<td align="left">65.88</td>
+<td align="left">65.96</td>
+<td align="left">66.03</td>
+<td align="left">66.11</td>
+<td align="left">66.19</td>
+<td align="left">66.27</td>
+<td align="left">66.34</td>
+</tr>
+<tr class="even">
+<td align="left">84.0</td>
+<td align="left">66.42</td>
+<td align="left">66.50</td>
+<td align="left">66.58</td>
+<td align="left">66.66</td>
+<td align="left">66.74</td>
+<td align="left">66.82</td>
+<td align="left">66.89</td>
+<td align="left">66.97</td>
+<td align="left">67.05</td>
+<td align="left">67.13</td>
+</tr>
+<tr class="odd">
+<td align="left">85.0</td>
+<td align="left">67.21</td>
+<td align="left">67.29</td>
+<td align="left">67.37</td>
+<td align="left">67.46</td>
+<td align="left">67.54</td>
+<td align="left">67.62</td>
+<td align="left">67.70</td>
+<td align="left">67.78</td>
+<td align="left">67.86</td>
+<td align="left">67.94</td>
+</tr>
+<tr class="even">
+<td align="left">86.0</td>
+<td align="left">68.03</td>
+<td align="left">68.11</td>
+<td align="left">68.19</td>
+<td align="left">68.28</td>
+<td align="left">68.36</td>
+<td align="left">68.44</td>
+<td align="left">68.53</td>
+<td align="left">68.61</td>
+<td align="left">68.70</td>
+<td align="left">68.78</td>
+</tr>
+<tr class="odd">
+<td align="left">87.0</td>
+<td align="left">68.87</td>
+<td align="left">68.95</td>
+<td align="left">69.04</td>
+<td align="left">69.12</td>
+<td align="left">69.21</td>
+<td align="left">69.30</td>
+<td align="left">69.38</td>
+<td align="left">69.47</td>
+<td align="left">69.56</td>
+<td align="left">69.64</td>
+</tr>
+<tr class="even">
+<td align="left">88.0</td>
+<td align="left">69.73</td>
+<td align="left">69.82</td>
+<td align="left">69.91</td>
+<td align="left">70.00</td>
+<td align="left">70.09</td>
+<td align="left">70.18</td>
+<td align="left">70.27</td>
+<td align="left">70.36</td>
+<td align="left">70.45</td>
+<td align="left">70.54</td>
+</tr>
+<tr class="odd">
+<td align="left">89.0</td>
+<td align="left">70.63</td>
+<td align="left">70.72</td>
+<td align="left">70.81</td>
+<td align="left">70.91</td>
+<td align="left">71.00</td>
+<td align="left">71.09</td>
+<td align="left">71.19</td>
+<td align="left">71.28</td>
+<td align="left">71.37</td>
+<td align="left">71.47</td>
+</tr>
+<tr class="even">
+<td align="left">90.0</td>
+<td align="left">71.57</td>
+<td align="left">71.66</td>
+<td align="left">71.76</td>
+<td align="left">71.85</td>
+<td align="left">71.95</td>
+<td align="left">72.05</td>
+<td align="left">72.15</td>
+<td align="left">72.24</td>
+<td align="left">72.34</td>
+<td align="left">72.44</td>
+</tr>
+<tr class="odd">
+<td align="left">91.0</td>
+<td align="left">72.54</td>
+<td align="left">72.64</td>
+<td align="left">72.74</td>
+<td align="left">72.85</td>
+<td align="left">72.95</td>
+<td align="left">73.05</td>
+<td align="left">73.15</td>
+<td align="left">73.26</td>
+<td align="left">73.36</td>
+<td align="left">73.46</td>
+</tr>
+<tr class="even">
+<td align="left">92.0</td>
+<td align="left">73.57</td>
+<td align="left">73.68</td>
+<td align="left">73.78</td>
+<td align="left">73.89</td>
+<td align="left">74.00</td>
+<td align="left">74.11</td>
+<td align="left">74.21</td>
+<td align="left">74.32</td>
+<td align="left">74.44</td>
+<td align="left">74.55</td>
+</tr>
+<tr class="odd">
+<td align="left">93.0</td>
+<td align="left">74.66</td>
+<td align="left">74.77</td>
+<td align="left">74.88</td>
+<td align="left">75.00</td>
+<td align="left">75.11</td>
+<td align="left">75.23</td>
+<td align="left">75.35</td>
+<td align="left">75.46</td>
+<td align="left">75.58</td>
+<td align="left">75.70</td>
+</tr>
+<tr class="even">
+<td align="left">94.0</td>
+<td align="left">75.82</td>
+<td align="left">75.94</td>
+<td align="left">76.06</td>
+<td align="left">76.19</td>
+<td align="left">76.31</td>
+<td align="left">76.44</td>
+<td align="left">76.56</td>
+<td align="left">76.69</td>
+<td align="left">76.82</td>
+<td align="left">76.95</td>
+</tr>
+<tr class="odd">
+<td align="left">95.0</td>
+<td align="left">77.08</td>
+<td align="left">77.21</td>
+<td align="left">77.34</td>
+<td align="left">77.48</td>
+<td align="left">77.62</td>
+<td align="left">77.75</td>
+<td align="left">77.89</td>
+<td align="left">78.03</td>
+<td align="left">78.17</td>
+<td align="left">78.32</td>
+</tr>
+<tr class="even">
+<td align="left">96.0</td>
+<td align="left">78.46</td>
+<td align="left">78.61</td>
+<td align="left">78.76</td>
+<td align="left">78.91</td>
+<td align="left">79.06</td>
+<td align="left">79.22</td>
+<td align="left">79.37</td>
+<td align="left">79.53</td>
+<td align="left">79.70</td>
+<td align="left">79.86</td>
+</tr>
+<tr class="odd">
+<td align="left">97.0</td>
+<td align="left">80.03</td>
+<td align="left">80.20</td>
+<td align="left">80.37</td>
+<td align="left">80.54</td>
+<td align="left">80.72</td>
+<td align="left">80.90</td>
+<td align="left">81.09</td>
+<td align="left">81.28</td>
+<td align="left">81.47</td>
+<td align="left">81.67</td>
+</tr>
+<tr class="even">
+<td align="left">98.0</td>
+<td align="left">81.87</td>
+<td align="left">82.08</td>
+<td align="left">82.29</td>
+<td align="left">82.51</td>
+<td align="left">82.73</td>
+<td align="left">82.97</td>
+<td align="left">83.20</td>
+<td align="left">83.45</td>
+<td align="left">83.71</td>
+<td align="left">83.98</td>
+</tr>
+<tr class="odd">
+<td align="left">99.0</td>
+<td align="left">84.26</td>
+<td align="left">84.29</td>
+<td align="left">84.32</td>
+<td align="left">84.35</td>
+<td align="left">84.38</td>
+<td align="left">84.41</td>
+<td align="left">84.44</td>
+<td align="left">84.47</td>
+<td align="left">84.50</td>
+<td align="left">84.53</td>
+</tr>
+<tr class="even">
+<td align="left">99.1</td>
+<td align="left">84.56</td>
+<td align="left">84.59</td>
+<td align="left">84.62</td>
+<td align="left">84.65</td>
+<td align="left">84.68</td>
+<td align="left">84.71</td>
+<td align="left">84.74</td>
+<td align="left">84.77</td>
+<td align="left">84.80</td>
+<td align="left">84.84</td>
+</tr>
+<tr class="odd">
+<td align="left">99.2</td>
+<td align="left">84.87</td>
+<td align="left">84.90</td>
+<td align="left">84.93</td>
+<td align="left">84.97</td>
+<td align="left">85.00</td>
+<td align="left">85.03</td>
+<td align="left">85.07</td>
+<td align="left">85.10</td>
+<td align="left">85.13</td>
+<td align="left">85.17</td>
+</tr>
+<tr class="even">
+<td align="left">99.3</td>
+<td align="left">85.20</td>
+<td align="left">85.24</td>
+<td align="left">85.27</td>
+<td align="left">85.30</td>
+<td align="left">85.34</td>
+<td align="left">85.38</td>
+<td align="left">85.41</td>
+<td align="left">85.45</td>
+<td align="left">85.48</td>
+<td align="left">85.52</td>
+</tr>
+<tr class="odd">
+<td align="left">99.4</td>
+<td align="left">85.56</td>
+<td align="left">85.59</td>
+<td align="left">85.63</td>
+<td align="left">85.67</td>
+<td align="left">85.71</td>
+<td align="left">85.75</td>
+<td align="left">85.79</td>
+<td align="left">85.83</td>
+<td align="left">85.86</td>
+<td align="left">85.90</td>
+</tr>
+<tr class="even">
+<td align="left">99.5</td>
+<td align="left">85.95</td>
+<td align="left">85.99</td>
+<td align="left">86.03</td>
+<td align="left">86.07</td>
+<td align="left">86.11</td>
+<td align="left">86.15</td>
+<td align="left">86.20</td>
+<td align="left">86.24</td>
+<td align="left">86.28</td>
+<td align="left">86.33</td>
+</tr>
+<tr class="odd">
+<td align="left">99.6</td>
+<td align="left">86.37</td>
+<td align="left">86.42</td>
+<td align="left">86.47</td>
+<td align="left">86.51</td>
+<td align="left">86.56</td>
+<td align="left">86.61</td>
+<td align="left">86.66</td>
+<td align="left">86.71</td>
+<td align="left">86.76</td>
+<td align="left">86.81</td>
+</tr>
+<tr class="even">
+<td align="left">99.7</td>
+<td align="left">86.86</td>
+<td align="left">86.91</td>
+<td align="left">86.97</td>
+<td align="left">87.02</td>
+<td align="left">87.08</td>
+<td align="left">87.13</td>
+<td align="left">87.19</td>
+<td align="left">87.25</td>
+<td align="left">87.31</td>
+<td align="left">87.37</td>
+</tr>
+<tr class="odd">
+<td align="left">99.8</td>
+<td align="left">87.44</td>
+<td align="left">87.50</td>
+<td align="left">87.57</td>
+<td align="left">87.64</td>
+<td align="left">87.71</td>
+<td align="left">87.78</td>
+<td align="left">87.86</td>
+<td align="left">87.93</td>
+<td align="left">88.01</td>
+<td align="left">88.10</td>
+</tr>
+<tr class="even">
+<td align="left">99.9</td>
+<td align="left">88.19</td>
+<td align="left">88.28</td>
+<td align="left">88.38</td>
+<td align="left">88.48</td>
+<td align="left">88.60</td>
+<td align="left">88.72</td>
+<td align="left">88.85</td>
+<td align="left">89.01</td>
+<td align="left">89.19</td>
+<td align="left">89.43</td>
+</tr>
+<tr class="odd">
+<td align="left">100.0</td>
+<td align="left">90.00</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<p><strong>Bliss, C. J.</strong> 1937. <em>Plant Protection</em>, No. 12, Leningrad.</p>
+<p><strong>Snedecore, G. W., and W. G. Cochran</strong>. 1967. Statistical Methods. Sixth Edition. The Iowas State University Press, Ames, Iowa, USA.</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
