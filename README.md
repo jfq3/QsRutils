@@ -1,5 +1,4 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+!-- README.md is generated from README.Rmd. Please edit that file -->
 QsRutils - R Functions Useful for Community Ecology
 ===================================================
 
@@ -17,7 +16,7 @@ Installation
 You can install QsRutils from github with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("jfq3/QsRutils")
 ```
 
