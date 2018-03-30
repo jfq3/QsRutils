@@ -17,7 +17,7 @@ Installation
 You can install QsRutils from github with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("jfq3/QsRutils")
 ```
 
