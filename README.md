@@ -1,5 +1,4 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+!-- README.md is generated from README.Rmd. Please edit that file -->
 QsRutils - R Functions Useful for Community Ecology
 ===================================================
 
