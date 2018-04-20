@@ -17,8 +17,9 @@
 ord_labels <-
   function(ord){
     ev <- vegan::eigenvals(ord)
+    tol <- (1e-07)*ev[1]
     ord.labels <- rep("", length(ev))
-    if (any(ev < 0)) {
+    if (any(ev < -tol)) {
       for ( i in 1:length(ev)) {
         ord.labels[i] <- paste("DIM", i, sep = "")
       }
