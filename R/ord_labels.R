@@ -27,13 +27,12 @@ ord_labels <-
       ev.pc <- round(100*(ev/sum(ev)), 2)
       axis.names <- names(ev)
       if (is.null(axis.names)) {
-        axis.names <- rep("", length(ev.pc))
         for ( i in 1:length(ev.pc)) {
-          axis.names[i] <- paste("DIM", i, sep = "")
+          ord.labels[i] <- paste("DIM", i, " ", sprintf(ev.pc[i], fmt = '%#.1f'), "%", sep="")
         }
       } else {
         for (i in 1:length(ev.pc)){
-          ord.labels[i] <- paste(axis.names[i], " ", ev.pc[i],"%",sep="")
+          ord.labels[i] <- paste(axis.names[i], " ", ev.pc[i],"%", sep="")
         } 
       }
     }
