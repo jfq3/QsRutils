@@ -4,20 +4,23 @@
 \alias{perm}
 \title{Permutations}
 \usage{
-perm(n, x)
+perm(n, r, repetition = FALSE)
 }
 \arguments{
 \item{n}{Total number of items.}
 
-\item{x}{Number of items drawn.}
+\item{r}{Number of items drawn.}
+
+\item{repetition}{A logical, whether or not repetitions are allowed. FALSE by default.}
 }
 \value{
-An integer giving how many ways n things can be drawn x at a time.
+An integer giving how many ways m things can be drawn n at a time.
 }
 \description{
-Retuns the number of permutaions of n things taken x at a time.
+Retuns the number of permutaions of n things taken r at a time.
 }
 \examples{
-perm(5, 10)
+perm(10, 5)
+perm(10, 5, repetition = TRUE)
 
 }

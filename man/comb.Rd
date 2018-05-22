@@ -4,21 +4,24 @@
 \alias{comb}
 \title{comb}
 \usage{
-comb(n, x)
+comb(n, r, repetition = FALSE)
 }
 \arguments{
 \item{n}{The total number of items.}
 
-\item{x}{The number of items to be drawn.}
+\item{r}{The number of items to be drawn.}
+
+\item{repetition}{A logical, whether or not repetitions are allowed. FALSE by default.}
 }
 \value{
-An integer giving the number of ways a set of x items can be drawn from a set of n items.
+An integer giving the number of ways a set of r items can be drawn from a set of n items.
 }
 \description{
-Calculates the number of combinations of n things drawn x at a time.
+Calculates the number of combinations of n things drawn r at a time.
 }
 \examples{
 
-comb(10, 2)
+comb(5, 3)
+comb(5, 3, repetition = TRUE)
 
 }

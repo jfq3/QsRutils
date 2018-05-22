@@ -1,16 +1,22 @@
 #' Permutations
 #'
-#' Retuns the number of permutaions of n things taken x at a time.
+#' Retuns the number of permutaions of n things taken r at a time.
 #'
 #' @param n Total number of items.
-#' @param x Number of items drawn.
+#' @param r Number of items drawn.
+#' @param repetition A logical, whether or not repetitions are allowed. FALSE by default.
 #'
-#' @return An integer giving how many ways n things can be drawn x at a time.
+#' @return An integer giving how many ways m things can be drawn n at a time.
 #' @export
 #'
 #' @examples
-#' perm(5, 10)
+#' perm(10, 5)
+#' perm(10, 5, repetition = TRUE)
 #'
-perm = function(n, x) {
-  return(factorial(n) / factorial(n-x))
+perm =   function(n, r, repetition = FALSE) {
+  if (repetition != TRUE) {
+    return(factorial(n) / factorial(n-r))
+  } else {
+    return(n^r)
+  }
 }
