@@ -9,6 +9,8 @@ Several other functions are related to making tables comparing taxa abundances a
 
 Not all functions from MyRutils have made it here yet, so you can expect that more will be added as time goes by, especially any I use in my workshops, tutorials and blogs at john-quensen.com.
 
+Version 0.1.3 adds a function to root trees in phyloseq objects by their longest terminal branch.
+
 Installation
 ------------
 
