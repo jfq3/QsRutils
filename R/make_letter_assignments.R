@@ -45,6 +45,6 @@ make_letter_assignments <- function(ptt.rslt, significance=0.05) {
       k=k+1
     }
   }
-  letter.assignments <- multcompLetters(my.mat, threshold=significance)
+  letter.assignments <- multcompView::multcompLetters(my.mat, threshold=significance)
   return(letter.assignments)
 }
