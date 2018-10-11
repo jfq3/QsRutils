@@ -12,7 +12,6 @@
 #'
 #' @examples
 #'
-#' @importFrom vegan decostand
 #' 
 ord_labels <-
   function(ord){
