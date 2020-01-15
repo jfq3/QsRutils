@@ -4,8 +4,11 @@
 \alias{comp_prepare_otu_table}
 \title{Prepare OTU Table}
 \usage{
-comp_prepare_otu_table(expt.taxon.pc, grps = "Treatment",
-  transformation = "sqrt_arc_sine")
+comp_prepare_otu_table(
+  expt.taxon.pc,
+  grps = "Treatment",
+  transformation = "sqrt_arc_sine"
+)
 }
 \arguments{
 \item{expt.taxon.pc}{Phyloseq object from comp_prepare_phyloseq with percentages in the otu_table.}

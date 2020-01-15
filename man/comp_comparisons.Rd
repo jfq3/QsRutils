@@ -4,8 +4,13 @@
 \alias{comp_comparisons}
 \title{Make Comparisons}
 \usage{
-comp_comparisons(otu.pc, otu.pc.trans, grps, p.adjust.method = "BH",
-  pool.sd = FALSE)
+comp_comparisons(
+  otu.pc,
+  otu.pc.trans,
+  grps,
+  p.adjust.method = "BH",
+  pool.sd = FALSE
+)
 }
 \arguments{
 \item{otu.pc}{An OTU table of percentages.}

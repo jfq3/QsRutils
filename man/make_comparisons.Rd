@@ -4,9 +4,15 @@
 \alias{make_comparisons}
 \title{Make Multiple Comparisons on Transformed Data}
 \usage{
-make_comparisons(expt, taxrank = "Phylum", grps = "Treatment",
-  transformation = "none", pc.filter = 0.01, p.adjust.method = "BH",
-  pool.sd = FALSE)
+make_comparisons(
+  expt,
+  taxrank = "Phylum",
+  grps = "Treatment",
+  transformation = "none",
+  pc.filter = 0.01,
+  p.adjust.method = "BH",
+  pool.sd = FALSE
+)
 }
 \arguments{
 \item{expt}{Experiment level phyloseq object.}
