@@ -1,0 +1,163 @@
+---
+title: "Compare Relative Abundances Among Treatments"
+author: "John Quensen"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Compare Relative Abundances Among Treatments}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  
+
+---
+## Introduction
+
+Several of the functions in `QsRutils` have to do with making tables of differential abundances of taxa among treatments. All but one of these functions begin with `comp_` for *comparisons*. These should be executed in a certain order as given in the next table. The arguments for each function can be found in the documentation. The first two take experiment-level `phyloseq` objects with at least slots otu_table, sample_data , and tax_table. 
+
+Function    | Purpose
+:---------------------- | ----------------------------------------------------------------
+comp_prepare_phyloseq  | Makes a copy of the phyloseq object with the OTU table transformed to percentages. For both objects, it then agglomerates taxa to a given rank,  modifies the taxonomy tables to include only the given rank, and filters out OTUs below a given percentage of the total counts. The function returns a list of the two `phyloseq` objects.
+comp_prepare_otu_table | Applies a transformation to the OTU percentage table from `comp_prepare_phyloseq` and makes a vector of the treatment groups. The "grps" argument is the **name** of a factor in the sample_data table. The function returns a list of the OTU matrix as percentages, the OTU matrix as transformed data, and a vector of treatment groups.
+comp_means_sd          | For each taxon, calculates the mean and standard deviation across all samples and returns the results as a data frame.
+comp_make_f_tests      | For each taxon, performs one-way ANOVA for differences in relative abundance among treatments and returns the results as a data frame. The argument `grps` is  a **vector** of treatment groups.
+comp_comparisons       | For each taxon and each treatment, calculates means and standard deviations of relative abundances. Performs all pairwise t-tests and assigns letters indicating treatment differences. Returns the result as a data frame. The argument `grps` is  a **vector** of treatment groups. 
+comp_assemble          | Assembles the results of the last three functions into a summary data frame.
+
+A seventh function, `make_comparisons`, wraps all six of the other functions and returns a list of the the comparison table as a data frame, the OTU matrix as percentages, the OTU matrix as transformed data, and a vector of treatment groups. It is handy for comparing relative abundances of taxa for a given rank, but sometimes you may need to prepare the phyloseq object or even OTU tables in a different way. I give examples of three cases below.   
+
+## Case 1 - Compare Realtive Abundances of Phyla
+
+The is the simplest case, and is easily executed with the wrapper function. First, load the example data set. It is a `phyloseq` object with otu_table, sample_data, and tax_table.  
+
+```{r, tidy=TRUE}
+suppressPackageStartupMessages(library(phyloseq))
+suppressPackageStartupMessages(library(QsRutils))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(reshape2))
+data("its.root")
+its.root
+```
+
+Then use the function `make_comparisons`. The comparison table itself is the first item in the list returned.  
+
+```{r, tidy=TRUE}
+comp.phyla <- make_comparisons(its.root, taxrank = "Phylum", grps = "Label", transformation = "sqrt_arc_sine", pc.filter = 0.01, p.adjust.method ="BH", pool.sd = TRUE)
+comp <- comp.phyla$comparison.table
+comp <- comp[order(comp$mean, decreasing = TRUE), ]
+comp
+```
+
+You can check that the assumption of equal variances is met with the `check_var` function. It takes as arguments the OTU matrix of transformed data and the vector of treatment groups. It performs a Fligner-Killeen test for homogeneity of variances for each taxon and prints the results to the console.  
+
+```{r}
+check_var(comp.phyla$taxa.pc.transformed, comp.phyla$groups)
+```
+
+If the results indicate heterogeneity of variances, you can repeat `make_comparisons` with `sd.pool = FALSE` and/or try a different transformation. Three transformation functions are included in `QsRutils`: `arc_sine`, `log_arc_sine`, and `sqrt_arc_sine`, the last of which seems to work most often. Other standard functions, e.g. `log`, `sqrt`, etc. may be used, as could a custom function supplied by the user. `transfomation = "none"` is also accepted.   
+
+## Case 2 - Compare Relative Abundances of Classes within a Phylum
+
+In the example above, Ascomycota represents 77% of all of the counts. We might want to beak it down into classes. At first you might think we could simply subset `its.root` to the phylum Ascomycota and use the resulting phyloseq object:  
+
+```{r, tidy=TRUE}
+asco <- subset_taxa(its.root, Phylum == "Ascomycota")
+asco <- prune_taxa(taxa_sums(asco)>0, asco)
+comp.asco <- make_comparisons(asco, taxrank = "Class", grps = "Label", transformation = "sqrt_arc_sine", pc.filter = 0.01, p.adjust.method ="BH", pool.sd = TRUE)
+comp.asco$comparison.table
+```
+
+But these proportions are based on the number of Ascomycota sequences, not the total sequences in `its.root`.  (They do not add up to exactly 100% of the Ascomycota sequences because we filtered out a few small classes.) If we want them to add up to something close to 77%, the mean percentage of Ascomycota in the first example above, we have to take a different approach. We have to prepare the phyoseq object "manually," and use the the other `comp_` functions to generate the comparison table. The first part of the code below is copied from the `comp_prepare_phyloseq` function but modified to subset to Ascomycota and then agglomerate to class and remove ranks other than class. Because the transformation to percentages is performed before these steps, in the end result the percentages are based on the total number of sequences in the original `phyloseq` object. I made the following code somewhat generic by setting values for `expt`, `taxrank`, and `pc.filter`. Thus, for similar tasks, you can cut and paste the code, editing only the values in red as you wish.     
+
+```{r, tidy=TRUE}
+expt <- its.root
+expt.pc <- transform_sample_counts(expt, function(x) 100*(x/sum(x)))
+
+# Subset to higher rank
+expt.taxon <- subset_taxa(expt, Phylum == "Ascomycota")
+expt.taxon.pc <- subset_taxa(expt.pc, Phylum == "Ascomycota")
+
+# Agglomerate to desired rank.
+taxrank <- "Class"
+expt.taxon <- tax_glom(expt.taxon, taxrank)
+expt.taxon.pc <- tax_glom(expt.taxon.pc, taxrank)
+
+# Remove ranks other than taxrank
+tax_table(expt.taxon) <- tax_table(expt.taxon)[ , taxrank]
+tax_table(expt.taxon.pc) <- tax_table(expt.taxon.pc)[ , taxrank]
+
+# Filter out taxa that are < 0.1% of the total sequences in expt.
+pc.filter <- 0.001
+n <- sum(taxa_sums(expt)) * pc.filter
+expt.taxon <- prune_taxa(taxa_sums(expt.taxon)>=n, expt.taxon)
+expt.taxon.pc <- prune_taxa(taxa_names(expt.taxon), expt.taxon.pc)
+
+# Make comparisons
+temp2 <- comp_prepare_otu_table(expt.taxon.pc, grps = "Label", transformation = "sqrt_arc_sine")
+temp3 <- comp_means_sd(temp2$otu.pc)
+temp4 <- comp_make_f_tests(temp2$otu.pc.trans, grps = temp2$groups, var.equal = TRUE)
+temp5 <- comp_comparisons(otu.pc = temp2$otu.pc, otu.pc.trans = temp2$otu.pc.trans, grps = temp2$groups, p.adjust.method = "BH",  pool.sd = TRUE)
+comp <- comp_assemble(temp3, temp4, temp5)
+comp <- comp[order(comp$mean, decreasing = TRUE), ]
+comp
+```
+
+These percentages are based on the total counts in `its.root` and add up to approximately 77%, the proportion of Ascomycota sequences in the first case.   
+
+## Case 3 - Working with a Pre-existing OTU Table
+
+This is a rather trite example because the differences are so obvious, but suppose you had made a figure something like this:  
+
+```{r, tidy=TRUE, fig.width=5, fig.align='center'}
+data("plot_df")
+ggplot(data = plot_df, aes(x = Treatment, y = Percent, fill = Family)) +
+  stat_summary(fun.y = "mean", geom = "col", position = position_stack())
+```
+
+You went to some trouble getting it the way you wanted, and now a reviewer wants statistics on which families are different among treatments. `plot_df` contains percentages of families by treatment based on a fuller data set, but is in "long" format, suitable for `ggplot`. You can recover the OTU table and make a table comparing differential abundances using the procedures below. The function `dcast` in the package `reshaape2` can convert "long" format into "wide" format, but if there are replications as we should have, it insists on aggregating the data in some way, e.g. by length (counts) or means. We can prevent this by adding another variable, such as a sequence number, with unique values for every row. Then we can use `dcast` to get the data in the wide format we want for our OTU table.    
+
+`plot_df` has the format:  
+
+
+```{r, tidy=TRUE}
+head(plot_df)
+```
+
+To recover our data in wide format, we do:  
+
+```{r, tidy=TRUE}
+plot_df$seq <- with(plot_df, ave(Percent, Treatment, Family, FUN = seq_along))
+my.data <- dcast(seq + Treatment ~ Family, data = plot_df, value.var = "Percent")
+head(my.data)
+```
+
+
+Here the `ave` function applies `seq_along` over all level combinations of `Percent`, `Treatment`, and `Family`. The result is that all values of  `seq` + `Treatment` are unique, and thus `dcast` returns what we want without aggregating the data. We next save the `Treatment` column as a vector of our treatment groups and then remove the first two columns of `my.data` to get a matrix of the OTU table as percentages.  
+
+```{r, tidy=TRUE}
+my.grps <- my.data$Treatment
+my.pc <- my.data[ , -c(1,2)]
+```
+
+Next we transform the percents matrix using the `sqrt_arc_sine` function in this package.  
+
+```{r, tidy=TRUE}
+my.pc.trans <- apply(my.pc, 2, sqrt_arc_sine)
+```
+
+Both `my.pc` and `my.pc.trans` have taxa in columns. For the remaining steps we need taxa to be in rows, so we have to transpose.  
+
+```{r, tidy=TRUE}
+my.pc <- t(my.pc)
+my.pc.trans <- t(my.pc.trans)
+```
+
+With these two matrices and the vector of groups, we are ready to make our comparison table.  
+```{r, tidy=TRUE}
+temp3 <- comp_means_sd(my.pc)
+temp4 <- comp_make_f_tests(my.pc.trans, grps = my.grps, var.equal = TRUE)
+temp5 <- comp_comparisons(otu.pc = my.pc, otu.pc.trans = my.pc.trans, grps = my.grps, p.adjust.method = "BH",  pool.sd = TRUE)
+comp <- comp_assemble(temp3, temp4, temp5)
+comp <- comp[order(comp$mean, decreasing = TRUE), ]
+comp
+```
+

@@ -1,0 +1,71 @@
+---
+title: "Table A-16"
+author: "John Quensen"
+date: "June 3, 2017"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Recreate arc sine Conversion Table A-16}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo=FALSE}
+suppressWarnings(suppressPackageStartupMessages(library(QsRutils)))
+suppressWarnings(suppressPackageStartupMessages(library(knitr)))
+```
+
+
+# Introduction
+
+Table A-16 in the appendix of Snedecore and Cochran (1967) was my introduction to the arc sine conversion of percentages to angles. The table was actually reprinted from Bliss (1937), and tabulated values of arc sine(sqrt(percentage/100)). For example, the tabulated value for 15% is 22.79. Angles in `R` are in radians, not degrees. Thus the `arc_sine` function in this package does not return the values in Table A-16, but rather the corresponding angle in radians. For example, `arc_sine(15)` =  `r arc_sine(15)`. To get the angle in degrees, you can convert from radians to degrees with the function `rad2deg`. Thus `rad2deg(arc_sine(15))` = `r rad2deg(arc_sine(15))`.  
+
+Just for kicks, the following code reproduces Table A-16:  
+
+```{r}
+part1 <- matrix(data = NA, nrow = 10, ncol = 10)
+for (i in 1:10) {
+  for (j in 1:10) {
+    x <- rad2deg(arc_sine(((i-1)/10)+((j-1)/100)))
+    part1[i,j] <- formatC(x, digits = 2, format = "f")
+  }
+}
+col1 <- seq(from = 0, to = 0.9, by = 0.1)
+part1 <- data.frame(col1, part1)
+colnames(part1) <- c("%", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+
+part2 <- matrix(data = NA, nrow = 98, ncol = 10)
+for (i in 1:98) {
+  for (j in 1:10) {
+    x <- rad2deg(arc_sine(i+((j-1)/10)))
+    part2[i,j] <-formatC(x, digits = 2, format = "f")
+  }
+}
+col1 <- seq(from = 1, to = 98, by = 1)
+part2 <- data.frame(col1, part2)
+colnames(part2) <- c("%", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+
+part3 <- matrix(data = NA, nrow = 11, ncol = 10)
+for (i in 1:11) {
+  for (j in 1:10) {
+    m <- 99 + ((i-1)/10)
+    n <- ((j-1)/100)
+    if((m+n) <= 100) {
+      x <- rad2deg(arc_sine(m+n))
+       part3[i,j] <- formatC(x, digits = 2, format = "f")
+    }
+  }
+}
+col1 <- round(seq(from = 99, to = 100, by = 0.1), 1)
+part3 <- data.frame(col1, part3)
+colnames(part3) <- c("%", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+
+a16 <- rbind(part1, part2, part3)
+
+knitr::kable(a16, align = "l", caption = "Table of Angles Corresponding to Percentages, after Bliss(1937).")
+```
+
+# References
+
+**Bliss, C. J.** 1937. *Plant Protection*, No. 12, Leningrad.  
+
+**Snedecore, G. W., and W. G. Cochran**. 1967. Statistical Methods. Sixth Edition. The Iowas State University Press, Ames, Iowa, USA.
