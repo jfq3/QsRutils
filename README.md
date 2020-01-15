@@ -11,6 +11,8 @@ Not all functions from MyRutils have made it here yet, so you can expect that mo
 
 Version 0.1.3 adds a function to root trees in phyloseq objects by their longest terminal branch.
 
+Version 0.1.4 adds a function to get ggplot2 plot limits.
+
 Installation
 ------------
 
