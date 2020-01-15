@@ -20,7 +20,7 @@ You can install QsRutils from github with:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("jfq3/QsRutils")
+devtools::install_github("jfq3/QsRutils", build_vignettes = TRUE)
 ```
 
 References
