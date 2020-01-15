@@ -4,7 +4,7 @@ author: "John Quensen"
 date: "June 3, 2017"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Compare Relative Abundances Among Treatments}
+  %\VignetteIndexEntry{Recreate arc sine Conversion Table A-16}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
