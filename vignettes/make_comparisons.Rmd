@@ -30,7 +30,10 @@ A seventh function, `make_comparisons`, wraps all six of the other functions and
 The is the simplest case, and is easily executed with the wrapper function. First, load the example data set. It is a `phyloseq` object with otu_table, sample_data, and tax_table.  
 
 ```{r, tidy=TRUE}
+suppressPackageStartupMessages(library(phyloseq))
 suppressPackageStartupMessages(library(QsRutils))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(reshape2))
 data("its.root")
 its.root
 ```
@@ -105,7 +108,6 @@ These percentages are based on the total counts in `its.root` and add up to appr
 This is a rather trite example because the differences are so obvious, but suppose you had made a figure something like this:  
 
 ```{r, tidy=TRUE, fig.width=5, fig.align='center'}
-suppressPackageStartupMessages(library(ggplot2))
 data("plot_df")
 ggplot(data = plot_df, aes(x = Treatment, y = Percent, fill = Family)) +
   stat_summary(fun.y = "mean", geom = "col", position = position_stack())
@@ -123,7 +125,6 @@ head(plot_df)
 To recover our data in wide format, we do:  
 
 ```{r, tidy=TRUE}
-suppressPackageStartupMessages(library(reshape2))
 plot_df$seq <- with(plot_df, ave(Percent, Treatment, Family, FUN = seq_along))
 my.data <- dcast(seq + Treatment ~ Family, data = plot_df, value.var = "Percent")
 head(my.data)
