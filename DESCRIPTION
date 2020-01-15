@@ -2,7 +2,7 @@ Package: QsRutils
 Type: Package
 Title: R Functions Useful for Community Ecology
 Version: 0.1.4
-Date: 2018-10-20
+Date: 2020-1-15
 Author: John Quensen
 Maintainer: John Quensen <quensenj@msu.edu>
 Description: Some functions I have written that simplify community analyses by vegan, phyloseq, etc. 
