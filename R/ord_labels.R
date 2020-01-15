@@ -37,5 +37,3 @@ ord_labels <-
     }
     return(ord.labels)
   }
-
-
