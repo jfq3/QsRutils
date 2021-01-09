@@ -7,14 +7,16 @@
 #'
 #' @return - an OTU table with equal sample counts
 #' 
+#' @author  L. Beule and P.Karlovsky
+#' 
 #' @references Beule L, Karlovsky P. Improved normalization of species count data in ecology by scaling with ranked sub-sampling (SRS): application to microbial communities. PeerJ. 2020;8:e9593.
 #' 
 SRS <- function(data, Cmin){
   if(Cmin > min(colSums(data))){
-    print("ERROR: Cmin > minimum library size. Please select a Cmin that is ≤ the minimum library size of the dataset.")
+    print("ERROR: Cmin > minimum library size. Please select a Cmin that is <= the minimum library size of the dataset.")
   } else {
     if(Cmin < 0){
-      print("ERROR: Cmin < 0. Please select a Cmin ≥ 0.")
+      print("ERROR: Cmin < 0. Please select a Cmin >= 0.")
     } else {
       if(Cmin %% 1 > 0){
         print("ERROR: Please select a Cmin without decimal places.")
