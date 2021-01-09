@@ -13,6 +13,8 @@ Version 0.1.3 adds a function to root trees in phyloseq objects by their longest
 
 Version 0.1.4 adds a function to get ggplot2 plot limits.
 
+Version 0.1.5 adds function srs_p to normalize the OTU table in a phyloseq object. This is an alternative to "rarefying" to the same muber of counts per sample.
+
 Installation
 ------------
 
