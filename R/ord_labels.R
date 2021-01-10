@@ -12,7 +12,6 @@
 #'
 #' @examples
 #'
-#' 
 ord_labels <-
   function(ord){
     ev <- vegan::eigenvals(ord)
