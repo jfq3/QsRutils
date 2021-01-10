@@ -21,3 +21,6 @@ This is an alternative to "rarefying" an OTU table to a constant sample size.  T
 \references{
 Beule L, Karlovsky P. Improved normalization of species count data in ecology by scaling with ranked subsampling (SRS): application to microbial communities. PeerJ. 2020;8:e9593.
 }
+\author{
+John Quensen
+}
