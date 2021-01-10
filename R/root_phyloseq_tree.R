@@ -6,7 +6,6 @@
 #' @details The tree is rooted by the longest terminal branch.
 #' @return The same phyloseq object with a rooted tree
 #' @export
-#  #' @import phyloseq
 #' @importFrom  ape Ntip
 #' @importFrom magrittr %>%
 #' @importFrom data.table data.table
@@ -16,9 +15,6 @@
 #' }
 root_phyloseq_tree <- function(phylo) {
   tree.unrooted <- phy_tree(phylo)
-  # require("magrittr")
-  # require("data.table")
-  # require("ape") # ape::Ntip
   # tablify parts of tree that we need.
   treeDT <- 
     cbind(
