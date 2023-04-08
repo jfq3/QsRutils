@@ -3,6 +3,7 @@
 export(arc_sine)
 export(asterix)
 export(check_var)
+export(cld_hsd)
 export(clear_warnings)
 export(comb)
 export(comp_assemble)
