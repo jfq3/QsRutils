@@ -10,7 +10,6 @@
 #' @export
 #'
 #' @examples
-#'
 #' comb(5, 3)
 #' comb(5, 3, repetition = TRUE)
 #'

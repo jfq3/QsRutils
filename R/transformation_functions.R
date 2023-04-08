@@ -8,7 +8,6 @@
 #' @export
 #'
 #' @examples
-#'
 #' log_arc_sine(x = 30.1)
 #'
 log_arc_sine <- function(x) {

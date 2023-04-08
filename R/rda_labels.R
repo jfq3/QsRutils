@@ -10,6 +10,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' rda_labels(rda_ordination)
+#' }
 #'
 rda_labels <-
 function(rda){

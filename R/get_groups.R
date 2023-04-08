@@ -15,6 +15,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' get_groups(ptt.rslt, alpha = 0.05, rm.subset = FALSE)
+#' }
 #'
 get_groups <- function(ptt.rslt, alpha = 0.05, rm.subset = FALSE) {
 

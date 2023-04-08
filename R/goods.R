@@ -10,6 +10,9 @@
 #' @references Good, I. J. 1953. The Population Frequencies of Species and the Estimation of Population Parameters. Biometrika 40:237-264.
 #'
 #' @examples
+#' \dontrun{
+#' goods(species_matrix)
+#' }
 #'
 goods <-
 function(com){

@@ -21,7 +21,6 @@ Generates a random character string of specified length.
 If type equals "alpha_numeric" (the default), only alpha-numeric characters are used to generate the password. If type does not equal "alpha_numeric" then at least one non-alpha-numeric symbol will be included in the password. In either case, the alpha characters used are both upper and lower case.
 }
 \examples{
-
 generate_password(8)
 
 }

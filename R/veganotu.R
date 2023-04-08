@@ -7,7 +7,10 @@
 #' @return A matrix with samples in rows and OTUs in columns.
 #' @export
 #'
-#' @examples
+#' @example
+#' \dontrun{
+#' veganotu(physeq)
+#' }
 #'
 #' @importFrom phyloseq otu_table
 #' @importFrom phyloseq taxa_are_rows

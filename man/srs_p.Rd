@@ -16,7 +16,7 @@ a phyloseq object including an OTU table, all sample sums equal.
 Normalize sample counts using scaling with ranked subsampling (SRS)
 }
 \details{
-This is an alternative to "rarefying" an OTU table to a constant sample size.  The phyloseq object submitted must be pruned to the desired sample size before uisng this function.
+This is an alternative to "rarefying" an OTU table to a constant sample size.  The phyloseq object submitted must be pruned to the desired sample size before using this function.
 }
 \references{
 Beule L, Karlovsky P. Improved normalization of species count data in ecology by scaling with ranked subsampling (SRS): application to microbial communities. PeerJ. 2020;8:e9593.

@@ -10,7 +10,9 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
+#' See vignette
+#' }
 #'
 comp_make_f_tests <- function(otu.pc.trans, grps, var.equal = FALSE) {
   # Make global F tests

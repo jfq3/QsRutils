@@ -21,6 +21,9 @@
 #' @seealso arc_sine, log_arc_sine, sqrt_arc_sine, check_var
 #'
 #' @examples
+#' \dontrun{
+#' See vignette
+#' }
 #'
 #'
 make_comparisons <- function(expt, taxrank = "Phylum",  grps = "Treatment", transformation = "none", pc.filter = 0.01, p.adjust.method ="BH",  pool.sd = FALSE) {

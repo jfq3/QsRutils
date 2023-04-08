@@ -13,7 +13,9 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
+#' See vignette
+#' }
 #'
 comp_prepare_otu_table <- function(expt.taxon.pc, grps = "Treatment", transformation = "sqrt_arc_sine"){
   # Extract percentage otu table, make rownames the taxa names.

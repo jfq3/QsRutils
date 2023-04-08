@@ -11,6 +11,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' pca_labels(pca_ordination)
+#' }
 #'
 pca_labels <-
 function(pca){

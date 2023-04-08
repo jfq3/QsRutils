@@ -8,6 +8,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' vegansam(physeq)
+#' }
 #'
 #' @importFrom phyloseq sample_data
 #' @importFrom phyloseq nsamples

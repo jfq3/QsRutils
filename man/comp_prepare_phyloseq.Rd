@@ -23,6 +23,8 @@ Prepares a phyloseq object for making comparisons of relative abundances among t
 The otu_table in one of the returned objects has been transformed to percentages based on the original phyloseq object supplied. The taxa in both have been filtered to include only OTUs initially present at >= pc.filter times the original total counts. For both only taxrank is included in the tax_table.
 }
 \examples{
-
+\dontrun{
+See vignette
+}
 
 }

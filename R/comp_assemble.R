@@ -10,7 +10,9 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
+#' See vignette
+#' }
 #'
 comp_assemble <- function(part1, part2, part3) {
   comp <- merge_2_frames(part1, part2)

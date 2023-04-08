@@ -14,6 +14,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' make_letter_assignments(ptt.rstl, significance = 0.05)
+#' }
 #'
 #' @importFrom multcompView multcompLetters
 #'

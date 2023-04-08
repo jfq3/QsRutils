@@ -13,7 +13,9 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
+#' See vignette
+#' }
 #'
 comp_prepare_phyloseq <- function(expt, taxrank = "Phylum", pc.filter = 0.01) {
   # Make copy with percentages instead of counts.

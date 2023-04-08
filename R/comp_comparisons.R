@@ -13,7 +13,9 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
+#' See vignette
+#' }
 #'
 comp_comparisons <- function(otu.pc, otu.pc.trans, grps, p.adjust.method = "BH", pool.sd = FALSE) {
   # Prepare comparison results matrix

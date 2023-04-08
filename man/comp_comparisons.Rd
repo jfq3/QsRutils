@@ -30,6 +30,8 @@ A data frame of differences in relative abundances among treatments.
 Calculates the treatment comparison portion of a table comparing relative abundances of each taxon among treatments.
 }
 \examples{
-
+\dontrun{
+See vignette
+}
 
 }

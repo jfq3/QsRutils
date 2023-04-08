@@ -12,6 +12,8 @@
 #' @seealso make_comparisons
 #'
 #' @examples
+#' \dontrun{
+#' }
 #'
 check_var <- function(otu.pc.transformed, group.vector) {
   for (i in 1:nrow(otu.pc.transformed)) {

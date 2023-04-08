@@ -19,5 +19,8 @@ Makes RDA axis labels that include the % total variance explained by each axis.
 Each element of the vector returned has the form "RDAn xx.x%" where n is the number of the RDA axis and xx.x is the % of total variance explained by the axis.
 }
 \examples{
+\dontrun{
+rda_labels(rda_ordination)
+}
 
 }

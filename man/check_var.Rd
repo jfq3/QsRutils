@@ -18,6 +18,8 @@ Prints test results to the console.
 Tests for Heterogeneity of Variances in make_comparisons Result
 }
 \examples{
+\dontrun{
+}
 
 }
 \seealso{

@@ -24,6 +24,9 @@ This function aids in making letter assignments as to which treatments are signi
 If rm.subset is FALSE, then groups such as {A,B} and {A, B, C} may be reported. This is redundant in the sense the {A, B} is a subset of {A, B, C}. In this case if rm.subset is FALSE, the grop {A, B} is not reported.
 }
 \examples{
+\dontrun{
+get_groups(ptt.rslt, alpha = 0.05, rm.subset = FALSE)
+}
 
 }
 \seealso{

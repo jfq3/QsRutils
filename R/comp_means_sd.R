@@ -10,6 +10,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' See vignette
+#' }
 #'
 comp_means_sd <- function(otu.pc) {
   # Calculate mean and standard deviation for each row of data.

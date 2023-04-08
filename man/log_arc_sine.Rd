@@ -16,7 +16,6 @@ The common logarithm of the arcsine transformation of x.
 Log of the arc-sine Transfromation of a Percentage
 }
 \examples{
-
 log_arc_sine(x = 30.1)
 
 }

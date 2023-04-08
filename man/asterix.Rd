@@ -19,7 +19,6 @@ Indicate Significance with Stars
 Returns '***; for p < 0.001, '**' for p < 0.01, '*' for p < 0.05.
 }
 \examples{
-
 asterix(0.039)
 
 }

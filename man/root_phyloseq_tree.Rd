@@ -22,4 +22,5 @@ The tree is rooted by the longest terminal branch.
 \dontrun{
 expt.rooted <- root_phyloseq_tree(expt.unrooted)
 }
+
 }

@@ -10,10 +10,15 @@
 #' 
 #' @export
 #' 
-#' @details This is an alternative to "rarefying" an OTU table to a constant sample size.  The phyloseq object submitted must be pruned to the desired sample size before uisng this function.
+#' @details This is an alternative to "rarefying" an OTU table to a constant sample size.  The phyloseq object submitted must be pruned to the desired sample size before using this function.
+#' 
+#' @example
+#' \dontrun{
+#' srs_p(p)
+#' }
+#' 
 #' @importFrom SRS SRS
 #' @author John Quensen
-#' 
 #' @references Beule L, Karlovsky P. Improved normalization of species count data in ecology by scaling with ranked subsampling (SRS): application to microbial communities. PeerJ. 2020;8:e9593.
 #' 
 srs_p <- function(p) {

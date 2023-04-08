@@ -13,6 +13,9 @@
 #' @references Chen J, Bittinger K, Charlson ES et al. (2012) Associating microbiome composition with environmental covariates using generalized UniFrac distances. Bioinformatics, 28, 2106-2113.
 #'
 #' @examples
+#' \dontrun{
+#' 
+#' }
 #'
 subset_dist <- function(physeq, d.matrix) {
   d.matrix <- as.matrix(d.matrix)

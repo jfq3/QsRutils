@@ -19,5 +19,8 @@ Makes PCA axis labels that include the % total variance explained by each axis.
 Each element of the vector returned has the form "PCAn xx.x%" where n is the number of the PCA axis and xx.x is the % of total variance explained by the axis.
 }
 \examples{
+\dontrun{
+pca_labels(pca_ordination)
+}
 
 }

@@ -20,6 +20,8 @@ A summary data frame of differential abundances by taxon and treatment.
 Assembles Comparison Data Frame
 }
 \examples{
-
+\dontrun{
+See vignette
+}
 
 }

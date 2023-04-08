@@ -20,6 +20,8 @@ A data frame of the F-test results.
 Calclates omnibus F tests to be included in a table comparing relative abundances of each taxon among treatments.
 }
 \examples{
-
+\dontrun{
+See vignette
+}
 
 }

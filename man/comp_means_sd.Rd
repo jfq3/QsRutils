@@ -19,5 +19,8 @@ Calculates means and standard deviation for each taxon to be included in a table
 The OTU table should be created with comp_prepare_otu_table.
 }
 \examples{
+\dontrun{
+See vignette
+}
 
 }

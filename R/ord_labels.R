@@ -1,7 +1,9 @@
 #' Make Ordination Axis Labels
 #'
 #' Makes ordination axis labels that include, if apprpriate, the \% total variance explained by each axis.
-#'
+#' 
+#' @usage cld_hsd(hsd_rslt)
+#' 
 #' @param ord A vegan ordination object.
 #'
 #' @return A character vector, each element of which can be used to label the corresponding axis of an ordination plot.
@@ -11,7 +13,11 @@
 #' @export
 #'
 #' @examples
-#'
+#'\dontrun{
+#' ord_labels(nmds_ordination)
+#' ord_labels(pca_ordination
+#' ord_labels(pcoa_ordination))
+#'}
 ord_labels <-
   function(ord){
     ev <- vegan::eigenvals(ord)

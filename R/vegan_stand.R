@@ -10,6 +10,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' veganstand(expt, method = "hellinger")
+#' }
 #'
 #' @importFrom phyloseq taxa_are_rows
 #' @importClassesFrom phyloseq otu_table

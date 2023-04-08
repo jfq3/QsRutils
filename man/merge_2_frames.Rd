@@ -21,5 +21,8 @@ Merge two data frames by their row names.
 Merges data frames by common row names. This function differs from  merge.data.frames in that the merged data frame returned has row names and not a new column of the row names.
 }
 \examples{
+\dontrun{
+merge_2_frames(dataframe_1, dataframe_2)
+}
 
 }

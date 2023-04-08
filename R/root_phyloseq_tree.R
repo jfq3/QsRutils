@@ -13,6 +13,7 @@
 #' \dontrun{
 #' expt.rooted <- root_phyloseq_tree(expt.unrooted)
 #' }
+#' 
 root_phyloseq_tree <- function(phylo) {
   tree.unrooted <- phy_tree(phylo)
   # tablify parts of tree that we need.

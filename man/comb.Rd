@@ -20,7 +20,6 @@ An integer giving the number of ways a set of r items can be drawn from a set of
 Calculates the number of combinations of n things drawn r at a time.
 }
 \examples{
-
 comb(5, 3)
 comb(5, 3, repetition = TRUE)
 
