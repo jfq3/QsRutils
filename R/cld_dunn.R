@@ -1,4 +1,6 @@
-#' CLDs from DUNN Generate compact letter displays from Dunn.test results
+#' CLDs from DUNN 
+#' 
+#' Generate compact letter displays from Dunn.test results
 #' 
 #' @param dunn_rslt The result of the function dunn.test::dunn.test
 #' @param significance The alpha level for  statistical significance
@@ -19,7 +21,7 @@
 #' 
 cld_dunn <- function(dunn_rslt, significance = 0.05) {
   comparison <- comp1 <- comp2 <- p.adj <- NULL
-  df_mat <- tibble(dunn_rslt$res$comparisons, dunn_rslt$res$P.adj)
+  df_mat <- tibble(dunn_rslt$comparisons, dunn_rslt$P.adj)
   colnames(df_mat) <- c("comparison", "p.adj")
   df_mat <- df_mat %>% 
     rowwise() %>% 
