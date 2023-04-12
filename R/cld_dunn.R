@@ -19,7 +19,7 @@
 #' 
 cld_dunn <- function(dunn_rslt, significance = 0.05) {
   comparison <- comp1 <- comp2 <- p.adj <- NULL
-  df_mat <- tibble(dunn_rslt$res$Comparison, dunn_rslt$res$P.adj)
+  df_mat <- tibble(dunn_rslt$res$comparison, dunn_rslt$res$P.adj)
   colnames(df_mat) <- c("comparison", "p.adj")
   df_mat <- df_mat %>% 
     rowwise() %>% 

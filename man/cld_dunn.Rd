@@ -7,7 +7,7 @@
 cld_dunn(dunn_rslt, significance = 0.05)
 }
 \arguments{
-\item{dunn_rslt}{The result of he function dunn.test}
+\item{dunn_rslt}{The result of the function dunn.test::dunn.test}
 
 \item{significance}{The alpha level for  statistical significance}
 }
