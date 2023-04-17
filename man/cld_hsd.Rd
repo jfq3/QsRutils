@@ -4,13 +4,15 @@
 \alias{cld_hsd}
 \title{Make CLD tibble from Tukey HSD Results}
 \usage{
-cld_hsd(hsd_rslt)
+cld_hsd(hsd_rslt, y_pos = "boxtop")
 }
 \arguments{
-\item{hsd_rslt}{/The result of the HSD>test function of package agricolae}
+\item{hsd_rslt}{The result of the HSD>test function of package agricolae}
+
+\item{y_pos}{The y-position in relation to the boxplots. Choices are at the top of the box ("boxtop", the default) or at the maximum group value ("max").}
 }
 \value{
-A tibble with columns for treatment groups (x), the 75th percintile of the treatment groups (y), and the CLD letters indicating significantly different treatments.
+A tibble with columns for treatment groups (x), the y-positions of the treatment CLD (y), and the CLD letters indicating significantly different treatments.
 }
 \description{
 Makes a tibble for adding compact letter assignments to a boxplot using HSD.test results.
