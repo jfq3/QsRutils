@@ -9,9 +9,9 @@
 #' @details Curiously there is no R function for calculating the standard error. This function allows for NA values.
 #' @author John Quensen
 #' 
-#' se <- function(x){
-#' se = sd(x) / sqrt(sum(!is.na(x)))
-#' return(se)
+#' se <- function(x) {
+#'  se <-  sd(x) / sqrt(sum(!is.na(x)))
+#'  return(se)
 #' }
 #' 
 #' @examples
