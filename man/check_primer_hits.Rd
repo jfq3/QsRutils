@@ -30,7 +30,7 @@ A table of hits to the sequences by all primer orientations
 Determine hits of all orientations of primers to paired sequence files.
 }
 \details{
-This functionis for checking the effectiveness of primer trimmming of ITS sequences.
+This function is for checking the effectiveness of primer trimming of ITS sequences.
 Because the ITS region varies in length, it is possible for forward sequences to extend past the reverse primenr region and vice-versa, leadsing to what Robert Edgar calls staggered pairs fi the sequences are merged.
 
 The fwd_pattern and rev_pattern must contain the file extension. The defaults are "_R1.fastq" and "_R2.fastq".
