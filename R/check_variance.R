@@ -9,15 +9,17 @@
 #'
 #' @export
 #'
+#' @importFrom stats fligner.test
 #' @seealso make_comparisons
 #'
 #' @examples
 #' \dontrun{
+#' 
 #' }
 #'
 check_var <- function(otu.pc.transformed, group.vector) {
   for (i in 1:nrow(otu.pc.transformed)) {
-    rslt <- fligner.test(otu.pc.transformed[ i, ], g = group.vector)
+    rslt <- stats::fligner.test(otu.pc.transformed[ i, ], g = group.vector)
     print((rownames(otu.pc.transformed))[i])
     print(rslt)
   }

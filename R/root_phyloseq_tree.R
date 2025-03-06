@@ -9,6 +9,7 @@
 #' @importFrom  ape Ntip
 #' @importFrom magrittr %>%
 #' @importFrom data.table data.table
+#' @importFrom phyloseq phy_tree
 #' @examples
 #' \dontrun{
 #' expt.rooted <- root_phyloseq_tree(expt.unrooted)

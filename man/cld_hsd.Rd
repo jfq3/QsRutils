@@ -7,7 +7,7 @@
 cld_hsd(hsd_rslt, y_pos = "boxtop")
 }
 \arguments{
-\item{hsd_rslt}{The result of the HSD>test function of package agricolae}
+\item{hsd_rslt}{The result of the HSD.test function of package agricolae}
 
 \item{y_pos}{The y-position in relation to the boxplots. Choices are at the top of the box ("boxtop", the default) or at the maximum group value ("max").}
 }

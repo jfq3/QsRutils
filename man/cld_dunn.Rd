@@ -2,7 +2,7 @@
 % Please edit documentation in R/cld_dunn.R
 \name{cld_dunn}
 \alias{cld_dunn}
-\title{CLDs from DUNN Generate compact letter displays from Dunn.test results}
+\title{CLDs from DUNN}
 \usage{
 cld_dunn(dunn_rslt, significance = 0.05)
 }
@@ -15,7 +15,7 @@ cld_dunn(dunn_rslt, significance = 0.05)
 A character vector of CLDs - groups of significantly different treatment groups
 }
 \description{
-CLDs from DUNN Generate compact letter displays from Dunn.test results
+Generate compact letter displays from Dunn.test results
 }
 \examples{
 \dontrun{

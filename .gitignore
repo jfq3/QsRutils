@@ -5,3 +5,5 @@
 QsRutils.Rproj
 .Rbuildignore
 
+/doc/
+/Meta/

@@ -11,7 +11,13 @@
 #' @details The otu_table in one of the returned objects has been transformed to percentages based on the original phyloseq object supplied. The taxa in both have been filtered to include only OTUs initially present at >= pc.filter times the original total counts. For both only taxrank is included in the tax_table.
 #'
 #' @export
-#'
+#' @importFrom phyloseq prune_taxa
+#' @importFrom phyloseq tax_glom
+#' @importFrom phyloseq taxa_names
+#' @importFrom phyloseq taxa_sums
+#' @importFrom phyloseq taxa_sums
+#' @importFrom phyloseq tax_table
+#' @importFrom phyloseq transform_sample_counts
 #' @examples
 #' \dontrun{
 #' See vignette
@@ -29,7 +35,7 @@ comp_prepare_phyloseq <- function(expt, taxrank = "Phylum", pc.filter = 0.01) {
   tax_table(expt.taxon) <- tax_table(expt.taxon)[ , taxrank]
   tax_table(expt.taxon.pc) <- tax_table(expt.taxon.pc)[ , taxrank]
 
-  # Filter out taxa that are < 0.1% of the total sequences in expt.
+  # Filter out taxa that are < pc.filter of the total sequences in expt.
   n <- sum(taxa_sums(expt)) * pc.filter
   expt.taxon <- prune_taxa(taxa_sums(expt.taxon)>=n, expt.taxon)
   expt.taxon.pc <- prune_taxa(taxa_names(expt.taxon), expt.taxon.pc)

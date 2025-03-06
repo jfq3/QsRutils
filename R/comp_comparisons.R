@@ -11,7 +11,8 @@
 #' @return A data frame of differences in relative abundances among treatments.
 #'
 #' @export
-#'
+#' @importFrom stats pairwise.t.test
+#' @importFrom stats sd
 #' @examples
 #' \dontrun{
 #' See vignette
@@ -36,7 +37,7 @@ comp_comparisons <- function(otu.pc, otu.pc.trans, grps, p.adjust.method = "BH",
     l <- paste(avg, "+/-", std.dev, sep = "")
 
     # Pairwise t-tests
-    x <- pairwise.t.test(otu.pc.trans[ i, ], g = grps, p.adjust.method = p.adjust.method, pool.sd = pool.sd)
+    x <- stats::pairwise.t.test(otu.pc.trans[ i, ], g = grps, p.adjust.method = p.adjust.method, pool.sd = pool.sd)
 
     # Get letter assignments for results; allow for NAs, NaNs in results
     x <- get_groups(x)$p.matrix

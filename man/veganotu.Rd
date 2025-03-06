@@ -15,3 +15,9 @@ A matrix with samples in rows and OTUs in columns.
 \description{
 Extracts a vegan compatible OTU table from a phyloseq object.
 }
+\examples{
+\dontrun{
+veganotu(physeq)
+}
+
+}

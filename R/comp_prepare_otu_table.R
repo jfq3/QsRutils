@@ -11,7 +11,7 @@
 #' @return A list consisting of an OTU table with percentages, an OTU table with transformed data, and a vector of treatment groups.
 #'
 #' @export
-#'
+#' @importFrom phyloseq tax_table
 #' @examples
 #' \dontrun{
 #' See vignette
@@ -21,7 +21,7 @@ comp_prepare_otu_table <- function(expt.taxon.pc, grps = "Treatment", transforma
   # Extract percentage otu table, make rownames the taxa names.
   otu.pc <- veganotu(expt.taxon.pc)
   # taxrank <- rank_names(expt.pc)
-  colnames(otu.pc) <- tax_table(expt.taxon.pc)
+  colnames(otu.pc) <- phyloseq::tax_table(expt.taxon.pc)
 
   # Apply transformation
   if (!(transformation == "none")) {

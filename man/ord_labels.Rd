@@ -4,7 +4,7 @@
 \alias{ord_labels}
 \title{Make Ordination Axis Labels}
 \usage{
-cld_hsd(hsd_rslt)
+ord_labels(ord)
 }
 \arguments{
 \item{ord}{A vegan ordination object.}
@@ -13,7 +13,7 @@ cld_hsd(hsd_rslt)
 A character vector, each element of which can be used to label the corresponding axis of an ordination plot.
 }
 \description{
-Makes ordination axis labels that include, if apprpriate, the \% total variance explained by each axis.
+Makes ordination axis labels that include, if appropriate, the \% total variance explained by each axis.
 }
 \details{
 If there are no eigenvalues in ord, or if any eigenvalues are less than 0, each element of the vector returned has the form "DIMn" where N is the axis number. Otherwise, each element of the vector returned has the form "AxisN xx.x\%" where "Axis" is taken from the vector of eigenvalues in ord if they are named or simply "DIM" if they are not, N is the number of the axis, and xx.x is the \% of total variance explained by the axis.

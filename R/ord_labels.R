@@ -1,8 +1,8 @@
 #' Make Ordination Axis Labels
 #'
-#' Makes ordination axis labels that include, if apprpriate, the \% total variance explained by each axis.
+#' Makes ordination axis labels that include, if appropriate, the \% total variance explained by each axis.
 #' 
-#' @usage cld_hsd(hsd_rslt)
+#' @usage ord_labels(ord)
 #' 
 #' @param ord A vegan ordination object.
 #'

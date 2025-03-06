@@ -8,7 +8,7 @@
 #'
 #' @return A data frame of the F-test results.
 #' @export
-#'
+#' @importFrom stats oneway.test
 #' @examples
 #' \dontrun{
 #' See vignette
@@ -24,7 +24,7 @@ comp_make_f_tests <- function(otu.pc.trans, grps, var.equal = FALSE) {
 
   # Fill results data frame
   for (i in 1:nrow(otu.pc.trans)) {
-    temp2 <- oneway.test(otu.pc.trans[ i, ] ~ grps, var.equal = var.equal)
+    temp2 <- stats::oneway.test(otu.pc.trans[ i, ] ~ grps, var.equal = var.equal)
     rslt[i,2] <- temp2$statistic
     rslt[i,3] <- temp2$p.value
   }

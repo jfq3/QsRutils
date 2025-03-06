@@ -17,6 +17,7 @@
 #' @export
 #'
 #' @importFrom multcompView multcompLetters
+#' @importFrom phyloseq tax_table
 #'
 #' @seealso arc_sine, log_arc_sine, sqrt_arc_sine, check_var
 #'

@@ -2,7 +2,7 @@
 #' 
 #' Makes a tibble for adding compact letter assignments to a boxplot using HSD.test results.
 #' 
-#' @param hsd_rslt The result of the HSD>test function of package agricolae
+#' @param hsd_rslt The result of the HSD.test function of package agricolae
 #' @param y_pos The y-position in relation to the boxplots. Choices are at the top of the box ("boxtop", the default) or at the maximum group value ("max").
 #' @return A tibble with columns for treatment groups (x), the y-positions of the treatment CLD (y), and the CLD letters indicating significantly different treatments.
 #' 

@@ -14,7 +14,7 @@ get_groups(ptt.rslt, alpha = 0.05, rm.subset = FALSE)
 \item{rm.subset}{A logical; remove group subsets if true.}
 }
 \value{
-A list consisting of groups of treatment groups that are not significantly differnet and a matrix of p values.
+A list consisting of groups of treatment groups that are not significantly different and a matrix of p values.
 }
 \description{
 Assign treatment groups based on pairwise t-tests.

@@ -7,13 +7,14 @@
 #' @return A matrix with samples in rows and OTUs in columns.
 #' @export
 #'
-#' @example
+#' @examples
 #' \dontrun{
 #' veganotu(physeq)
 #' }
 #'
 #' @importFrom phyloseq otu_table
 #' @importFrom phyloseq taxa_are_rows
+#'
 #'
 veganotu <-
 function(physeq) {

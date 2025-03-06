@@ -19,6 +19,7 @@
 #' }
 #'
 #' @importFrom multcompView multcompLetters
+#' @importFrom stats na.exclude
 #'
 make_letter_assignments <- function(ptt.rslt, significance=0.05) {
 

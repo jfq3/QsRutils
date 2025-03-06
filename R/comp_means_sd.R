@@ -8,7 +8,7 @@
 #'
 #' @return A data frame with means and standard deviations by taxon.
 #' @export
-#'
+#' @importFrom stats sd
 #' @examples
 #' \dontrun{
 #' See vignette

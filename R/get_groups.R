@@ -6,13 +6,14 @@
 #' @param alpha Confidence level.
 #' @param rm.subset A logical; remove group subsets if true.
 #'
-#' @return A list consisting of groups of treatment groups that are not significantly differnet and a matrix of p values.
+#' @return A list consisting of groups of treatment groups that are not significantly different and a matrix of p values.
 #'
 #' @details This function aids in making letter assignments as to which treatments are significantly different. Also returns a square matrix of alpha values for all pairwise differences. This square matrix can serve as input to the multcompLetters function of the multcompView package which provides letter assignments.
 #' If rm.subset is FALSE, then groups such as {A,B} and {A, B, C} may be reported. This is redundant in the sense the {A, B} is a subset of {A, B, C}. In this case if rm.subset is FALSE, the grop {A, B} is not reported.
 #'
 #' @seealso make_letter_assignments
 #' @export
+#' @importFrom stats na.exclude
 #'
 #' @examples
 #' \dontrun{
