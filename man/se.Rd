@@ -19,6 +19,7 @@ Calculates the standard error of a numeric vector
 NA values are ignored.
 }
 \examples{
-x <- c(1,2,3,4,5)
+x <- c(1,2,3,4,5, NA)
 se(x)
+
 }
