@@ -1,9 +1,0 @@
-POST git-receive-pack (chunked)
-remote: warning: See https://gh.io/lfs for more information.        
-remote: warning: File data/D1.raw_1.fastq is 58.46 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
-remote: warning: File data/D1.raw_2.fastq is 58.46 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
-remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
-Pushing to https://github.com/jfq3/QsRutils
-To https://github.com/jfq3/QsRutils
-   266d0bb..794c826  dev -> dev
-updating local tracking ref 'refs/remotes/origin/dev'
