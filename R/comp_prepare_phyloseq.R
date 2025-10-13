@@ -25,20 +25,20 @@
 #'
 comp_prepare_phyloseq <- function(expt, taxrank = "Phylum", pc.filter = 0.01) {
   # Make copy with percentages instead of counts.
-  expt.pc <- transform_sample_counts(expt, function(x) 100*(x/sum(x)))
+  expt.pc <- phyloseq::transform_sample_counts(expt, function(x) 100*(x/sum(x)))
 
   # Agglomerate to desired rank.
-  expt.taxon <- tax_glom(expt, taxrank)
-  expt.taxon.pc <- tax_glom(expt.pc, taxrank)
+  expt.taxon <- phyloseq::tax_glom(expt, taxrank)
+  expt.taxon.pc <- phyloseq::tax_glom(expt.pc, taxrank)
 
   # Remove ranks other than taxrank.
-  tax_table(expt.taxon) <- tax_table(expt.taxon)[ , taxrank]
-  tax_table(expt.taxon.pc) <- tax_table(expt.taxon.pc)[ , taxrank]
+  phyloseq::tax_table(expt.taxon) <- phyloseq::tax_table(expt.taxon)[ , taxrank]
+  phyloseq::tax_table(expt.taxon.pc) <- phyloseq::tax_table(expt.taxon.pc)[ , taxrank]
 
   # Filter out taxa that are < pc.filter of the total sequences in expt.
   n <- sum(taxa_sums(expt)) * pc.filter
-  expt.taxon <- prune_taxa(taxa_sums(expt.taxon)>=n, expt.taxon)
-  expt.taxon.pc <- prune_taxa(taxa_names(expt.taxon), expt.taxon.pc)
+  expt.taxon <- phyloseq::prune_taxa(phyloseq::taxa_sums(expt.taxon)>=n, expt.taxon)
+  expt.taxon.pc <- phyloseq::prune_taxa(phyloseq::taxa_names(expt.taxon), expt.taxon.pc)
 
   return(list(expt.taxon = expt.taxon, expt.taxon.pc = expt.taxon.pc))
 }

@@ -17,7 +17,12 @@
 #' @export
 #'
 #' @importFrom multcompView multcompLetters
+#' @importFrom phyloseq prune_taxa
+#' @importFrom phyloseq taxa_names
+#' @importFrom phyloseq taxa_sums
+#' @importFrom phyloseq tax_glom
 #' @importFrom phyloseq tax_table
+#' @importFrom phyloseq transform_sample_counts
 #'
 #' @seealso arc_sine, log_arc_sine, sqrt_arc_sine, check_var
 #'
@@ -30,24 +35,24 @@
 make_comparisons <- function(expt, taxrank = "Phylum",  grps = "Treatment", transformation = "none", pc.filter = 0.01, p.adjust.method ="BH",  pool.sd = FALSE) {
 
   # Prepare phyloseq objects
-  expt.pc <- transform_sample_counts(expt, function(x) 100*(x/sum(x)))
+  expt.pc <- phyloseq::transform_sample_counts(expt, function(x) 100*(x/sum(x)))
 
   # Agglomerate to desired rank.
-  expt.taxon <- tax_glom(expt, taxrank)
-  expt.taxon.pc <- tax_glom(expt.pc, taxrank)
+  expt.taxon <- phyloseq::tax_glom(expt, taxrank)
+  expt.taxon.pc <- phyloseq::tax_glom(expt.pc, taxrank)
 
   # Remove ranks other than taxrank
-  tax_table(expt.taxon) <- tax_table(expt.taxon)[ , taxrank]
-  tax_table(expt.taxon.pc) <- tax_table(expt.taxon.pc)[ , taxrank]
+  phyloseq::tax_table(expt.taxon) <- phyloseq::tax_table(expt.taxon)[ , taxrank]
+  phyloseq::tax_table(expt.taxon.pc) <- phyloseq::tax_table(expt.taxon.pc)[ , taxrank]
 
   # Filter out taxa that are < 0.1% of the total sequences in expt.
-  n <- sum(taxa_sums(expt)) * pc.filter
-  expt.taxon <- prune_taxa(taxa_sums(expt.taxon)>=n, expt.taxon)
-  expt.taxon.pc <- prune_taxa(taxa_names(expt.taxon), expt.taxon.pc)
+  n <- sum(phyloseq::taxa_sums(expt)) * pc.filter
+  expt.taxon <- phyloseq::prune_taxa(taxa_sums(expt.taxon)>=n, expt.taxon)
+  expt.taxon.pc <- phyloseq::prune_taxa(taxa_names(expt.taxon), expt.taxon.pc)
 
   # Extract percentage otu table, make rownames the taxa names.
   otu.pc <- veganotu(expt.taxon.pc)
-  colnames(otu.pc) <- tax_table(expt.taxon.pc)[colnames(otu.pc), taxrank]
+  colnames(otu.pc) <- phyloseq::tax_table(expt.taxon.pc)[colnames(otu.pc), taxrank]
 
   # Apply transformation
   if (!(transformation == "none")) {
