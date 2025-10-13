@@ -11,18 +11,18 @@
 #' 
 #' @export
 #' 
-#' @importFrom tibble rownames_to_column
+#' @importFrom agricolae HSD.test
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
 #' @importFrom dplyr inner_join
+#' @importFrom tibble rownames_to_column
 #' 
 #' @examples
-#' \dontrun{
 #' data("iris")
 #' model <- lm(Petal.Length ~ Species, data = iris)
 #' hsd_rslt <- agricolae::HSD.test(model, trt="Species")
 #' cld_hsd(hsd_rslt)
-#' }
+#'
 #' 
 cld_hsd <- function(hsd_rslt, y_pos = "boxtop") {
   x <- Q75 <- groups <- NULL

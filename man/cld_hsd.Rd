@@ -21,11 +21,10 @@ Makes a tibble for adding compact letter assignments to a boxplot using HSD.test
 hsd_rslt must be created with agricolae::HSD.test
 }
 \examples{
-\dontrun{
 data("iris")
 model <- lm(Petal.Length ~ Species, data = iris)
 hsd_rslt <- agricolae::HSD.test(model, trt="Species")
 cld_hsd(hsd_rslt)
-}
+
 
 }
