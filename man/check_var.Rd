@@ -7,7 +7,7 @@
 check_var(otu.pc.transformed, group.vector)
 }
 \arguments{
-\item{otu.pc.transformed}{An OTU matrix of transformed data.}
+\item{otu.pc.transformed}{An OTU matrix of transformed data. Taxa are rows.}
 
 \item{group.vector}{A vector of treatments.}
 }
@@ -18,9 +18,15 @@ Prints test results to the console.
 Tests for Heterogeneity of Variances in make_comparisons Result
 }
 \examples{
-\dontrun{
-
-}
+# Transform species matrix to proportion;
+# Check variances for the first three species
+# in the dune data set grouped by Management.
+data(dune)
+data(dune.env)
+dune <- vegan::decostand(dune, method = "total")
+dune <- dune[, 1:3]
+dune <- t(dune)
+check_var(dune, dune.env$Management)
 
 }
 \seealso{
