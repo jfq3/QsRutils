@@ -20,16 +20,16 @@
 #'
 vegan_stand <-
 function(physeq, method="hellinger", ...) {
-  test <- taxa_are_rows(physeq)
-  OTU <- otu_table(physeq)
+  test <- phyloseq::taxa_are_rows(physeq)
+  OTU <- phyloseq::otu_table(physeq)
   OTU <- as(OTU, "matrix")
   if (test) {
     OTU <- t(OTU)
   }
-  OTU <- decostand(OTU, method, ...)
+  OTU <- vegan::decostand(OTU, method, ...)
   if (test) {
     OTU <- t(OTU)
   }
-  otu_table(physeq) <- otu_table(OTU, taxa_are_rows=test)
+  phyloseq::otu_table(physeq) <- phyloseq::otu_table(OTU, taxa_are_rows=test)
   return(physeq)
 }

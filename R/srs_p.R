@@ -32,6 +32,6 @@ srs_p <- function(p) {
   otu.srs <- SRS::SRS(data=otu, Cmin = cmin)
   rownames(otu.srs) <- taxa.names
   new.otu <- otu_table(otu.srs, taxa_are_rows = TRUE)
-  otu_table(p) <- new.otu
+  phyloseq::otu_table(p) <- new.otu
   return(p)
 }
