@@ -43,5 +43,6 @@ ITS2: "GCTGCGTTCTTCATCGATGC"
 }
 \examples{
 \dontrun{
+See vignette
 }
 }

@@ -25,6 +25,7 @@
 #' @importFrom ShortRead sread
 #' @examples
 #' \dontrun{
+#' See vignette
 #' }
 
 
