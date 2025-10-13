@@ -9,12 +9,14 @@ Description: Some functions I have written that simplify community analyses by v
 Depends: phyloseq,
           vegan (>= 2.4-6),
           R (>= 4.1.0)
-Imports: ape,
+Imports: agricolae,
+         ape,
          Biostrings,
          dada2,
          data.table,
          dplyr,
          ggplot2,
+         insect,
          multcompView,
          magrittr,
          ShortRead,
@@ -25,7 +27,8 @@ License: GPL-2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3
-Suggests: knitr,
+Suggests: dunn.test,
+          knitr,
           rmarkdown,
           reshape2
 VignetteBuilder: knitr
