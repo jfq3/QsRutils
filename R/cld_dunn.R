@@ -15,9 +15,23 @@
 #' @importFrom stringr str_trim
 #' @importFrom tibble tibble
 #' @examples
-#' \dontrun{
-#'
-#' }
+#' # Example cribbed and modified from the kruskal.test documentation
+## # Hollander & Wolfe (1973), 116.
+## # Mucociliary efficiency from the rate of removal of dust in normal
+## # subjects, subjects with obstructive airway disease, and subjects
+## # with asbestosis. Copied here from dunn.test example. 
+#' x <- c(2.9, 3.0, 2.5, 2.6, 3.2) # normal subjects
+#' y <- c(3.8, 2.7, 4.0, 2.4)      # with obstructive airway disease
+#' z <- c(2.8, 3.4, 3.7, 2.2, 2.0) # with asbestosis
+#' x <- c(x, y, z)
+#' g <- factor(rep(1:3, c(5, 4, 5)),
+#'             labels = c("Normal",
+#'                        "COPD",
+#'                        "Asbestosis"))
+#' dunn_rslt <- dunn.test::dunn.test(x, g)
+#' cld_dunn(dunn_rslt, significance = 0.05)
+#' 
+#' 
 #' 
 cld_dunn <- function(dunn_rslt, significance = 0.05) {
   comparison <- comp1 <- comp2 <- p.adj <- NULL
