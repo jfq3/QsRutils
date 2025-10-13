@@ -21,6 +21,7 @@
 #' @importFrom Biostrings reverseComplement
 #' @importFrom Biostrings vcountPattern
 #' @importFrom dada2 filterAndTrim
+#' @importFrom ShortRead readFastq
 #' @importFrom ShortRead sread
 #' @examples
 #' \dontrun{
@@ -56,7 +57,7 @@ check_primer_hits <- function(path = getwd(),
   
   primerHits <- function(primer, fn) {
     # Counts number of reads in which the primer is found
-    nhits <- Biostrings::vcountPattern(primer, sread(readFastq(fn)), fixed = FALSE)
+    nhits <- Biostrings::vcountPattern(primer, sread(ShortRead::readFastq(fn)), fixed = FALSE)
     return(sum(nhits > 0))
   }
   
