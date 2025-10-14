@@ -5,7 +5,7 @@
 \title{Check Primer Hits}
 \usage{
 check_primer_hits(
-  path = getwd(),
+  path,
   fwd_pattern = "_R1.fastq",
   rev_pattern = "_R2.fastq",
   fwd_primer = "GGAAGTAAAAGTCGTAACAAGG",
@@ -42,7 +42,7 @@ ITS5: "GGAAGTAAAAGTCGTAACAAGG"
 ITS2: "GCTGCGTTCTTCATCGATGC"
 }
 \examples{
-# This take a while
+# This takes a while
 path <- system.file("extdata", package = "QsRutils")
 check_primer_hits(
 path = path,

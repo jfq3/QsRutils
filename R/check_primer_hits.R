@@ -34,7 +34,7 @@
 #' rev_primer = "GCTGCGTTCTTCATCGATGC"
 #' )
 
-check_primer_hits <- function(path = getwd(),
+check_primer_hits <- function(path,
                               fwd_pattern= "_R1.fastq",
                               rev_pattern= "_R2.fastq",
                               fwd_primer = "GGAAGTAAAAGTCGTAACAAGG", 
