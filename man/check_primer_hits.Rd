@@ -42,7 +42,13 @@ ITS5: "GGAAGTAAAAGTCGTAACAAGG"
 ITS2: "GCTGCGTTCTTCATCGATGC"
 }
 \examples{
-\dontrun{
-See vignette
-}
+This take a while
+path <- system.file("extdata", package = "QsRutils")
+check_primer_hits(
+path = path,
+fwd_pattern = "raw_1.fastq",
+  rev_pattern = "raw_2.fastq",
+fwd_primer = "GGAAGTAAAAGTCGTAACAAGG",
+rev_primer = "GCTGCGTTCTTCATCGATGC"
+)
 }
