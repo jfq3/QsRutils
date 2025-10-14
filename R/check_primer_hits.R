@@ -24,7 +24,7 @@
 #' @importFrom ShortRead readFastq
 #' @importFrom ShortRead sread
 #' @examples
-#' # This take a while
+#' # This takes a while
 #' path <- system.file("extdata", package = "QsRutils")
 #' check_primer_hits(
 #' path = path,
