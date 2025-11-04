@@ -43,11 +43,11 @@ avg_alpha <- function(otu, sampling_depth, iterations = 100, sum_method = "media
   c <- iterations
   a_names <- rownames(otu)
   b_names <- c("Shannon", "Observed", "Pielou", "Simpson", "InvSimpson")
-  c_names <- paste0("rep", seq_along(1:replications))
+  c_names <- paste0("rep", seq_along(1:iterations))
   d <- array(0,
              dim = c(a, b, c),
              dimnames = list(a_names, b_names, c_names))
-  for (i in seq(1:replications)) {
+  for (i in seq(1:iterations)) {
     otu_r <- vegan::rrarefy(otu, sampling_depth)
     d[, 1, i] <- vegan::diversity(otu_r, index = "shannon")
     d[, 2, i] <- vegan::specnumber(otu_r)
