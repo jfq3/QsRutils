@@ -4,14 +4,14 @@
 \alias{avg_alpha}
 \title{Average Alpha Diversity}
 \usage{
-avg_alpha(otu, sampling_depth, replications = 100, sum_method = "median")
+avg_alpha(otu, sampling_depth, iterations = 100, sum_method = "median")
 }
 \arguments{
 \item{otu}{An OTU table as a data frame with samples as rows and taxa in columns.}
 
 \item{sampling_depth}{The number of counts per sample in the sampled OTU table}
 
-\item{replications}{The number of times the OTU table should be sampled.}
+\item{iterations}{The number of times the OTU table should be sampled.}
 
 \item{sum_method}{Method (median or mean) for summarizing replication results.}
 }

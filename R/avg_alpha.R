@@ -4,7 +4,7 @@
 #'
 #' @param otu An OTU table as a data frame with samples as rows and taxa in columns.
 #' @param sampling_depth The number of counts per sample in the sampled OTU table
-#' @param replications The number of times the OTU table should be sampled.
+#' @param iterations The number of times the OTU table should be sampled.
 #' @param sum_method Method (median or mean) for summarizing replication results.
 #' 
 #' @details
@@ -37,10 +37,10 @@
 #'
 
 #'
-avg_alpha <- function(otu, sampling_depth, replications = 100, sum_method = "median") {
+avg_alpha <- function(otu, sampling_depth, iterations = 100, sum_method = "median") {
   a <- nrow(otu)
   b <- 5
-  c <- replications
+  c <- iterations
   a_names <- rownames(otu)
   b_names <- c("Shannon", "Observed", "Pielou", "Simpson", "InvSimpson")
   c_names <- paste0("rep", seq_along(1:replications))
