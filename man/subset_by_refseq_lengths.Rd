@@ -20,7 +20,7 @@ A phyloseq object filtered to have reference sequences within the length range s
 Subset physeq by refseq lengths
 }
 \details{
-Sometimes, due to sequencing errors, reference sequences have lengths less than and/or greater than the expected amplicon length. This function offers an easy way of removing such extraneous reference sequences from an experiment level phyloseq object. The default values for min_len and max_len are fro the V4 region of the 16S rRNA gene.
+Sometimes, due to sequencing errors, reference sequences have lengths less than and/or greater than the expected amplicon length. This function offers an easy way of removing such extraneous reference sequences from an experiment level phyloseq object. The default values for min_len and max_len are for the V4 region of the 16S rRNA gene.
 }
 \examples{
 \dontrun{
