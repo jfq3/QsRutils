@@ -23,7 +23,8 @@ Subset physeq by refseq lengths
 Sometimes, due to sequencing errors, reference sequences have lengths less than and/or greater than the expected lenght of the expected amplicon length. This function offeres an easy way of removing such extraneous reference sequences from an experiment level phyloseq object. Teh default values of min_len and amx_len are fro the V4 region of the 16S rRNA gene.
 }
 \examples{
-\dontrun {
+\dontrun{
 p <- subset_by_refseq_lengths(p)
 }
+
 }

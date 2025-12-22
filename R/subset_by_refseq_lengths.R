@@ -10,18 +10,20 @@
 #' @export
 #'
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #' p <- subset_by_refseq_lengths(p)
 #' }
+#' 
 subset_by_refseq_lengths <- function(p, min_len = 252, max_len = 255) {
-  refseqs_data <- refseq(p) 
-  taxa2keep <- nchar(as.character(refseqs_data)) |> 
-    as.data.frame() |> 
-    rownames_to_column(var = "taxon") |> 
-    rename(length = `nchar(as.character(refseqs_data))`) |> 
-    filter(length >= min_len & length <= max_len) |> 
-    pull(taxon)
-  p <- prune_taxa(taxa2keep, p)
+  `nchar(as.character(refseqs_data))` <- taxon <- NULL
+  refseqs_data <- phyloseq::refseq(p) 
+  taxa2keep <- base::nchar(base::as.character(refseqs_data)) |> 
+    base::as.data.frame() |> 
+    tibble::rownames_to_column(var = "taxon") |> 
+    dplyr::rename(length = `nchar(as.character(refseqs_data))`) |> 
+    dplyr::filter(length >= min_len & length <= max_len) |> 
+    dplyr::pull(taxon)
+  p <- phyloseq::prune_taxa(taxa2keep, p)
   return(p)
 }
 
