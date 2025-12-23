@@ -15,15 +15,30 @@
 #' }
 #' 
 subset_by_refseq_lengths <- function(p, min_len = 252, max_len = 255) {
-  `nchar(as.character(refseqs_data))` <- taxon <- NULL
-  refseqs_data <- phyloseq::refseq(p) 
-  taxa2keep <- base::nchar(base::as.character(refseqs_data)) |> 
-    base::as.data.frame() |> 
-    tibble::rownames_to_column(var = "taxon") |> 
-    dplyr::rename(length = `nchar(as.character(refseqs_data))`) |> 
-    dplyr::filter(length >= min_len & length <= max_len) |> 
+  # Get reference sequences
+  refseqs <- phyloseq::refseq(p)
+  if (is.null(refseqs)) {
+    stop("No reference sequences found in the phyloseq object 'p'")
+  }
+  
+  # Compute lengths: prefer Biostrings::width for XStringSet objects
+  if (requireNamespace("Biostrings", quietly = TRUE) && inherits(refseqs, "XStringSet")) {
+    seq_lengths <- Biostrings::width(refseqs)
+  } else {
+    seq_lengths <- base::nchar(as.character(refseqs))
+  }
+  
+  # Build a tibble with explicit column names to avoid name collisions (don't use 'length')
+  df <- tibble::tibble(
+    taxon = names(refseqs),
+    seq_length = as.integer(seq_lengths)
+  )
+  
+  taxa2keep <- df |>
+    dplyr::filter(seq_length >= as.integer(min_len) & seq_length <= as.integer(max_len)) |>
     dplyr::pull(taxon)
-  p <- phyloseq::prune_taxa(taxa2keep, p)
-  return(p)
+  
+  p_out <- phyloseq::prune_taxa(taxa2keep, p)
+  p_out
 }
 
