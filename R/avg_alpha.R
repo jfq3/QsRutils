@@ -2,10 +2,10 @@
 #'
 #' Calculates alpha-diversity metrics from n samplings of an OTU table to a constant number of counts per sample.
 #'
-#' This implementation focuses on speed:
-#' - vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)
-#' - uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops
-#' - optionally parallelizes replicates across cores (platform-aware)
+#' This implementation focuses on speed:  
+#' - vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)  
+#' - uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops  
+#' - optionally parallelizes replicates across cores (platform-aware).  
 #'
 #' @param otu An OTU table as a data frame or matrix with samples as rows and taxa as columns.
 #' @param sampling_depth The number of counts per sample in the sampled OTU table
@@ -16,8 +16,10 @@
 #' @details
 #' The OTU data frame supplied must be in typical vegan format: samples as row names and taxa as column names.
 #' The minimum row sum must be greater than or equal to the sampling depth.
+#' 
+#' By default the sum_method is mean. For a similar function in QIIME2, the default sum_method is median.
 #'
-#' @return Returns a dataframe with Shannon, Observed, Pielou, Simpson, InvSimpson for each sample in an OTU table.
+#' @return Returns a dataframe with Shannon, Observed, Pielou, Simpson and Inverse Simpson for each sample in an OTU table.
 #' @export
 #'
 #' @examples

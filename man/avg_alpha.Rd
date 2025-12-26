@@ -24,20 +24,22 @@ avg_alpha(
 \item{ncores}{Number of cores to use for parallel execution. Default 1 (no parallelism).}
 }
 \value{
-Returns a dataframe with Shannon, Observed, Pielou, Simpson, InvSimpson for each sample in an OTU table.
+Returns a dataframe with Shannon, Observed, Pielou, Simpson and Inverse Simpson for each sample in an OTU table.
 }
 \description{
 Calculates alpha-diversity metrics from n samplings of an OTU table to a constant number of counts per sample.
 }
 \details{
-This implementation focuses on speed:
-- vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)
-- uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops
-- optionally parallelizes replicates across cores (platform-aware)
+This implementation focuses on speed:  
+- vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)  
+- uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops  
+- optionally parallelizes replicates across cores (platform-aware).
 
 
 The OTU data frame supplied must be in typical vegan format: samples as row names and taxa as column names.
 The minimum row sum must be greater than or equal to the sampling depth.
+
+By default the sum_method is mean. For a similar function in QIIME2, the default sum_method is median.
 }
 \examples{
 {
