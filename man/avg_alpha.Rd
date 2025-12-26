@@ -2,18 +2,26 @@
 % Please edit documentation in R/avg_alpha.R
 \name{avg_alpha}
 \alias{avg_alpha}
-\title{Average Alpha Diversity}
+\title{Average Alpha Diversity (faster implementation)}
 \usage{
-avg_alpha(otu, sampling_depth, iterations = 100, sum_method = "median")
+avg_alpha(
+  otu,
+  sampling_depth,
+  iterations = 100,
+  sum_method = c("median", "mean"),
+  ncores = 1
+)
 }
 \arguments{
-\item{otu}{An OTU table as a data frame with samples as rows and taxa in columns.}
+\item{otu}{An OTU table as a data frame or matrix with samples as rows and taxa as columns.}
 
 \item{sampling_depth}{The number of counts per sample in the sampled OTU table}
 
 \item{iterations}{The number of times the OTU table should be sampled.}
 
-\item{sum_method}{Method (median or mean) for summarizing replication results.}
+\item{sum_method}{Method ("median" or "mean") for summarizing replication results.}
+
+\item{ncores}{Number of cores to use for parallel execution. Default 1 (no parallelism).}
 }
 \value{
 Returns a dataframe with Shannon, Observed, Pielou, Simpson, InvSimpson for each sample in an OTU table.
@@ -22,26 +30,19 @@ Returns a dataframe with Shannon, Observed, Pielou, Simpson, InvSimpson for each
 Calculates alpha-diversity metrics from n samplings of an OTU table to a constant number of counts per sample.
 }
 \details{
-This function generates n rarefied community data frames (OTU tables) of a 
-given sample size, calculates alpha-diversity metrics for each, and then 
-summarizes the results.
-The OTU data frame supplied must be in typical vegan format, that is with samples
-as row names and taxa as column names.
-The minimum row sum must be greater than the sampling depth.
+This implementation focuses on speed:
+- vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)
+- uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops
+- optionally parallelizes replicates across cores (platform-aware)
+
+
+The OTU data frame supplied must be in typical vegan format: samples as row names and taxa as column names.
+The minimum row sum must be greater than or equal to the sampling depth.
 }
 \examples{
 {
 data(BCI)
-dim(BCI)
-summary(rowSums(BCI))
-otu <- BCI[rowSums(BCI)>400, ]
-dim(otu)
-summary(rowSums(otu))
-avg_alpha(otu, sampling_depth = 400)
+otu <- BCI[rowSums(BCI) > 400, ]
+avg_alpha(otu, sampling_depth = 400, iterations = 100)
 }
-
-
-}
-\seealso{
-[vegann::rrarefy()]
 }
