@@ -22,12 +22,8 @@ subset_by_refseq_lengths <- function(p, min_len = 252, max_len = 255) {
   }
   
   # Compute lengths: prefer Biostrings::width for XStringSet objects
-  if (requireNamespace("Biostrings", quietly = TRUE) && inherits(refseqs, "XStringSet")) {
     seq_lengths <- Biostrings::width(refseqs)
-  } else {
-    seq_lengths <- base::nchar(as.character(refseqs))
-  }
-  
+
   # Build a tibble with explicit column names to avoid name collisions (don't use 'length')
   df <- tibble::tibble(
     taxon = names(refseqs),
