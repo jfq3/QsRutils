@@ -92,7 +92,7 @@ avg_alpha <- function(otu, sampling_depth, iterations = 100, sum_method = c("med
       reps <- parallel::parLapply(cl, seq_len(iterations), function(i) {
         # import vegan in worker
         evalq({
-          library(vegan)
+          # library(vegan)
         }, envir = .GlobalEnv)
         compute_once(i)
       })
