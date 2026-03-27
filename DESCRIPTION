@@ -7,6 +7,7 @@ Author: John Quensen
 Maintainer: John Quensen <quensenj@msu.edu>
 Description: Some functions I have written that simplify community analyses by vegan, phyloseq, etc. 
 Depends: phyloseq,
+          ggplot2,
           vegan (>= 2.4-6),
           R (>= 4.1.0)
 Imports: agricolae,
