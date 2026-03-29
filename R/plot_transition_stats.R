@@ -13,9 +13,9 @@
 plot_transition_stats <- function(trans_stats.qza) {
   
   # Find and extract Errorstats.tsv
-  zip_list <- unzip("transition-stats.qza", list = TRUE)
+  zip_list <- unzip(trans_stats.qza, list = TRUE)
   target <- zip_list$Name[grep("Errorstats\\.tsv$", zip_list$Name)]
-  d <- unzip("transition-stats.qza", files = target)
+  d <- unzip(trans_stats.qzalibra, files = target)
   
   # Read file (skip QIIME2 metadata row)
   df <- readr::read_tsv(d, comment = "#", show_col_types = FALSE)
