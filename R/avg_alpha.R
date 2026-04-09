@@ -31,86 +31,86 @@
 avg_alpha <- function(otu, sampling_depth, iterations = 100, sum_method = c("median", "mean"), ncores = 1) {
   sum_method <- match.arg(sum_method)
   summary_fun <- if (sum_method == "median") stats::median else base::mean
-  
+
   if (!is.matrix(otu) && !is.data.frame(otu)) stop("otu must be a matrix or data.frame")
   otu <- as.matrix(otu)
   if (any(is.na(otu))) stop("otu contains NA values; please remove or impute them first")
-  
-  if (nrow(otu) == 0L) return(data.frame())  # nothing to do
-  
+
+  if (nrow(otu) == 0L) return(data.frame())
+
   if (min(rowSums(otu)) < sampling_depth) {
     stop("All samples must have at least 'sampling_depth' counts (min row sum < sampling_depth).")
   }
-  
+
   a <- nrow(otu)
   sample_names <- rownames(otu)
   metric_names <- c("Shannon", "Observed", "Pielou", "Simpson", "InvSimpson")
-  
-  # single-iteration worker (vectorized per-iteration)
+
+  # Single-iteration worker (vectorized per-iteration).
+  # After rrarefy(), every row sum equals sampling_depth, so we divide by the
+  # scalar rather than recomputing rowSums() — one fewer full matrix pass.
   compute_once <- function(i) {
-    otu_r <- vegan::rrarefy(otu, sampling_depth)
-    # row sums should be equal to sampling_depth, but compute to be safe
-    rs <- rowSums(otu_r)
-    # probabilities
-    p <- otu_r / rs
-    
-    # Shannon: -sum(p * log(p)) with p==0 contributing 0
+    otu_r <- rrarefy_cpp(otu, sampling_depth)
+
+    p <- otu_r / sampling_depth  # faster than otu_r / rowSums(otu_r)
+
+    # Shannon: -sum(p * log(p)), 0*log(0) defined as 0.
+    # Avoid a second matrix allocation by reusing p: temporarily set zeros to 1
+    # so log(1) = 0, then the product p * log(p_safe) is still 0 at those cells.
+    p_safe <- p
     nz <- p > 0
-    p_log_p <- matrix(0, nrow = nrow(p), ncol = ncol(p))
-    p_log_p[nz] <- p[nz] * log(p[nz])
-    shannon <- -rowSums(p_log_p)
-    
-    # Observed (richness) -- faster than vegan::specnumber
-    observed <- rowSums(otu_r > 0)
-    
-    # Pielou's evenness: Shannon / log(S)
-    pielou <- rep(NA_real_, length(observed))
-    idx <- observed > 1
+    p_safe[!nz] <- 1
+    shannon <- -rowSums(p * log(p_safe))
+
+    observed  <- rowSums(otu_r > 0L)
+
+    # Pielou's evenness: Shannon / log(S); undefined when S <= 1
+    pielou <- rep(NA_real_, a)
+    idx <- observed > 1L
     pielou[idx] <- shannon[idx] / log(observed[idx])
-    
-    # Simpson: sum(p^2)
-    p2 <- p * p
-    simpson <- rowSums(p2)
-    
-    # InvSimpson: 1 / sum(p^2)
+
+    simpson    <- rowSums(p * p)
     invsimpson <- 1 / simpson
-    
+
     cbind(shannon, observed, pielou, simpson, invsimpson)
   }
-  
-  # run iterations, optionally in parallel
+
   if (!is.numeric(ncores) || length(ncores) != 1 || ncores < 1) ncores <- 1L
   ncores <- as.integer(ncores)
-  
+
   if (ncores == 1L) {
-    reps <- lapply(seq_len(iterations), compute_once)
+    if (sum_method == "mean") {
+      # Accumulate directly — avoids allocating the full samples x metrics x iterations array.
+      acc <- matrix(0, nrow = a, ncol = length(metric_names))
+      for (i in seq_len(iterations)) acc <- acc + compute_once(i)
+      result_mat <- acc / iterations
+    } else {
+      # Median requires all replicates in memory.
+      reps <- lapply(seq_len(iterations), compute_once)
+      arr  <- array(unlist(reps), dim = c(a, length(metric_names), iterations))
+      result_mat <- apply(arr, c(1, 2), stats::median)
+    }
   } else {
-    # Use parallel::mclapply on non-Windows; on Windows fall back to PSOCK cluster
+    # Parallel path — workers need vegan, the otu matrix, sampling_depth, and
+    # compute_once exported explicitly (PSOCK workers don't inherit the closure).
     if (.Platform$OS.type == "windows") {
       cl <- parallel::makePSOCKcluster(ncores)
       on.exit(parallel::stopCluster(cl), add = TRUE)
-      reps <- parallel::parLapply(cl, seq_len(iterations), function(i) {
-        # import vegan in worker
-        evalq({
-          # library(vegan)
-        }, envir = .GlobalEnv)
-        compute_once(i)
-      })
+      parallel::clusterEvalQ(cl, library(vegan))
+      parallel::clusterExport(cl, c("otu", "sampling_depth", "a", "compute_once"),
+                              envir = environment())
+      reps <- parallel::parLapply(cl, seq_len(iterations), compute_once)
     } else {
       reps <- parallel::mclapply(seq_len(iterations), compute_once, mc.cores = ncores)
     }
+
+    arr        <- array(unlist(reps), dim = c(a, length(metric_names), iterations))
+    result_mat <- apply(arr, c(1, 2), summary_fun)
   }
-  
-  # reps is a list of matrices (samples x metrics). Stack into an array: samples x metrics x iterations
-  arr <- array(unlist(reps), dim = c(a, length(metric_names), iterations))
-  dimnames(arr) <- list(sample_names, metric_names, paste0("rep", seq_len(iterations)))
-  
-  # summarize across iterations by sample and metric
-  result_mat <- apply(arr, c(1, 2), summary_fun)
-  
+
   result_df <- as.data.frame(result_mat, stringsAsFactors = FALSE)
   colnames(result_df) <- metric_names
   rownames(result_df) <- sample_names
-  
+
   return(result_df)
 }
