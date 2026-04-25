@@ -13,11 +13,17 @@ plot_transition_stats(trans_stats.qza)
 A ggplot of the transition probabilities
 }
 \description{
-Extracts a QIIME2/DADA2 transition stats file and returns a plot
+Extracts a QIIME2/DADA2 transition stats file and returns a plot.
 }
 \details{
-Beginning with QIIME2 version 2025.7 the DADA2 plugin requires outut of a compressed  (qza) file of the transition stats. This function makes a ggplot plot from the data in that file. It is useful in determining how well DADA2 has corrected read errors.
+Beginning with QIIME2 version 2025.7 the DADA2 plugin requires
+  output of a compressed (qza) file of the transition stats. This function
+  makes a ggplot plot from the data in that file. It is useful in
+  determining how well DADA2 has corrected read errors.
 }
 \examples{
-\dontrun{}
+\dontrun{
+  plt <- plot_transition_stats("path/to/transition_stats.qza")
+  print(plt)
+}
 }

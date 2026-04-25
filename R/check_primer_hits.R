@@ -24,15 +24,17 @@
 #' @importFrom ShortRead readFastq
 #' @importFrom ShortRead sread
 #' @examples
-#' # This takes a while
-#' path <- system.file("extdata", package = "QsRutils")
-#' check_primer_hits(
-#' path = path,
-#' fwd_pattern = "raw_1.fastq.gz",
-#'   rev_pattern = "raw_2.fastq.gz",
-#' fwd_primer = "GGAAGTAAAAGTCGTAACAAGG",
-#' rev_primer = "GCTGCGTTCTTCATCGATGC"
-#' )
+#' \dontrun{
+#'   # This takes a while and requires fastq files
+#'   path <- system.file("extdata", package = "QsRutils")
+#'   check_primer_hits(
+#'     path = path,
+#'     fwd_pattern = "raw_1.fastq.gz",
+#'     rev_pattern = "raw_2.fastq.gz",
+#'     fwd_primer = "GGAAGTAAAAGTCGTAACAAGG",
+#'     rev_primer = "GCTGCGTTCTTCATCGATGC"
+#'   )
+#' }
 
 check_primer_hits <- function(path,
                               fwd_pattern= "_R1.fastq",

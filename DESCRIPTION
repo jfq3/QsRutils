@@ -2,35 +2,43 @@ Package: QsRutils
 Type: Package
 Title: R Functions Useful for Community Ecology
 Version: 0.2.0
-Date: 2025-10-13
-Author: John Quensen
-Maintainer: John Quensen <quensenj@msu.edu>
-Description: Some functions I have written that simplify community analyses by vegan, phyloseq, etc. 
-Depends: phyloseq,
-          ggplot2,
-          vegan (>= 2.4-6),
-          R (>= 4.1.0)
-Imports: agricolae,
-         ape,
-         Biostrings,
-         dada2,
-         data.table,
-         dplyr,
-         ggplot2,
-         insect,
-         multcompView,
-         magrittr,
-         Rcpp,
-         ShortRead,
-         SRS,
-         stringr,
-         tibble
+Authors@R: person("John", "Quensen", email = "quensenj@msu.edu",
+    role = c("aut", "cre"))
+Description: A collection of utility functions for community ecology analyses,
+    with emphasis on workflows using the 'phyloseq' and 'vegan' packages.
+    Includes functions for normalizing OTU tables, computing alpha diversity
+    via rarefaction (using a fast C++ implementation), differential abundance
+    comparisons with compact letter displays, primer checking for amplicon
+    sequencing, and miscellaneous helpers for ordination plots and taxonomic
+    name formatting.
+Depends:
+    phyloseq,
+    vegan (>= 2.4-6),
+    R (>= 4.1.0)
+Imports:
+    agricolae,
+    ape,
+    Biostrings,
+    dada2,
+    data.table,
+    dplyr,
+    ggplot2,
+    insect,
+    multcompView,
+    magrittr,
+    Rcpp,
+    readr,
+    scales,
+    ShortRead,
+    SRS,
+    stringr,
+    tibble
 LinkingTo: Rcpp
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3
-Suggests: 
+Suggests:
     dunn.test,
     knitr,
     rmarkdown,
@@ -38,4 +46,6 @@ Suggests:
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://github.com/jfq3/QsRutils
+BugReports: https://github.com/jfq3/QsRutils/issues
 Config/testthat/edition: 3
+Additional_repositories: https://bioconductor.org/packages/release/bioc
