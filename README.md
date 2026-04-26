@@ -15,14 +15,23 @@ Version 0.1.4 adds a function to get ggplot2 plot limits.
 
 Version 0.1.5 adds function srs_p to normalize the OTU table in a phyloseq object. This is an alternative to "rarefying" to the same number of counts per sample.
 
+Version 0.2.0 adds several functions.  
+  avg_alpha - Calculates Shannon, Observed, Pielou, Simpson and Inverse Simpson alpha-diversity metrics as the mean or median of repetitive samplings of the OTU table.
+    check_primer_hits - Determines hits of all orientations of the primers to paired sequence files. Used to determine if merging will create overhangs.
+    format_taxon - Adds *'s around proper parts of taxon names so that the names can be rendered in italics by Rmarkdown. Useful in making ggplots.
+    hash_dna_seqs - Converts DNA seequences into hashes encoding the sequences. Useful in shortening the taxa names especially when using the R verision of DADA2 which outputs the OTU column names as the sequences themselves.
+    plot_transition_stats - Makes a plot of DADA2 transition rates from the transition stats qza file output by QIIME2 DADA2 beginning with QIIME 2 version 2025.7. Useful in determing how well DADA2 corrected sequence errors.
+    se - calculates the standard eror.
+    %wo% - given vectors x and y, returns elements of x that are not in y.
+
 Installation
 ------------
 
-You can install QsRutils from github with:
+You can install the development version of QsRutils from github with:
 
 ``` r
-install.packages("devtools")
-devtools::install_github("jfq3/QsRutils", build_vignettes = TRUE)
+install.packages("pak")
+pak::pak("jfq3/QsRutils")
 ```
 
 References
