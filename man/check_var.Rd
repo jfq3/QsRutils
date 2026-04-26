@@ -21,8 +21,8 @@ Tests for Heterogeneity of Variances in make_comparisons Result
 # Transform species matrix to proportion;
 # Check variances for the first three species
 # in the dune data set grouped by Management.
-data(dune)
-data(dune.env)
+data(dune, package = "vegan")
+data(dune.env, package = "vegan")
 dune <- vegan::decostand(dune, method = "total")
 dune <- dune[, 1:3]
 dune <- t(dune)
