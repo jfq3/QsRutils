@@ -15,7 +15,6 @@
 #' @importFrom phyloseq tax_glom
 #' @importFrom phyloseq taxa_names
 #' @importFrom phyloseq taxa_sums
-#' @importFrom phyloseq taxa_sums
 #' @importFrom phyloseq tax_table
 #' @importFrom phyloseq transform_sample_counts
 #' @examples
