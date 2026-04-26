@@ -12,8 +12,6 @@ Description: A collection of utility functions for community ecology analyses,
     sequencing, and miscellaneous helpers for ordination plots and taxonomic
     name formatting.
 Depends:
-    phyloseq,
-    vegan (>= 2.4-6),
     R (>= 4.1.0)
 Imports:
     agricolae,
@@ -26,13 +24,15 @@ Imports:
     insect,
     multcompView,
     magrittr,
+    phyloseq,
     Rcpp,
     readr,
     scales,
     ShortRead,
     SRS,
     stringr,
-    tibble
+    tibble,
+    vegan (>= 2.4-6)
 LinkingTo: Rcpp
 License: GPL-2
 Encoding: UTF-8
