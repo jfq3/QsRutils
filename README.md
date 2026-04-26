@@ -1,3 +1,8 @@
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/jfq3/QsRutils/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jfq3/QsRutils/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+
 QsRutils - R Functions Useful for Community Ecology
 ===================================================
 
