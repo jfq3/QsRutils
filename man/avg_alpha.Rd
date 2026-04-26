@@ -43,7 +43,7 @@ By default the sum_method is mean. For a similar function in QIIME2, the default
 }
 \examples{
 {
-data(BCI)
+data(BCI, package = "vegan")
 otu <- BCI[rowSums(BCI) > 400, ]
 avg_alpha(otu, sampling_depth = 400, iterations = 100)
 }

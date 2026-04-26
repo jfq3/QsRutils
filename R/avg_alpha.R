@@ -24,7 +24,7 @@
 #'
 #' @examples
 #' {
-#' data(BCI)
+#' data(BCI, package = "vegan")
 #' otu <- BCI[rowSums(BCI) > 400, ]
 #' avg_alpha(otu, sampling_depth = 400, iterations = 100)
 #' }
@@ -96,7 +96,6 @@ avg_alpha <- function(otu, sampling_depth, iterations = 100, sum_method = c("med
     if (.Platform$OS.type == "windows") {
       cl <- parallel::makePSOCKcluster(ncores)
       on.exit(parallel::stopCluster(cl), add = TRUE)
-      parallel::clusterEvalQ(cl, library(vegan))
       parallel::clusterExport(cl, c("otu", "sampling_depth", "a", "compute_once"),
                               envir = environment())
       reps <- parallel::parLapply(cl, seq_len(iterations), compute_once)
