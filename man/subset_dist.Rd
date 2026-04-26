@@ -22,10 +22,10 @@ Some distance matrices take a long time to calculate for large data sets. This i
 }
 \examples{
 otu <- veganotu(its.root)
-d <- vegdist(otu)
+d <- vegan::vegdist(otu)
 d
 str(d)
-p <- subset_samples(its.root, P_Location == "LR")
+p <- phyloseq::subset_samples(its.root, P_Location == "LR")
 d_sub <- QsRutils::subset_dist(p, d)
 str(d_sub)
 }
