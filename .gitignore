@@ -8,3 +8,7 @@ messages re pupsh to dev branch 3-6-2025.txt
 /doc/
 /Meta/
 .positai
+nul
+src/*.o
+src/*.dll
+src/*.so
