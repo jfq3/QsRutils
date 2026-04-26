@@ -21,7 +21,7 @@ check_primer_hits(
 
 \item{fwd_primer}{Nucleotide sequence of the forward primer}
 
-\item{rev_primer}{Nucleotide sequence of the reverse primet}
+\item{rev_primer}{Nucleotide sequence of the reverse primer}
 }
 \value{
 A table of hits to the sequences by all primer orientations
@@ -42,9 +42,12 @@ ITS5: "GGAAGTAAAAGTCGTAACAAGG"
 ITS2: "GCTGCGTTCTTCATCGATGC"
 }
 \examples{
-\dontrun{
-  # This takes a while and requires fastq files
-  path <- system.file("extdata", package = "QsRutils")
+{
+  # Copy example fastq files to a writable temp directory
+  src <- system.file("extdata", package = "QsRutils")
+  path <- file.path(tempdir(), "QsRutils_example")
+  dir.create(path, showWarnings = FALSE)
+  file.copy(list.files(src, pattern = "\\\\.fastq\\\\.gz$", full.names = TRUE), path)
   check_primer_hits(
     path = path,
     fwd_pattern = "raw_1.fastq.gz",

@@ -6,7 +6,7 @@
 #' @param fwd_pattern Portion of file name that distinguishes forward read files. The default is "_R1.fastq"
 #' @param rev_pattern Portion of the file name that distinguishes the reverse file. The default is "_R2.fastq"
 #' @param fwd_primer Nucleotide sequence of the forward primer
-#' @param rev_primer Nucleotide sequence of the reverse primet
+#' @param rev_primer Nucleotide sequence of the reverse primer
 #' @return A table of hits to the sequences by all primer orientations
 #' @export
 #' @details This function is for checking the effectiveness of primer trimming of ITS sequences.
@@ -24,9 +24,12 @@
 #' @importFrom ShortRead readFastq
 #' @importFrom ShortRead sread
 #' @examples
-#' \dontrun{
-#'   # This takes a while and requires fastq files
-#'   path <- system.file("extdata", package = "QsRutils")
+#' {
+#'   # Copy example fastq files to a writable temp directory
+#'   src <- system.file("extdata", package = "QsRutils")
+#'   path <- file.path(tempdir(), "QsRutils_example")
+#'   dir.create(path, showWarnings = FALSE)
+#'   file.copy(list.files(src, pattern = "\\.fastq\\.gz$", full.names = TRUE), path)
 #'   check_primer_hits(
 #'     path = path,
 #'     fwd_pattern = "raw_1.fastq.gz",
