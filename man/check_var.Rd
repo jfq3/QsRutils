@@ -2,9 +2,12 @@
 % Please edit documentation in R/check_variance.R
 \name{check_var}
 \alias{check_var}
+\alias{print.check_var}
 \title{Check Variance}
 \usage{
 check_var(otu.pc.transformed, group.vector)
+
+\method{print}{check_var}(x, ...)
 }
 \arguments{
 \item{otu.pc.transformed}{An OTU matrix of transformed data. Taxa are rows.}
@@ -12,7 +15,9 @@ check_var(otu.pc.transformed, group.vector)
 \item{group.vector}{A vector of treatments.}
 }
 \value{
-Prints test results to the console.
+A data frame of class \code{"check_var"} with one row per taxon and
+  columns \code{taxon}, \code{statistic}, \code{df}, and \code{p.value} from
+  the Fligner-Killeen test. The object can be printed with \code{print()}.
 }
 \description{
 Tests for Heterogeneity of Variances in make_comparisons Result
