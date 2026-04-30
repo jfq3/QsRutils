@@ -12,9 +12,7 @@
 #'   them. This function removes them so that they are not a nuisance.
 #'
 #' @examples
-#' \dontrun{
 #' clear_warnings()
-#' }
 #'
 clear_warnings <- function() {
   assign("last.warning", NULL, envir = baseenv())
