@@ -13,7 +13,6 @@
 #' generate_password(8)
 #'
 generate_password <- function(n, type = "alpha_numeric") {
-  set.seed(as.integer(Sys.time()))
   symb <- c("!", "@", "#", "$", "%", "^", "&", "?")
   let.nos <- c(letters, toupper(letters), as.character(0:9))
   all.symbols <- c(let.nos, symb, symb)
