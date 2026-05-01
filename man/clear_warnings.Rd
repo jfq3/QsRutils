@@ -19,6 +19,10 @@ Sometimes when working in the console R retains a list of warnings
   them. This function removes them so that they are not a nuisance.
 }
 \examples{
+{
+as.numeric(c("1", "2", "apples")
+warnings()
 clear_warnings()
-
+warnings()
+}
 }
