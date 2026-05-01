@@ -5,10 +5,11 @@ date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Compare Relative Abundances Among Treatments}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
   
-
+editor_options: 
+  chunk_output_type: console
 ---
 ## Introduction
 
@@ -57,7 +58,7 @@ If the results indicate heterogeneity of variances, you can repeat `make_compari
 
 ## Case 2 - Compare Relative Abundances of Classes within a Phylum
 
-In the example above, Ascomycota represents 77% of all of the counts. We might want to beak it down into classes. At first you might think we could simply subset `its.root` to the phylum Ascomycota and use the resulting phyloseq object:  
+In the example above, *Ascomycota* represents 77% of all of the counts. We might want to beak it down into classes. At first you might think we could simply subset `its.root` to the phylum *Ascomycota* and use the resulting phyloseq object:  
 
 ```{r, tidy=TRUE}
 asco <- subset_taxa(its.root, Phylum == "Ascomycota")
@@ -66,7 +67,7 @@ comp.asco <- make_comparisons(asco, taxrank = "Class", grps = "Label", transform
 comp.asco$comparison.table
 ```
 
-But these proportions are based on the number of Ascomycota sequences, not the total sequences in `its.root`.  (They do not add up to exactly 100% of the Ascomycota sequences because we filtered out a few small classes.) If we want them to add up to something close to 77%, the mean percentage of Ascomycota in the first example above, we have to take a different approach. We have to prepare the phyoseq object "manually," and use the the other `comp_` functions to generate the comparison table. The first part of the code below is copied from the `comp_prepare_phyloseq` function but modified to subset to Ascomycota and then agglomerate to class and remove ranks other than class. Because the transformation to percentages is performed before these steps, in the end result the percentages are based on the total number of sequences in the original `phyloseq` object. I made the following code somewhat generic by setting values for `expt`, `taxrank`, and `pc.filter`. Thus, for similar tasks, you can cut and paste the code, editing only the values in red as you wish.     
+But these proportions are based on the number of *Ascomycota* sequences, not the total sequences in `its.root`.  (They do not add up to exactly 100% of the *Ascomycota* sequences because we filtered out a few small classes.) If we want them to add up to something close to 77%, the mean percentage of *Ascomycota* in the first example above, we have to take a different approach. We have to prepare the phyoseq object "manually," and use the the other `comp_` functions to generate the comparison table. The first part of the code below is copied from the `comp_prepare_phyloseq` function but modified to subset to *Ascomycota* and then agglomerate to class and remove ranks other than class. Because the transformation to percentages is performed before these steps, in the end result the percentages are based on the total number of sequences in the original `phyloseq` object. I made the following code somewhat generic by setting values for `expt`, `taxrank`, and `pc.filter`. Thus, for similar tasks, you can cut and paste the code, editing only the values in red as you wish.     
 
 ```{r, tidy=TRUE}
 expt <- its.root
@@ -101,7 +102,7 @@ comp <- comp[order(comp$mean, decreasing = TRUE), ]
 comp
 ```
 
-These percentages are based on the total counts in `its.root` and add up to approximately 77%, the proportion of Ascomycota sequences in the first case.   
+These percentages are based on the total counts in `its.root` and add up to approximately 77%, the proportion of *Ascomycota* sequences in the first case.   
 
 ## Case 3 - Working with a Pre-existing OTU Table
 
