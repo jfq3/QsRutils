@@ -35,7 +35,7 @@ rda_labels(dune.Manure)[1:2]
 # Using vegan::cca()
 data(varespec, package = "vegan")
 data(varechem, package = "vegan")
-vare.cca <- cca(varespec ~ Al + P*(K + Baresoil), data=varechem)
+vare.cca <- vegan::cca(varespec ~ Al + P*(K + Baresoil), data=varechem)
 rda_labels(vare.cca)[1:2]
 }
 
