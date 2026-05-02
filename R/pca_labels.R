@@ -2,7 +2,7 @@
 #'
 #' Makes PCA axis labels that include the % total variance explained by each axis.
 #'
-#' @param pca Object containig the results of vegan's rda function.
+#' @param pca Object containing the results of vegan's rda function.
 #'
 #' @return A character vector, each element of which can be used to label the corresponding axis of a PCA plot.
 #'
@@ -11,8 +11,11 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' pca_labels(pca_ordination)
+#' {
+#' data(dune, package = "vegan")
+#' dune_hel <- vegan::decostand(dune, method = "hellinger")
+#' pca_ord <- vegan::rda(dune_hel)
+#' pca_labels(pca_ord)
 #' }
 #'
 pca_labels <-

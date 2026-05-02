@@ -7,7 +7,7 @@
 pca_labels(pca)
 }
 \arguments{
-\item{pca}{Object containig the results of vegan's rda function.}
+\item{pca}{Object containing the results of vegan's rda function.}
 }
 \value{
 A character vector, each element of which can be used to label the corresponding axis of a PCA plot.
@@ -19,8 +19,11 @@ Makes PCA axis labels that include the % total variance explained by each axis.
 Each element of the vector returned has the form "PCAn xx.x%" where n is the number of the PCA axis and xx.x is the % of total variance explained by the axis.
 }
 \examples{
-\dontrun{
-pca_labels(pca_ordination)
+{
+data(dune, package = "vegan")
+dune_hel <- vegan::decostand(dune, method = "hellinger")
+pca_ord <- vegan::rda(dune_hel)
+pca_labels(pca_ord)
 }
 
 }
