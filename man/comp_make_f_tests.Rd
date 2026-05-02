@@ -26,9 +26,9 @@ temp1 <- comp_prepare_phyloseq(its.root)
 temp2 <- comp_prepare_otu_table(temp1$expt.taxon.pc,
                                grps = "Label",
                                transformation = "sqrt_arc_sine")
-temp4 <- comp_make_f_tests(temp2$otu.pc,
-                          grps = "Label",
-                          var.equal = FALSE)
+temp4 <- comp_make_f_tests(temp2$otu.pc.trans,
+                           grps = temp2$groups,
+                           var.equal = TRUE)
 temp4
 }
 
