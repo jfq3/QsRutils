@@ -26,11 +26,8 @@ utils::globalVariables(c(
 #'   element_rect element_blank element_line
 #'
 #' @examples
-#' {
-#'   data(base-transition-stats.qza)
-#'   plt <- plot_transition_stats("base-transition-stats.qza")
-#'   print(plt)
-#' }
+#' qza <- system.file("extdata", "base-transition-stats.qza", package = "QsRutils")
+#' plot_transition_stats(qza)
 plot_transition_stats <- function(trans_stats.qza) {
 
   # Find and extract Errorstats.tsv
