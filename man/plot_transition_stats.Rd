@@ -22,8 +22,9 @@ Beginning with QIIME2 version 2025.7 the DADA2 plugin requires
   determining how well DADA2 has corrected read errors.
 }
 \examples{
-\dontrun{
-  plt <- plot_transition_stats("path/to/transition_stats.qza")
+{
+  data(base-transition-stats.qza)
+  plt <- plot_transition_stats("base-transition-stats.qza")
   print(plt)
 }
 }

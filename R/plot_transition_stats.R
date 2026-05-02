@@ -26,8 +26,9 @@ utils::globalVariables(c(
 #'   element_rect element_blank element_line
 #'
 #' @examples
-#' \dontrun{
-#'   plt <- plot_transition_stats("path/to/transition_stats.qza")
+#' {
+#'   data(base-transition-stats.qza)
+#'   plt <- plot_transition_stats("base-transition-stats.qza")
 #'   print(plt)
 #' }
 plot_transition_stats <- function(trans_stats.qza) {
