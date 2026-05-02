@@ -13,6 +13,10 @@ check_var(otu.pc.transformed, group.vector)
 \item{otu.pc.transformed}{An OTU matrix of transformed data. Taxa are rows.}
 
 \item{group.vector}{A vector of treatments.}
+
+\item{x}{A \code{check_var} object.}
+
+\item{...}{Arguments passed to \code{print.data.frame}.}
 }
 \value{
 A data frame of class \code{"check_var"} with one row per taxon and

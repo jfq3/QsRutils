@@ -10,7 +10,7 @@
 #'   the Fligner-Killeen test. The object can be printed with \code{print()}.
 #'
 #' @export
-#'
+#' @param ... Arguments passed to \code{print.data.frame}.
 #' @importFrom stats fligner.test
 #' @seealso make_comparisons
 #'
@@ -43,6 +43,8 @@ check_var <- function(otu.pc.transformed, group.vector) {
 
 #' @export
 #' @rdname check_var
+#' @param x A \code{check_var} object.
+#' @param ... Arguments passed to \code{print.data.frame}.
 print.check_var <- function(x, ...) {
   cat("Fligner-Killeen Test of Homogeneity of Variances\n\n")
   print(data.frame(x), ...)
