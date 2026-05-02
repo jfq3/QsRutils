@@ -14,8 +14,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' make_letter_assignments(ptt.rstl, significance = 0.05)
+#' {
+#' data(iris, package = "datasets")
+#' ptt.rslt <- with(iris, pairwise.t.test(Petal.Length, Species, pool.sd = FALSE))
+#' make_letter_assignments(ptt.rslt, significance = 0.05)
 #' }
 #'
 #' @importFrom multcompView multcompLetters
