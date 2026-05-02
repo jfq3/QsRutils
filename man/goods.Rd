@@ -16,8 +16,9 @@ A table with the headings number of singletons, number of sequences, and Good's 
 Calculates Good's coverage from a community data matrix with samples as rows and OTUs as columns.
 }
 \examples{
-\dontrun{
-goods(species_matrix)
+{
+data(dune, package = "vegan")
+goods(dune)
 }
 
 }
