@@ -11,20 +11,29 @@ comp_prepare_phyloseq(expt, taxrank = "Phylum", pc.filter = 0.01)
 
 \item{taxrank}{Taxonomic rank for which to make comparisons.}
 
-\item{pc.filter}{Minimum percentage of total counts to include rank in result.}
+\item{pc.filter}{Minimum percentage of total counts to include rank in
+result.}
 }
 \value{
 A list of two modified experiemnt level phyloseq objects
 }
 \description{
-Prepares a phyloseq object for making comparisons of relative abundances among treatments.
+Prepares a phyloseq object for making comparisons of relative abundances
+among treatments.
 }
 \details{
-The otu_table in one of the returned objects has been transformed to percentages based on the original phyloseq object supplied. The taxa in both have been filtered to include only OTUs initially present at >= pc.filter times the original total counts. For both only taxrank is included in the tax_table.
+The otu_table in one of the returned objects has been transformed to
+  percentages based on the original phyloseq object supplied. The taxa in
+  both have been filtered to include only OTUs initially present at >=
+  pc.filter times the original total counts. For both only taxrank is
+  included in the tax_table.  
+  See also the vignette
 }
 \examples{
-\dontrun{
-See vignette
+{
+data(its.root)
+temp1 <- comp_prepare_phyloseq(its.root)
+temp1
 }
 
 }

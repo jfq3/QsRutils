@@ -10,8 +10,14 @@
 #' @export
 #' @importFrom stats sd
 #' @examples
-#' \dontrun{
-#' See vignette
+#' {
+#' data("its.root")
+#' temp1 <- comp_prepare_phyloseq(its.root)
+#' temp2 <- comp_prepare_otu_table(temp1$expt.taxon.pc,
+#'                                grps = "Label",
+#'                                transformation = "sqrt_arc_sine")
+#' temp3 <- comp_means_sd(temp2$otu.pc)
+#' temp3
 #' }
 #'
 comp_means_sd <- function(otu.pc) {

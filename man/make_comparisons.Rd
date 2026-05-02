@@ -39,10 +39,16 @@ Makes multiple comparisons of the relative abundances of taxa between treatment 
 transformation may be "none" or a user-supplied function name in quotation marks or any of the built-it transformations ("arc_sine", "log_arc_sine", or "sqrt_arc_sine"). The "sqrt_arc_sine" has generaally proven most effective.
 }
 \examples{
-\dontrun{
-See vignette
+{
+data(its.root)
+make_comparisons(its.root,
+taxrank = "Phylum",
+grps = "Label",
+transformation = "sqrt_arc_sine",
+pc.filter = 0.01,
+p.adjust.method ="BH",
+pool.sd = TRUE)
 }
-
 
 }
 \seealso{

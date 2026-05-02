@@ -14,8 +14,17 @@
 #' @importFrom stats pairwise.t.test
 #' @importFrom stats sd
 #' @examples
-#' \dontrun{
-#' See vignette
+#' {
+#' data("its.root")
+#' temp1 <- comp_prepare_phyloseq(its.root)
+#' temp2 <- comp_prepare_otu_table(temp1$expt.taxon.pc,
+#'                                grps = "Label",
+#'                                transformation = "sqrt_arc_sine")
+#' comp_comparisons(otu.pc = temp2$otu.pc,
+#'                  otu.pc.trans = temp2$otu.pc.trans,
+#'                  grps = temp2$groups,
+#'                  p.adjust.method = "BH",
+#'                  pool.sd = TRUE)
 #' }
 #'
 comp_comparisons <- function(otu.pc, otu.pc.trans, grps, p.adjust.method = "BH", pool.sd = FALSE) {

@@ -1,15 +1,23 @@
 #' Prepare Phyloseq
 #'
-#' Prepares a phyloseq object for making comparisons of relative abundances among treatments.
+#' Prepares a phyloseq object for making comparisons of relative abundances
+#' among treatments.
 #'
 #' @param expt Experiment level phyloseq object.
 #' @param taxrank Taxonomic rank for which to make comparisons.
-#' @param pc.filter Minimum percentage of total counts to include rank in result.
+#' @param pc.filter Minimum percentage of total counts to include rank in
+#'   result.
 #'
 #' @return A list of two modified experiemnt level phyloseq objects
 #'
-#' @details The otu_table in one of the returned objects has been transformed to percentages based on the original phyloseq object supplied. The taxa in both have been filtered to include only OTUs initially present at >= pc.filter times the original total counts. For both only taxrank is included in the tax_table.
-#'
+#' @details The otu_table in one of the returned objects has been transformed to
+#'   percentages based on the original phyloseq object supplied. The taxa in
+#'   both have been filtered to include only OTUs initially present at >=
+#'   pc.filter times the original total counts. For both only taxrank is
+#'   included in the tax_table.  
+#'   See also the vignette 
+#'   
+#'      
 #' @export
 #' @importFrom phyloseq prune_taxa
 #' @importFrom phyloseq tax_glom
@@ -18,10 +26,12 @@
 #' @importFrom phyloseq tax_table
 #' @importFrom phyloseq transform_sample_counts
 #' @examples
-#' \dontrun{
-#' See vignette
+#' {
+#' data(its.root)
+#' temp1 <- comp_prepare_phyloseq(its.root)
+#' temp1
 #' }
-#'
+#' 
 comp_prepare_phyloseq <- function(expt, taxrank = "Phylum", pc.filter = 0.01) {
   # Make copy with percentages instead of counts.
   expt.pc <- phyloseq::transform_sample_counts(expt, function(x) 100*(x/sum(x)))

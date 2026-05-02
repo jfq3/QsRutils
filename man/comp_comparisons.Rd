@@ -30,8 +30,17 @@ A data frame of differences in relative abundances among treatments.
 Calculates the treatment comparison portion of a table comparing relative abundances of each taxon among treatments.
 }
 \examples{
-\dontrun{
-See vignette
+{
+data("its.root")
+temp1 <- comp_prepare_phyloseq(its.root)
+temp2 <- comp_prepare_otu_table(temp1$expt.taxon.pc,
+                               grps = "Label",
+                               transformation = "sqrt_arc_sine")
+comp_comparisons(otu.pc = temp2$otu.pc,
+                 otu.pc.trans = temp2$otu.pc.trans,
+                 grps = temp2$groups,
+                 p.adjust.method = "BH",
+                 pool.sd = TRUE)
 }
 
 }

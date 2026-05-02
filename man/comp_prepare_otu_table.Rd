@@ -11,24 +11,35 @@ comp_prepare_otu_table(
 )
 }
 \arguments{
-\item{expt.taxon.pc}{Phyloseq object from comp_prepare_phyloseq with percentages in the otu_table.}
+\item{expt.taxon.pc}{Phyloseq object from comp_prepare_phyloseq with
+percentages in the otu_table.}
 
 \item{grps}{Factor in sample data for which to make comparisons.}
 
 \item{transformation}{Transformation function to use.}
 }
 \value{
-A list consisting of an OTU table with percentages, an OTU table with transformed data, and a vector of treatment groups.
+A list consisting of an OTU table with percentages, an OTU table with
+  transformed data, and a vector of treatment groups.
 }
 \description{
-Make OTU tables for making comparisons of relative abundances among treatments.
+Make OTU tables for making comparisons of relative abundances among
+treatments.
 }
 \details{
-transformation may be "none" or a user-supplied function name in quotation marks or any of the built-it transformations("arc_sine", "log_arc_sine", or "sqrt_arc_sine"). The +sqrt_arc_sine" has generaally proven most effective.
+transformation may be "none" or a user-supplied function name in
+  quotation marks or any of the built-it transformations("arc_sine",
+  "log_arc_sine", or "sqrt_arc_sine"). The "sqrt_arc_sine" has generally
+  proven most effective.
 }
 \examples{
-\dontrun{
-See vignette
+{
+data("its.root")
+temp1 <- comp_prepare_phyloseq(its.root)
+temp2 <- comp_prepare_otu_table(temp1$expt.taxon.pc,
+                               grps = "Label",
+                               transformation = "sqrt_arc_sine")
+temp2
 }
 
 }

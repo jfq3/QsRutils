@@ -9,7 +9,7 @@ comp_make_f_tests(otu.pc.trans, grps, var.equal = FALSE)
 \arguments{
 \item{otu.pc.trans}{An OTU table of transformed data from comp_prepare_otu_table.}
 
-\item{grps}{A vector of treatemnt groups for which to make comparisons.}
+\item{grps}{A vector of treatment groups for which to make comparisons.}
 
 \item{var.equal}{Logical, whether or not to assume variances equal.}
 }
@@ -20,8 +20,16 @@ A data frame of the F-test results.
 Calclates omnibus F tests to be included in a table comparing relative abundances of each taxon among treatments.
 }
 \examples{
-\dontrun{
-See vignette
+{
+data("its.root")
+temp1 <- comp_prepare_phyloseq(its.root)
+temp2 <- comp_prepare_otu_table(temp1$expt.taxon.pc,
+                               grps = "Label",
+                               transformation = "sqrt_arc_sine")
+temp4 <- comp_make_f_tests(temp2$otu.pc,
+                          grps = "Label",
+                          var.equal = FALSE)
+temp4
 }
 
 }
