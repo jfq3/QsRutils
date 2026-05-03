@@ -11,8 +11,10 @@
 #' @importFrom data.table data.table
 #' @importFrom phyloseq phy_tree
 #' @examples
-#' \dontrun{
-#' expt.rooted <- root_phyloseq_tree(expt.unrooted)
+#' {
+#' data("expt")
+#' expt.rooted <- root_phyloseq_tree(expt)
+#' ape::is.rooted(phyloseq::phy_tree(expt.rooted))
 #' }
 #' 
 root_phyloseq_tree <- function(phylo) {

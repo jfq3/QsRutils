@@ -15,8 +15,11 @@
 #' @importFrom phyloseq sample_sums
 #' @importFrom phyloseq otu_table 
 #' @examples
-#' \dontrun{
-#' srs_p(p)
+#' {
+#' data("expt")
+#' phyloseq::sample_sums(expt)
+#' expt_srs <- srs_p(p =  expt)
+#' phyloseq::sample_sums(expt_srs)
 #' }
 #' 
 
