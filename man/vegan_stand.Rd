@@ -20,9 +20,8 @@ Returns a phyloseq object with transformed OTU table.
 Applies any vegan decostand standardization method to a phyloseq OTU table.
 }
 \examples{
-{
-data("expt")
-vegan_stand(expt, method = "hellinger")
+\dontrun{
+veganstand(expt, method = "hellinger")
 }
 
 }

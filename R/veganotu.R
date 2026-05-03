@@ -8,10 +8,8 @@
 #' @export
 #'
 #' @examples
-#' {
-#' data("expt")
-#' # Show only first 5 columns and rows:
-#' veganotu(physeq = expt)[1:5, 1:5]
+#' \dontrun{
+#' veganotu(physeq)
 #' }
 #'
 #' @importFrom phyloseq otu_table
