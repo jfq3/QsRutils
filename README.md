@@ -31,7 +31,7 @@ Version 0.2.0 adds several functions.
 
 Installation
 ------------
-Install from CRAN with install.packages"QsRutils")  
+Install from CRAN with install.packages("QsRutils")  
 
 You can install the development version of QsRutils from github with:
 
