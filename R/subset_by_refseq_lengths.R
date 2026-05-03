@@ -10,8 +10,15 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' p <- subset_by_refseq_lengths(p)
+#' {
+#' data("expt")
+#' expt@refseq@ranges@width |> 
+#'   summary()
+#' expt_filt <- subset_by_refseq_lengths(p = expt,
+#'                                       min_len = 400,
+#'                                       max_len = 420)
+#' expt_filt@refseq@ranges@width |> 
+#'   summary()
 #' }
 #' 
 subset_by_refseq_lengths <- function(p, min_len = 252, max_len = 255) {
