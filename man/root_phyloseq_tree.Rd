@@ -19,8 +19,10 @@ Roots an unrooted tree in a phyloseq object
 The tree is rooted by the longest terminal branch.
 }
 \examples{
-\dontrun{
-expt.rooted <- root_phyloseq_tree(expt.unrooted)
+{
+data("expt")
+expt.rooted <- root_phyloseq_tree(expt)
+ape::is.rooted(phyloseq::phy_tree(expt.rooted))
 }
 
 }

@@ -23,8 +23,15 @@ Subset physeq by refseq lengths
 Sometimes, due to sequencing errors, reference sequences have lengths less than and/or greater than the expected amplicon length. This function offers an easy way of removing such extraneous reference sequences from an experiment level phyloseq object. The default values for min_len and max_len are fro the V4 region of the 16S rRNA gene.
 }
 \examples{
-\dontrun{
-p <- subset_by_refseq_lengths(p)
+{
+data("expt")
+expt@refseq@ranges@width |> 
+  summary()
+expt_filt <- subset_by_refseq_lengths(p = expt,
+                                      min_len = 400,
+                                      max_len = 420)
+expt_filt@refseq@ranges@width |> 
+  summary()
 }
 
 }

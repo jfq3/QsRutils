@@ -19,8 +19,11 @@ Normalize sample counts using scaling with ranked subsampling (SRS)
 This is an alternative to "rarefying" an OTU table to a constant sample size.  The phyloseq object submitted must be pruned to the desired sample size before using this function.
 }
 \examples{
-\dontrun{
-srs_p(p)
+{
+data("expt")
+phyloseq::sample_sums(expt)
+expt_srs <- srs_p(p =  expt)
+phyloseq::sample_sums(expt_srs)
 }
 
 }

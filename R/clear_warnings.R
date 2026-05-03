@@ -14,9 +14,9 @@
 #' @examples
 #' {
 #' as.numeric(c("1", "2", "apples"))
-#' warnings()
+#' summary(warnings())
 #' clear_warnings()
-#' warnings()
+#' summary(warnings())
 #' }
 clear_warnings <- function() {
   tryCatch(

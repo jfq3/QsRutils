@@ -18,7 +18,7 @@
 #' d
 #' str(d)
 #' p <- phyloseq::subset_samples(its.root, P_Location == "LR")
-#' d_sub <- QsRutils::subset_dist(p, d)
+#' d_sub <- subset_dist(p, d)
 #' str(d_sub)
 
 subset_dist <- function(physeq, d.matrix) {

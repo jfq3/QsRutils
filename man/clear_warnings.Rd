@@ -21,8 +21,8 @@ Sometimes when working in the console R retains a list of warnings
 \examples{
 {
 as.numeric(c("1", "2", "apples"))
-warnings()
+summary(warnings())
 clear_warnings()
-warnings()
+summary(warnings())
 }
 }

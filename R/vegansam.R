@@ -8,8 +8,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' vegansam(physeq)
+#' {
+#' data("expt")
+#' vegansam(physeq = expt)
 #' }
 #'
 #' @importFrom phyloseq sample_data

@@ -3,7 +3,7 @@
 \docType{data}
 \name{its.root}
 \alias{its.root}
-\title{An Experiment Level phyloseq Object}
+\title{An ITS Experiment Level phyloseq Object}
 \format{
 A phyloseq object with otu_table, sample_data and tax_table. The sample_data variables are:
 \describe{
