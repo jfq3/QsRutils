@@ -16,8 +16,10 @@ A matrix with samples in rows and OTUs in columns.
 Extracts a vegan compatible OTU table from a phyloseq object.
 }
 \examples{
-\dontrun{
-veganotu(physeq)
+{
+data("expt")
+# Show only first 5 columns and rows:
+veganotu(physeq = expt)[1:5, 1:5]
 }
 
 }

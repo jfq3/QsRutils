@@ -16,8 +16,9 @@ A data frame with samples in rows and factors and/or variables in columns.
 Extracts a sample data table from a phyloseq object.
 }
 \examples{
-\dontrun{
-vegansam(physeq)
+{
+data("expt")
+vegansam(physeq = expt)
 }
 
 }
