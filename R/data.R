@@ -1,4 +1,4 @@
-#' An Experiment Level phyloseq Object
+#' An ITS Experiment Level phyloseq Object
 #'
 #' Based on ITS2 sequences amplified from corn roots.
 #'
@@ -9,6 +9,19 @@
 #'   \item{Label}{A code for treatments: 2HR, 2LR, 3HR, 3LR, CHR, CLR}
 #' }
 "its.root"
+
+#' A 16S Experiment Level phyloseq Object
+#'
+#' Based on 16S rRNA gene sequences from Iowa loess soil
+#'
+#' @format A phyloseq object with otu_table, sample_data, tax_table,
+#'   phylogenetic tree and refseqs.
+#'   \describe{
+#'     \item{Depth}{0-20 cm, 60-80cm}
+#'     \item{Site}{HNC}
+#'     \item{Slope}{Top, Middle, Bottom}
+#'     }
+"expt"
 
 #' A Data File in Long Format
 #'
