@@ -30,10 +30,13 @@ utils::globalVariables(c(
 #' plot_transition_stats(qza)
 plot_transition_stats <- function(trans_stats.qza) {
 
-  # Find and extract Errorstats.tsv
+  # Find and extract Errorstats.tsv to a temp directory
   zip_list <- utils::unzip(trans_stats.qza, list = TRUE)
   target <- zip_list$Name[grep("Errorstats\\.tsv$", zip_list$Name)]
-  d <- utils::unzip(trans_stats.qza, files = target)
+  exdir <- tempfile()
+  dir.create(exdir)
+  on.exit(unlink(exdir, recursive = TRUE), add = TRUE)
+  d <- utils::unzip(trans_stats.qza, files = target, exdir = exdir)
 
   # Read file (skip QIIME2 metadata row)
   df <- readr::read_tsv(d, comment = "#", show_col_types = FALSE)
