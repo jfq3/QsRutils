@@ -14,7 +14,7 @@
 
 <meta name="date" content="2017-06-03" />
 
-<title>Table A-16</title>
+<title>Recreate arc sine Conversion Table A-16</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -50,6 +50,7 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -338,7 +339,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">Table A-16</h1>
+<h1 class="title toc-ignore">Recreate arc sine Conversion Table
+A-16</h1>
 <h4 class="author">John Quensen</h4>
 <h4 class="date">June 3, 2017</h4>
 
@@ -358,46 +360,46 @@ degrees, you can convert from radians to degrees with the function
 <code>rad2deg</code>. Thus <code>rad2deg(arc_sine(15))</code> =
 22.786498.</p>
 <p>Just for kicks, the following code reproduces Table A-16:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>part1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">10</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rad2deg</span>(<span class="fu">arc_sine</span>(((i<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">10</span>)<span class="sc">+</span>((j<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">100</span>)))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    part1[i,j] <span class="ot">&lt;-</span> <span class="fu">formatC</span>(x, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>col1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="fl">0.9</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>part1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(col1, part1)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(part1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>part2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">98</span>, <span class="at">ncol =</span> <span class="dv">10</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">98</span>) {</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rad2deg</span>(<span class="fu">arc_sine</span>(i<span class="sc">+</span>((j<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">10</span>)))</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    part2[i,j] <span class="ot">&lt;-</span><span class="fu">formatC</span>(x, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>col1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">98</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>part2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(col1, part2)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(part2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>part3 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">11</span>, <span class="at">ncol =</span> <span class="dv">10</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>) {</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="dv">99</span> <span class="sc">+</span> ((i<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">10</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> ((j<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">100</span>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>((m<span class="sc">+</span>n) <span class="sc">&lt;=</span> <span class="dv">100</span>) {</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">&lt;-</span> <span class="fu">rad2deg</span>(<span class="fu">arc_sine</span>(m<span class="sc">+</span>n))</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>       part3[i,j] <span class="ot">&lt;-</span> <span class="fu">formatC</span>(x, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>col1 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">99</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="dv">1</span>)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>part3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(col1, part3)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(part3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>a16 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(part1, part2, part3)</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(a16, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;Table of Angles Corresponding to Percentages, after Bliss(1937).&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>part1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">10</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rad2deg</span>(<span class="fu">arc_sine</span>(((i<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">10</span>)<span class="sc">+</span>((j<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">100</span>)))</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>    part1[i,j] <span class="ot">&lt;-</span> <span class="fu">formatC</span>(x, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>  }</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>col1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="fl">0.9</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>part1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(col1, part1)</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="fu">colnames</span>(part1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>part2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">98</span>, <span class="at">ncol =</span> <span class="dv">10</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">98</span>) {</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rad2deg</span>(<span class="fu">arc_sine</span>(i<span class="sc">+</span>((j<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">10</span>)))</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>    part2[i,j] <span class="ot">&lt;-</span><span class="fu">formatC</span>(x, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>  }</span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>}</span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>col1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">98</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>part2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(col1, part2)</span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="fu">colnames</span>(part2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>part3 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">11</span>, <span class="at">ncol =</span> <span class="dv">10</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>) {</span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="dv">99</span> <span class="sc">+</span> ((i<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">10</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a>    n <span class="ot">&lt;-</span> ((j<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">100</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a>    <span class="cf">if</span>((m<span class="sc">+</span>n) <span class="sc">&lt;=</span> <span class="dv">100</span>) {</span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a>      x <span class="ot">&lt;-</span> <span class="fu">rad2deg</span>(<span class="fu">arc_sine</span>(m<span class="sc">+</span>n))</span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a>       part3[i,j] <span class="ot">&lt;-</span> <span class="fu">formatC</span>(x, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a>    }</span>
+<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a>  }</span>
+<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a>}</span>
+<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a>col1 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">99</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="dv">1</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a>part3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(col1, part3)</span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="fu">colnames</span>(part3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a>a16 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(part1, part2, part3)</span>
+<span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(a16, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;Table of Angles Corresponding to Percentages, after Bliss(1937).&quot;</span>)</span></code></pre></div>
 <table>
 <caption>Table of Angles Corresponding to Percentages, after
 Bliss(1937).</caption>

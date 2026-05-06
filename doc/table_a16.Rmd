@@ -1,5 +1,5 @@
 ---
-title: "Table A-16"
+title: "Recreate arc sine Conversion Table A-16"
 author: "John Quensen"
 date: "June 3, 2017"
 output: rmarkdown::html_vignette

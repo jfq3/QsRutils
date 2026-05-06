@@ -1,4 +1,4 @@
-## ---- echo=FALSE--------------------------------------------------------------
+## ----echo=FALSE---------------------------------------------------------------
 suppressWarnings(suppressPackageStartupMessages(library(QsRutils)))
 suppressWarnings(suppressPackageStartupMessages(library(knitr)))
 
