@@ -15,7 +15,7 @@ comp_prepare_phyloseq(expt, taxrank = "Phylum", pc.filter = 0.01)
 result.}
 }
 \value{
-A list of two modified experiemnt level phyloseq objects
+A list of two modified experiment level phyloseq objects.
 }
 \description{
 Prepares a phyloseq object for making comparisons of relative abundances
@@ -25,9 +25,9 @@ among treatments.
 The otu_table in one of the returned objects has been transformed to
   percentages based on the original phyloseq object supplied. The taxa in
   both have been filtered to include only OTUs initially present at >=
-  pc.filter times the original total counts. For both only taxrank is
+  pc.filter times the original total counts. For both only, taxrank is
   included in the tax_table.  
-  See also the vignette
+  See also the `vignette_make_comparisons`.
 }
 \examples{
 {

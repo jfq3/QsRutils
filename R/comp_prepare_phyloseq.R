@@ -8,14 +8,14 @@
 #' @param pc.filter Minimum percentage of total counts to include rank in
 #'   result.
 #'
-#' @return A list of two modified experiemnt level phyloseq objects
+#' @return A list of two modified experiment level phyloseq objects.
 #'
 #' @details The otu_table in one of the returned objects has been transformed to
 #'   percentages based on the original phyloseq object supplied. The taxa in
 #'   both have been filtered to include only OTUs initially present at >=
-#'   pc.filter times the original total counts. For both only taxrank is
+#'   pc.filter times the original total counts. For both only, taxrank is
 #'   included in the tax_table.  
-#'   See also the vignette 
+#'   See also the `vignette_make_comparisons`.
 #'   
 #'      
 #' @export
