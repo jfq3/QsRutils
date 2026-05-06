@@ -13,33 +13,40 @@ avg_alpha(
 )
 }
 \arguments{
-\item{otu}{An OTU table as a data frame or matrix with samples as rows and taxa as columns.}
+\item{otu}{An OTU table as a data frame or matrix with samples as rows and
+taxa as columns.}
 
-\item{sampling_depth}{The number of counts per sample in the sampled OTU table}
+\item{sampling_depth}{The number of counts per sample in the sampled OTU
+table}
 
 \item{iterations}{The number of times the OTU table should be sampled.}
 
-\item{sum_method}{Method ("median" or "mean") for summarizing replication results.}
+\item{sum_method}{Method ("median" or "mean") for summarizing replication
+results.}
 
-\item{ncores}{Number of cores to use for parallel execution. Default 1 (no parallelism).}
+\item{ncores}{Number of cores to use for parallel execution. Default 1 (no
+parallelism).}
 }
 \value{
-Returns a dataframe with Shannon, Observed, Pielou, Simpson and Inverse Simpson for each sample in an OTU table.
+Returns a data frame with Shannon, Observed, Pielou, Simpson and
+  Inverse Simpson as the column names for each sample as the row names in an OTU table.
 }
 \description{
-Calculates alpha-diversity metrics from n samplings of an OTU table to a constant number of counts per sample.
+Calculates alpha-diversity metrics from n samplings of an OTU table to a
+constant number of counts per sample.
 }
 \details{
-This implementation focuses on speed:  
-- vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)  
-- uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops  
+This implementation focuses on speed:
+- vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)
+- uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops
 - optionally parallelizes replicates across cores (platform-aware).
 
+The OTU data frame supplied must be in typical vegan format: samples
+as row names and taxa as column names. The minimum row sum must be greater
+than or equal to the sampling depth.
 
-The OTU data frame supplied must be in typical vegan format: samples as row names and taxa as column names.
-The minimum row sum must be greater than or equal to the sampling depth.
-
-By default the sum_method is mean. For a similar function in QIIME2, the default sum_method is median.
+By default the sum_method is mean. For a similar function in QIIME2, the
+default sum_method is median.
 }
 \examples{
 {
