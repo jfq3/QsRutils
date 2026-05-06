@@ -1,12 +1,15 @@
 #' Make F Tests
 #'
-#' Calclates omnibus F tests to be included in a table comparing relative abundances of each taxon among treatments.
+#' Calculates omnibus F tests to be included in a table comparing relative abundances of each taxon among treatments.
 #'
 #' @param otu.pc.trans An OTU table of transformed data from comp_prepare_otu_table.
 #' @param grps A vector of treatment groups for which to make comparisons.
 #' @param var.equal Logical, whether or not to assume variances equal.
 #'
 #' @return A data frame of the F-test results.
+#' @details
+#' The row names of the data frame returned are taxa. The column names are `F`, `Prob`, `sig` and `F_value`. The column `sig` includes asterisks indicating the degree of significance and the `F_value` column is the F value to 2 decimal places plus the asterisk(s) from `sig`. 
+#' 
 #' @export
 #' @importFrom stats oneway.test
 #' @examples
