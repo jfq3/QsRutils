@@ -8,7 +8,7 @@
 #' @param grps Factor in sample data for which to make comparisons.
 #' @param transformation Transformation function to use.
 #'
-#' @details transformation may be "none" or a user-supplied function name in
+#' @details The transformation applied may be "none" or a user-supplied function name in
 #'   quotation marks or any of the built-it transformations("arc_sine",
 #'   "log_arc_sine", or "sqrt_arc_sine"). The "sqrt_arc_sine" has generally
 #'   proven most effective.
