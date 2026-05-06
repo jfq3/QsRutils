@@ -12,7 +12,7 @@
 
 <meta name="author" content="John Quensen" />
 
-<meta name="date" content="2023-04-10" />
+<meta name="date" content="2026-05-06" />
 
 <title>Compare Relative Abundances Among Treatments</title>
 
@@ -50,6 +50,7 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -341,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">Compare Relative Abundances Among
 Treatments</h1>
 <h4 class="author">John Quensen</h4>
-<h4 class="date">2023-04-10</h4>
+<h4 class="date">2026-05-06</h4>
 
 
 
@@ -425,23 +426,23 @@ give examples of three cases below.</p>
 function. First, load the example data set. It is a
 <code>phyloseq</code> object with otu_table, sample_data, and
 tax_table.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(phyloseq))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(QsRutils))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(ggplot2))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(reshape2))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;its.root&quot;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>its.root</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(phyloseq))</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(QsRutils))</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(ggplot2))</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(reshape2))</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;its.root&quot;</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>its.root</span></code></pre></div>
 <pre><code>## phyloseq-class experiment-level object
 ## otu_table()   OTU Table:         [ 1496 taxa and 23 samples ]
 ## sample_data() Sample Data:       [ 23 samples by 8 sample variables ]
 ## tax_table()   Taxonomy Table:    [ 1496 taxa by 7 taxonomic ranks ]</code></pre>
 <p>Then use the function <code>make_comparisons</code>. The comparison
 table itself is the first item in the list returned.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>comp.phyla <span class="ot">&lt;-</span> <span class="fu">make_comparisons</span>(its.root, <span class="at">taxrank =</span> <span class="st">&quot;Phylum&quot;</span>, <span class="at">grps =</span> <span class="st">&quot;Label&quot;</span>, <span class="at">transformation =</span> <span class="st">&quot;sqrt_arc_sine&quot;</span>,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">pc.filter =</span> <span class="fl">0.01</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>, <span class="at">pool.sd =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> comp.phyla<span class="sc">$</span>comparison.table</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> comp[<span class="fu">order</span>(comp<span class="sc">$</span>mean, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>comp</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>comp.phyla <span class="ot">&lt;-</span> <span class="fu">make_comparisons</span>(its.root, <span class="at">taxrank =</span> <span class="st">&quot;Phylum&quot;</span>, <span class="at">grps =</span> <span class="st">&quot;Label&quot;</span>, <span class="at">transformation =</span> <span class="st">&quot;sqrt_arc_sine&quot;</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    <span class="at">pc.filter =</span> <span class="fl">0.01</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>, <span class="at">pool.sd =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>comp <span class="ot">&lt;-</span> comp.phyla<span class="sc">$</span>comparison.table</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>comp <span class="ot">&lt;-</span> comp[<span class="fu">order</span>(comp<span class="sc">$</span>mean, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>comp</span></code></pre></div>
 <pre><code>##                mean    sd        F           2HR           3HR           CHR
 ## Ascomycota    77.00 21.22    3.72*  88.5+/-6.29a 90.13+/-4.16a  86.94+/-6.1a
 ## Glomeromycota 18.42 23.14  9.01*** 7.05+/-3.65ab  1.01+/-0.29a 2.79+/-1.77ab
@@ -455,27 +456,13 @@ table itself is the first item in the list returned.</p>
 transformed data and the vector of treatment groups. It performs a
 Fligner-Killeen test for homogeneity of variances for each taxon and
 prints the results to the console.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_var</span>(comp.phyla<span class="sc">$</span>taxa.pc.transformed, comp.phyla<span class="sc">$</span>groups)</span></code></pre></div>
-<pre><code>## [1] &quot;Basidiomycota&quot;
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">check_var</span>(comp.phyla<span class="sc">$</span>taxa.pc.transformed, comp.phyla<span class="sc">$</span>groups)</span></code></pre></div>
+<pre><code>## Fligner-Killeen Test of Homogeneity of Variances
 ## 
-##  Fligner-Killeen test of homogeneity of variances
-## 
-## data:  otu.pc.transformed[i, ] and group.vector
-## Fligner-Killeen:med chi-squared = 3.1903, df = 5, p-value = 0.6707
-## 
-## [1] &quot;Ascomycota&quot;
-## 
-##  Fligner-Killeen test of homogeneity of variances
-## 
-## data:  otu.pc.transformed[i, ] and group.vector
-## Fligner-Killeen:med chi-squared = 3.5737, df = 5, p-value = 0.6123
-## 
-## [1] &quot;Glomeromycota&quot;
-## 
-##  Fligner-Killeen test of homogeneity of variances
-## 
-## data:  otu.pc.transformed[i, ] and group.vector
-## Fligner-Killeen:med chi-squared = 3.565, df = 5, p-value = 0.6136</code></pre>
+##           taxon statistic df   p.value
+## 1 Basidiomycota  3.190297  5 0.6706743
+## 2    Ascomycota  3.573743  5 0.6122599
+## 3 Glomeromycota  3.565002  5 0.6135756</code></pre>
 <p>If the results indicate heterogeneity of variances, you can repeat
 <code>make_comparisons</code> with <code>sd.pool = FALSE</code> and/or
 try a different transformation. Three transformation functions are
@@ -488,15 +475,15 @@ custom function supplied by the user.
 </div>
 <div id="case-2---compare-relative-abundances-of-classes-within-a-phylum" class="section level2">
 <h2>Case 2 - Compare Relative Abundances of Classes within a Phylum</h2>
-<p>In the example above, Ascomycota represents 77% of all of the counts.
-We might want to beak it down into classes. At first you might think we
-could simply subset <code>its.root</code> to the phylum Ascomycota and
-use the resulting phyloseq object:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>asco <span class="ot">&lt;-</span> <span class="fu">subset_taxa</span>(its.root, Phylum <span class="sc">==</span> <span class="st">&quot;Ascomycota&quot;</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>asco <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(<span class="fu">taxa_sums</span>(asco) <span class="sc">&gt;</span> <span class="dv">0</span>, asco)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>comp.asco <span class="ot">&lt;-</span> <span class="fu">make_comparisons</span>(asco, <span class="at">taxrank =</span> <span class="st">&quot;Class&quot;</span>, <span class="at">grps =</span> <span class="st">&quot;Label&quot;</span>, <span class="at">transformation =</span> <span class="st">&quot;sqrt_arc_sine&quot;</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">pc.filter =</span> <span class="fl">0.01</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>, <span class="at">pool.sd =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>comp.asco<span class="sc">$</span>comparison.table</span></code></pre></div>
+<p>In the example above, <em>Ascomycota</em> represents 77% of all of
+the counts. We might want to beak it down into classes. At first you
+might think we could simply subset <code>its.root</code> to the phylum
+<em>Ascomycota</em> and use the resulting phyloseq object:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>asco <span class="ot">&lt;-</span> <span class="fu">subset_taxa</span>(its.root, Phylum <span class="sc">==</span> <span class="st">&quot;Ascomycota&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>asco <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(<span class="fu">taxa_sums</span>(asco) <span class="sc">&gt;</span> <span class="dv">0</span>, asco)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>comp.asco <span class="ot">&lt;-</span> <span class="fu">make_comparisons</span>(asco, <span class="at">taxrank =</span> <span class="st">&quot;Class&quot;</span>, <span class="at">grps =</span> <span class="st">&quot;Label&quot;</span>, <span class="at">transformation =</span> <span class="st">&quot;sqrt_arc_sine&quot;</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    <span class="at">pc.filter =</span> <span class="fl">0.01</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>, <span class="at">pool.sd =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>comp.asco<span class="sc">$</span>comparison.table</span></code></pre></div>
 <pre><code>##                     mean    sd      F            2HR              3HR
 ## Dothideomycetes    37.64 20.56   0.93 41.34+/-19.87a     23.53+/-9.5a
 ## Eurotiomycetes     12.92 14.73   0.84 17.52+/-10.64a   16.08+/-22.62a
@@ -515,54 +502,55 @@ use the resulting phyloseq object:</p>
 ## Orbiliomycetes       0.23+/-0.03ab
 ## Sordariomycetes      4.78+/-3.38bc
 ## unclass_Ascomycota 52.96+/-33.09bc</code></pre>
-<p>But these proportions are based on the number of Ascomycota
+<p>But these proportions are based on the number of <em>Ascomycota</em>
 sequences, not the total sequences in <code>its.root</code>. (They do
-not add up to exactly 100% of the Ascomycota sequences because we
-filtered out a few small classes.) If we want them to add up to
-something close to 77%, the mean percentage of Ascomycota in the first
-example above, we have to take a different approach. We have to prepare
-the phyoseq object “manually,” and use the the other <code>comp_</code>
-functions to generate the comparison table. The first part of the code
-below is copied from the <code>comp_prepare_phyloseq</code> function but
-modified to subset to Ascomycota and then agglomerate to class and
-remove ranks other than class. Because the transformation to percentages
-is performed before these steps, in the end result the percentages are
-based on the total number of sequences in the original
-<code>phyloseq</code> object. I made the following code somewhat generic
-by setting values for <code>expt</code>, <code>taxrank</code>, and
-<code>pc.filter</code>. Thus, for similar tasks, you can cut and paste
-the code, editing only the values in red as you wish.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>expt <span class="ot">&lt;-</span> its.root</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>expt.pc <span class="ot">&lt;-</span> <span class="fu">transform_sample_counts</span>(expt, <span class="cf">function</span>(x) <span class="dv">100</span> <span class="sc">*</span> (x<span class="sc">/</span><span class="fu">sum</span>(x)))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset to higher rank</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>expt.taxon <span class="ot">&lt;-</span> <span class="fu">subset_taxa</span>(expt, Phylum <span class="sc">==</span> <span class="st">&quot;Ascomycota&quot;</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>expt.taxon.pc <span class="ot">&lt;-</span> <span class="fu">subset_taxa</span>(expt.pc, Phylum <span class="sc">==</span> <span class="st">&quot;Ascomycota&quot;</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Agglomerate to desired rank.</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>taxrank <span class="ot">&lt;-</span> <span class="st">&quot;Class&quot;</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>expt.taxon <span class="ot">&lt;-</span> <span class="fu">tax_glom</span>(expt.taxon, taxrank)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>expt.taxon.pc <span class="ot">&lt;-</span> <span class="fu">tax_glom</span>(expt.taxon.pc, taxrank)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove ranks other than taxrank</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">tax_table</span>(expt.taxon) <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(expt.taxon)[, taxrank]</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">tax_table</span>(expt.taxon.pc) <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(expt.taxon.pc)[, taxrank]</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out taxa that are &lt; 0.1% of the total sequences in expt.</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>pc.filter <span class="ot">&lt;-</span> <span class="fl">0.001</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">taxa_sums</span>(expt)) <span class="sc">*</span> pc.filter</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>expt.taxon <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(<span class="fu">taxa_sums</span>(expt.taxon) <span class="sc">&gt;=</span> n, expt.taxon)</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>expt.taxon.pc <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(<span class="fu">taxa_names</span>(expt.taxon), expt.taxon.pc)</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Make comparisons</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>temp2 <span class="ot">&lt;-</span> <span class="fu">comp_prepare_otu_table</span>(expt.taxon.pc, <span class="at">grps =</span> <span class="st">&quot;Label&quot;</span>, <span class="at">transformation =</span> <span class="st">&quot;sqrt_arc_sine&quot;</span>)</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>temp3 <span class="ot">&lt;-</span> <span class="fu">comp_means_sd</span>(temp2<span class="sc">$</span>otu.pc)</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>temp4 <span class="ot">&lt;-</span> <span class="fu">comp_make_f_tests</span>(temp2<span class="sc">$</span>otu.pc.trans, <span class="at">grps =</span> temp2<span class="sc">$</span>groups, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>temp5 <span class="ot">&lt;-</span> <span class="fu">comp_comparisons</span>(<span class="at">otu.pc =</span> temp2<span class="sc">$</span>otu.pc, <span class="at">otu.pc.trans =</span> temp2<span class="sc">$</span>otu.pc.trans,</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">grps =</span> temp2<span class="sc">$</span>groups, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>, <span class="at">pool.sd =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">comp_assemble</span>(temp3, temp4, temp5)</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> comp[<span class="fu">order</span>(comp<span class="sc">$</span>mean, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>comp</span></code></pre></div>
+not add up to exactly 100% of the <em>Ascomycota</em> sequences because
+we filtered out a few small classes.) If we want them to add up to
+something close to 77%, the mean percentage of <em>Ascomycota</em> in
+the first example above, we have to take a different approach. We have
+to prepare the phyoseq object “manually,” and use the the other
+<code>comp_</code> functions to generate the comparison table. The first
+part of the code below is copied from the
+<code>comp_prepare_phyloseq</code> function but modified to subset to
+<em>Ascomycota</em> and then agglomerate to class and remove ranks other
+than class. Because the transformation to percentages is performed
+before these steps, in the end result the percentages are based on the
+total number of sequences in the original <code>phyloseq</code> object.
+I made the following code somewhat generic by setting values for
+<code>expt</code>, <code>taxrank</code>, and <code>pc.filter</code>.
+Thus, for similar tasks, you can cut and paste the code, editing only
+the values in red as you wish.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>expt <span class="ot">&lt;-</span> its.root</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>expt.pc <span class="ot">&lt;-</span> <span class="fu">transform_sample_counts</span>(expt, <span class="cf">function</span>(x) <span class="dv">100</span> <span class="sc">*</span> (x<span class="sc">/</span><span class="fu">sum</span>(x)))</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co"># Subset to higher rank</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>expt.taxon <span class="ot">&lt;-</span> <span class="fu">subset_taxa</span>(expt, Phylum <span class="sc">==</span> <span class="st">&quot;Ascomycota&quot;</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>expt.taxon.pc <span class="ot">&lt;-</span> <span class="fu">subset_taxa</span>(expt.pc, Phylum <span class="sc">==</span> <span class="st">&quot;Ascomycota&quot;</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="co"># Agglomerate to desired rank.</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>taxrank <span class="ot">&lt;-</span> <span class="st">&quot;Class&quot;</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>expt.taxon <span class="ot">&lt;-</span> <span class="fu">tax_glom</span>(expt.taxon, taxrank)</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>expt.taxon.pc <span class="ot">&lt;-</span> <span class="fu">tax_glom</span>(expt.taxon.pc, taxrank)</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="co"># Remove ranks other than taxrank</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a><span class="fu">tax_table</span>(expt.taxon) <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(expt.taxon)[, taxrank]</span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="fu">tax_table</span>(expt.taxon.pc) <span class="ot">&lt;-</span> <span class="fu">tax_table</span>(expt.taxon.pc)[, taxrank]</span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a><span class="co"># Filter out taxa that are &lt; 0.1% of the total sequences in expt.</span></span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>pc.filter <span class="ot">&lt;-</span> <span class="fl">0.001</span></span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">taxa_sums</span>(expt)) <span class="sc">*</span> pc.filter</span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a>expt.taxon <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(<span class="fu">taxa_sums</span>(expt.taxon) <span class="sc">&gt;=</span> n, expt.taxon)</span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a>expt.taxon.pc <span class="ot">&lt;-</span> <span class="fu">prune_taxa</span>(<span class="fu">taxa_names</span>(expt.taxon), expt.taxon.pc)</span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a><span class="co"># Make comparisons</span></span>
+<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a>temp2 <span class="ot">&lt;-</span> <span class="fu">comp_prepare_otu_table</span>(expt.taxon.pc, <span class="at">grps =</span> <span class="st">&quot;Label&quot;</span>, <span class="at">transformation =</span> <span class="st">&quot;sqrt_arc_sine&quot;</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" tabindex="-1"></a>temp3 <span class="ot">&lt;-</span> <span class="fu">comp_means_sd</span>(temp2<span class="sc">$</span>otu.pc)</span>
+<span id="cb9-26"><a href="#cb9-26" tabindex="-1"></a>temp4 <span class="ot">&lt;-</span> <span class="fu">comp_make_f_tests</span>(temp2<span class="sc">$</span>otu.pc.trans, <span class="at">grps =</span> temp2<span class="sc">$</span>groups, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" tabindex="-1"></a>temp5 <span class="ot">&lt;-</span> <span class="fu">comp_comparisons</span>(<span class="at">otu.pc =</span> temp2<span class="sc">$</span>otu.pc, <span class="at">otu.pc.trans =</span> temp2<span class="sc">$</span>otu.pc.trans,</span>
+<span id="cb9-28"><a href="#cb9-28" tabindex="-1"></a>    <span class="at">grps =</span> temp2<span class="sc">$</span>groups, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>, <span class="at">pool.sd =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-29"><a href="#cb9-29" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">comp_assemble</span>(temp3, temp4, temp5)</span>
+<span id="cb9-30"><a href="#cb9-30" tabindex="-1"></a>comp <span class="ot">&lt;-</span> comp[<span class="fu">order</span>(comp<span class="sc">$</span>mean, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb9-31"><a href="#cb9-31" tabindex="-1"></a>comp</span></code></pre></div>
 <pre><code>##                     mean    sd F_value            2HR             3HR
 ## Dothideomycetes    29.24 19.45    0.82 37.42+/-20.21a   21.21+/-8.89a
 ## unclass_Ascomycota 21.80 21.10   3.15*    8.46+/-2.9a   24.36+/-24.4a
@@ -581,18 +569,21 @@ the code, editing only the values in red as you wish.</p>
 ## Pezizomycetes         2.96+/-5.8a         0+/-0a   0.04+/-0.04a   0.06+/-0.06a</code></pre>
 <p>These percentages are based on the total counts in
 <code>its.root</code> and add up to approximately 77%, the proportion of
-Ascomycota sequences in the first case.</p>
+<em>Ascomycota</em> sequences in the first case.</p>
 </div>
 <div id="case-3---working-with-a-pre-existing-otu-table" class="section level2">
 <h2>Case 3 - Working with a Pre-existing OTU Table</h2>
 <p>This is a rather trite example because the differences are so
 obvious, but suppose you had made a figure something like this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;plot_df&quot;</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plot_df, <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y =</span> Percent, <span class="at">fill =</span> Family)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.y =</span> <span class="st">&quot;mean&quot;</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">&quot;col&quot;</span>, <span class="at">position =</span> <span class="fu">position_stack</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;plot_df&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plot_df, <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y =</span> Percent, <span class="at">fill =</span> Family)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.y =</span> <span class="st">&quot;mean&quot;</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">&quot;col&quot;</span>, <span class="at">position =</span> <span class="fu">position_stack</span>())</span></code></pre></div>
 <pre><code>## Warning: The `fun.y` argument of `stat_summary()` is deprecated as of ggplot2 3.3.0.
-## ℹ Please use the `fun` argument instead.</code></pre>
-<p><img src="data:image/png;base64,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" style="display: block; margin: auto;" /></p>
+## ℹ Please use the `fun` argument instead.
+## This warning is displayed once per session.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<p><img role="img" aria-label src="data:image/png;base64,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" alt style="display: block; margin: auto;" /></p>
 <p>You went to some trouble getting it the way you wanted, and now a
 reviewer wants statistics on which families are different among
 treatments. <code>plot_df</code> contains percentages of families by
@@ -607,7 +598,7 @@ variable, such as a sequence number, with unique values for every row.
 Then we can use <code>dcast</code> to get the data in the wide format we
 want for our OTU table.</p>
 <p><code>plot_df</code> has the format:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(plot_df)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">head</span>(plot_df)</span></code></pre></div>
 <pre><code>##   Treatment        Family    Percent
 ## 1       CLR Racocetraceae 4.51388889
 ## 2       CHR Racocetraceae 1.82291667
@@ -616,9 +607,9 @@ want for our OTU table.</p>
 ## 5       CLR Racocetraceae 1.90972222
 ## 6       3HR Racocetraceae 0.02893519</code></pre>
 <p>To recover our data in wide format, we do:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plot_df<span class="sc">$</span>seq <span class="ot">&lt;-</span> <span class="fu">with</span>(plot_df, <span class="fu">ave</span>(Percent, Treatment, Family, <span class="at">FUN =</span> seq_along))</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>my.data <span class="ot">&lt;-</span> <span class="fu">dcast</span>(seq <span class="sc">+</span> Treatment <span class="sc">~</span> Family, <span class="at">data =</span> plot_df, <span class="at">value.var =</span> <span class="st">&quot;Percent&quot;</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my.data)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>plot_df<span class="sc">$</span>seq <span class="ot">&lt;-</span> <span class="fu">with</span>(plot_df, <span class="fu">ave</span>(Percent, Treatment, Family, <span class="at">FUN =</span> seq_along))</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>my.data <span class="ot">&lt;-</span> <span class="fu">dcast</span>(seq <span class="sc">+</span> Treatment <span class="sc">~</span> Family, <span class="at">data =</span> plot_df, <span class="at">value.var =</span> <span class="st">&quot;Percent&quot;</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="fu">head</span>(my.data)</span></code></pre></div>
 <pre><code>##   seq Treatment Racocetraceae Gigasporaceae Glomeraceae unclass_Glomeromycota
 ## 1   1       2HR    0.00000000     0.6655093  3.47222222            1.15740741
 ## 2   1       3HR    0.02893519     0.4340278  0.34722222            0.34722222
@@ -641,25 +632,25 @@ values of <code>seq</code> + <code>Treatment</code> are unique, and thus
 next save the <code>Treatment</code> column as a vector of our treatment
 groups and then remove the first two columns of <code>my.data</code> to
 get a matrix of the OTU table as percentages.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my.grps <span class="ot">&lt;-</span> my.data<span class="sc">$</span>Treatment</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>my.pc <span class="ot">&lt;-</span> my.data[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>my.grps <span class="ot">&lt;-</span> my.data<span class="sc">$</span>Treatment</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>my.pc <span class="ot">&lt;-</span> my.data[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
 <p>Next we transform the percents matrix using the
 <code>sqrt_arc_sine</code> function in this package.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>my.pc.trans <span class="ot">&lt;-</span> <span class="fu">apply</span>(my.pc, <span class="dv">2</span>, sqrt_arc_sine)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>my.pc.trans <span class="ot">&lt;-</span> <span class="fu">apply</span>(my.pc, <span class="dv">2</span>, sqrt_arc_sine)</span></code></pre></div>
 <p>Both <code>my.pc</code> and <code>my.pc.trans</code> have taxa in
 columns. For the remaining steps we need taxa to be in rows, so we have
 to transpose.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>my.pc <span class="ot">&lt;-</span> <span class="fu">t</span>(my.pc)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>my.pc.trans <span class="ot">&lt;-</span> <span class="fu">t</span>(my.pc.trans)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>my.pc <span class="ot">&lt;-</span> <span class="fu">t</span>(my.pc)</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>my.pc.trans <span class="ot">&lt;-</span> <span class="fu">t</span>(my.pc.trans)</span></code></pre></div>
 <p>With these two matrices and the vector of groups, we are ready to
 make our comparison table.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>temp3 <span class="ot">&lt;-</span> <span class="fu">comp_means_sd</span>(my.pc)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>temp4 <span class="ot">&lt;-</span> <span class="fu">comp_make_f_tests</span>(my.pc.trans, <span class="at">grps =</span> my.grps, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>temp5 <span class="ot">&lt;-</span> <span class="fu">comp_comparisons</span>(<span class="at">otu.pc =</span> my.pc, <span class="at">otu.pc.trans =</span> my.pc.trans, <span class="at">grps =</span> my.grps,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>, <span class="at">pool.sd =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">comp_assemble</span>(temp3, temp4, temp5)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> comp[<span class="fu">order</span>(comp<span class="sc">$</span>mean, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>comp</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>temp3 <span class="ot">&lt;-</span> <span class="fu">comp_means_sd</span>(my.pc)</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>temp4 <span class="ot">&lt;-</span> <span class="fu">comp_make_f_tests</span>(my.pc.trans, <span class="at">grps =</span> my.grps, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>temp5 <span class="ot">&lt;-</span> <span class="fu">comp_comparisons</span>(<span class="at">otu.pc =</span> my.pc, <span class="at">otu.pc.trans =</span> my.pc.trans, <span class="at">grps =</span> my.grps,</span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>, <span class="at">pool.sd =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">comp_assemble</span>(temp3, temp4, temp5)</span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a>comp <span class="ot">&lt;-</span> comp[<span class="fu">order</span>(comp<span class="sc">$</span>mean, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>comp</span></code></pre></div>
 <pre><code>##                       mean    sd  F_value           2HR          3HR
 ## Gigasporaceae         7.41 12.69  9.88***  1.38+/-2.08a  0.14+/-0.2a
 ## Scutellosporaceae     4.77  6.73 12.56*** 1.19+/-1.14ab 0.01+/-0.02c
