@@ -4,9 +4,10 @@
 #'
 #' @param otu.pc An OTU table with data as percentages.
 #'
-#' @details The OTU table should be created with comp_prepare_otu_table.
+#' @details The OTU table should be created with comp_prepare_otu_table. 
+#' The data frame returned has taxa as row names. For each taxa, `mean` is the mean relative abundance and `sd` is the standard deviation.
 #'
-#' @return A data frame with means and standard deviations by taxon.
+#' @return A data frame with mean relative abundance and standard deviations by taxon.
 #' @export
 #' @importFrom stats sd
 #' @examples

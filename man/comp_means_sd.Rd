@@ -10,13 +10,14 @@ comp_means_sd(otu.pc)
 \item{otu.pc}{An OTU table with data as percentages.}
 }
 \value{
-A data frame with means and standard deviations by taxon.
+A data frame with mean relative abundance and standard deviations by taxon.
 }
 \description{
 Calculates means and standard deviation for each taxon to be included in a table comparing relative abundances of each taxon among treatments.
 }
 \details{
-The OTU table should be created with comp_prepare_otu_table.
+The OTU table should be created with comp_prepare_otu_table. 
+The data frame returned has taxa as row names. For each taxa, `mean` is the mean relative abundance and `sd` is the standard deviation.
 }
 \examples{
 {
