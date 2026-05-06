@@ -20,7 +20,8 @@ A data frame of the F-test results.
 Calculates omnibus F tests to be included in a table comparing relative abundances of each taxon among treatments.
 }
 \details{
-The row names of the data frame returned are taxa. The column names are `F`, `Prob`, `sig` and `F_value`. The column `sig` includes asterisks indicating the degree of significance and the `F_value` column is the F value to 2 decimal places plus the asterisk(s) from `sig`.
+The row names of the data frame returned are taxa. The column names are `F`, `Prob`, `sig` and `F_value`. The column `sig` includes asterisks indicating the degree of significance and the `F_value` column is the F value to 2 decimal places plus the asterisk(s) from `sig`.  
+See also the vignette "Compare Relative Abundances Among Treatments."
 }
 \examples{
 {

@@ -9,7 +9,8 @@
 #' @return A summary data frame of differential abundances by taxon and treatment.
 #' @details
 #' The data frame returned has taxa as row names. The first three column names are
-#'   mean (relative abundance of the taxa), sd and F_value for comparisons among groups. The remaining column names are the groups. The group columns show the mean relative abundance for the group plus/minus the standard deviation and a compact letter display for the group.
+#'   mean (relative abundance of the taxa), sd and F_value for comparisons among groups. The remaining column names are the groups. The group columns show the mean relative abundance for the group plus/minus the standard deviation and a compact letter display for the group.  
+#'   See also the vignette "Compare Relative Abundances Among Treatments."
 #' 
 #' @export
 #'

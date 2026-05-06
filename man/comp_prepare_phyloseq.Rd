@@ -27,7 +27,7 @@ The otu_table in one of the returned objects has been transformed to
   both have been filtered to include only OTUs initially present at >=
   pc.filter times the original total counts. For both only, taxrank is
   included in the tax_table.  
-  See also the `vignette_make_comparisons`.
+  See also the vignette "Compare Relative Abundances Among Treatments."
 }
 \examples{
 {
