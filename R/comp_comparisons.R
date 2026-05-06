@@ -1,6 +1,7 @@
 #' Make Comparisons
 #'
-#' Calculates the treatment comparison portion of a table comparing relative abundances of each taxon among treatments.
+#' Calculates the treatment comparison portion of a table comparing relative
+#' abundances of each taxon among treatments.
 #'
 #' @param otu.pc An OTU table of percentages.
 #' @param otu.pc.trans An OTU table of transfromed data.
@@ -9,7 +10,8 @@
 #' @param pool.sd A logical, whether or not to pool standard deviations.
 #'
 #' @return A data frame of differences in relative abundances among treatments.
-#'
+#' @detail The data frame returned has taxa as row names. The first three column names are
+#'   mean (relative abundance of the taxa), sd and F_value for comparisons among groups. The remaining column names are the groups. The group columns show the mean relative abundance for the group plus/minus the standard deviation and a compact letter display for the group.
 #' @export
 #' @importFrom stats pairwise.t.test
 #' @importFrom stats sd
@@ -26,7 +28,7 @@
 #'                  p.adjust.method = "BH",
 #'                  pool.sd = TRUE)
 #' }
-#'
+#' 
 comp_comparisons <- function(otu.pc, otu.pc.trans, grps, p.adjust.method = "BH", pool.sd = FALSE) {
   # Prepare comparison results matrix
   comp.sum <- matrix(NA, nrow=nrow(otu.pc.trans), ncol=(length(levels(grps)) + 1))
@@ -61,7 +63,8 @@ comp_comparisons <- function(otu.pc, otu.pc.trans, grps, p.adjust.method = "BH",
 
   # Make first column rownames, then drop first column
   rownames(comp.sum) <- comp.sum[ , 1]
-  comp.sum <- comp.sum[ , -1]
+  comp.sum <- comp.sum[ , -1] |> 
+    as.data.frame()
 
   return(comp.sum)
 }
