@@ -11,12 +11,11 @@
 #' 
 #' @export
 #' 
-#'
 #' @examples
 #' x <- c(1,2,3,4,5, NA)
 #' se(x)
 #' 
 se <- function(x) {
-  se <-  sd(x) / sqrt(sum(!is.na(x)))
+  se <-  sd(x, na.rm = TRUE) / sqrt(sum(!is.na(x)))
   return(se)
  }
