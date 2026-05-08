@@ -30,13 +30,14 @@ make_comparisons(
 \item{pool.sd}{Logical, whether or not to pool standard deviations.}
 }
 \value{
-A data frame with taxa as rows and results in columns.
+A list consisting of three data frames and a vector of treatment groups. The first data frame is comparison.table.giving for each row (taxon) the mean relative abundance, standard deviation, F statistic with significance indicated by asterisks, and then for each treatment group the mean+/-sd with a CLD indicating group membership. The second data frame is taxa.pc giving for each row (taxon) the relative abundance of each treatment group. The third data frame is taxa.pc.transformed. It is like the second data frame but the data has been transformed using the specified function.
 }
 \description{
 Makes multiple comparisons of the relative abundances of taxa between treatment groups using the pairwise.t.test. Data may be transformed by a user supplied function. Three are included in this package.
 }
 \details{
-transformation may be "none" or a user-supplied function name in quotation marks or any of the built-it transformations ("arc_sine", "log_arc_sine", or "sqrt_arc_sine"). The "sqrt_arc_sine" has generaally proven most effective.
+This is a wrapper around the functions comp_prepare_phyloseq(), comp_prepare_otu_table(), comp_means_sd(), comp_make_f_tests(), comp_comparisons() and comp_assemble().  
+Transformation may be "none" or a user-supplied function name in quotation marks or any of the built-it transformations ("arc_sine", "log_arc_sine", or "sqrt_arc_sine"). The "sqrt_arc_sine" has generally proven most effective.
 }
 \examples{
 {
