@@ -14,11 +14,14 @@
 #' data("expt")
 #' expt@refseq@ranges@width |> 
 #'   summary()
-#' expt_filt <- subset_by_refseq_lengths(p = expt,
+#' rslt1 <- expt_filt <- subset_by_refseq_lengths(p = expt,
 #'                                       min_len = 400,
 #'                                       max_len = 420)
-#' expt_filt@refseq@ranges@width |> 
+#' rslt1
+#' 
+#' rslt2 <- expt_filt@refseq@ranges@width |> 
 #'   summary()
+#' rslt2
 #' }
 #' 
 subset_by_refseq_lengths <- function(p, min_len = 252, max_len = 255) {

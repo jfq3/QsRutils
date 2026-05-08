@@ -27,11 +27,14 @@ Sometimes, due to sequencing errors, reference sequences have lengths less than 
 data("expt")
 expt@refseq@ranges@width |> 
   summary()
-expt_filt <- subset_by_refseq_lengths(p = expt,
+rslt1 <- expt_filt <- subset_by_refseq_lengths(p = expt,
                                       min_len = 400,
                                       max_len = 420)
-expt_filt@refseq@ranges@width |> 
+rslt1
+
+rslt2 <- expt_filt@refseq@ranges@width |> 
   summary()
+rslt2
 }
 
 }
