@@ -10,11 +10,7 @@
 #'
 #' @return A list of two modified experiment level phyloseq objects.
 #'
-#' @details The otu_table in one of the returned objects has been transformed to
-#'   percentages based on the original phyloseq object supplied. The taxa in
-#'   both have been filtered to include only OTUs initially present at >=
-#'   pc.filter times the original total counts. For both only, taxrank is
-#'   included in the tax_table.  
+#' @details For both returned phyloseq objects, the OTU table has been filtered to include only OTUs initially present at >= pc.filter times the original total count and only taxrank is included in the table. For the second object in the list, the OTU table has been transformed to percentages of the total counts per sample.
 #'   See also the vignette "Compare Relative Abundances Among Treatments."
 #'   
 #'      
