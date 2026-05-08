@@ -4,7 +4,7 @@
 #' 
 #' @param dunn_rslt The result of the function dunn.test::dunn.test
 #' @param significance The alpha level for  statistical significance
-#' @return A character vector of CLDs - groups of significantly different treatment groups
+#' @return A list of two items. The first, p_adj_matrix, is a data frame giving p values adjusted for multiple comparisons. The second, clds, is a character vector of compact letter displays (CLDs) for each treatment.
 #' @export
 #' @importFrom dplyr arrange
 #' @importFrom dplyr mutate

@@ -12,7 +12,7 @@ cld_dunn(dunn_rslt, significance = 0.05)
 \item{significance}{The alpha level for  statistical significance}
 }
 \value{
-A character vector of CLDs - groups of significantly different treatment groups
+A list of two items. The first, p_adj_matrix, is a data frame giving p values adjusted for multiple comparisons. The second, clds, is a character vector of compact letter displays (CLDs) for each treatment.
 }
 \description{
 Generate compact letter displays from Dunn.test results
