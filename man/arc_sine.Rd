@@ -13,7 +13,7 @@ arc_sine(x)
 The arcsine transformation of x.
 }
 \description{
-Arcsine of a Percentage
+Transform a percentage to its arc sine.
 }
 \examples{
 

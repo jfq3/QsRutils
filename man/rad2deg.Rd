@@ -13,7 +13,7 @@ rad2deg(x)
 Angle in degrees.
 }
 \description{
-Radians to degrees
+Transform an angle in radians to degrees.
 }
 \examples{
 

@@ -13,7 +13,7 @@ log_arc_sine(x)
 The common logarithm of the arcsine transformation of x.
 }
 \description{
-Log of the arc-sine Transfromation of a Percentage
+Transform a percentage to the log of its arc sine.
 }
 \examples{
 log_arc_sine(x = 30.1)

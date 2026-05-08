@@ -13,7 +13,7 @@ sqrt_arc_sine(x)
 The square root of the arcsine transformation of x.
 }
 \description{
-Square Root of the arc-sine of a Percentage
+Transform a percentage to the square root of its arc sine.
 }
 \examples{
 

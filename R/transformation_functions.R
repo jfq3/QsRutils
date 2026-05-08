@@ -1,6 +1,6 @@
 #' log_arc_sine
 #'
-#' Log of the arc-sine Transfromation of a Percentage
+#' Transform a percentage to the log of its arc sine.
 #'
 #' @param x A percentage.
 #'
@@ -17,7 +17,7 @@ log_arc_sine <- function(x) {
 
 #' sqrt_arc_sine
 #'
-#' Square Root of the arc-sine of a Percentage
+#' Transform a percentage to the square root of its arc sine.
 #'
 #' @param x A percentage.
 #'
@@ -35,7 +35,7 @@ sqrt_arc_sine <- function(x) {
 
 #' arc_sine
 #'
-#' Arcsine of a Percentage
+#' Transform a percentage to its arc sine.
 #'
 #' @param x A percentage.
 #'
@@ -53,7 +53,7 @@ arc_sine <- function(x) {
 
 #' rad2deg
 #'
-#' Radians to degrees
+#' Transform an angle in radians to degrees.
 #'
 #' @param x Angle in radians
 #'
@@ -70,7 +70,7 @@ rad2deg <- function(x) {
 
 #' deg2rad
 #'
-#' Degrees to radians
+#' Transform an angle in degrees to radians.
 #'
 #' @param x Angle in degrees
 #' @return Angle in radians.
