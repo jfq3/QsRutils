@@ -22,7 +22,7 @@ Prepares a phyloseq object for making comparisons of relative abundances
 among treatments.
 }
 \details{
-For both returned phyloseq objects, the OTU table has been filtered to include only OTUs initially present at >= pc.filter times the original total count and only taxrank is included in the table. For the second object in the list, the OTU table has been transformed to percentages of the total counts per sample.
+For both returned phyloseq objects, the OTU table has been filtered to include only OTUs initially present at >= pc.filter times the original total count and only taxrank is included in the taxonomy table. For the second object in the list, the OTU table has been transformed to percentages of the total counts per sample.
   See also the vignette "Compare Relative Abundances Among Treatments."
 }
 \examples{
