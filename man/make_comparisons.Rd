@@ -36,7 +36,7 @@ A list consisting of three data frames and a vector of treatment groups. The fir
 Makes multiple comparisons of the relative abundances of taxa between treatment groups using the pairwise.t.test. Data may be transformed by a user supplied function. Three are included in this package.
 }
 \details{
-This is a wrapper around the functions comp_prepare_phyloseq(), comp_prepare_otu_table(), comp_means_sd(), comp_make_f_tests(), comp_comparisons() and comp_assemble().  
+This is essentially a wrapper around the functions comp_prepare_phyloseq(), comp_prepare_otu_table(), comp_means_sd(), comp_make_f_tests(), comp_comparisons() and comp_assemble().  
 Transformation may be "none" or a user-supplied function name in quotation marks or any of the built-it transformations ("arc_sine", "log_arc_sine", or "sqrt_arc_sine"). The "sqrt_arc_sine" has generally proven most effective.
 }
 \examples{
