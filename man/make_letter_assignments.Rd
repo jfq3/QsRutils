@@ -12,7 +12,7 @@ make_letter_assignments(ptt.rslt, significance = 0.05)
 \item{significance}{Alpha level to be declared a significant difference.}
 }
 \value{
-Lists of letter assignments.
+A named vector of letter assignments. Names are treatment groups.
 }
 \description{
 Makes letter assignments for treatment groups that are not significantly different.

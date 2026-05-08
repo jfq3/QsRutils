@@ -5,7 +5,7 @@
 #' @param ptt.rslt Output from the pairwise.t.test function.
 #' @param significance Alpha level to be declared a significant difference.
 #'
-#' @return Lists of letter assignments.
+#' @return A named vector of letter assignments. Names are treatment groups.
 #'
 #' @details Letter assignments are made using Piepho's algorithm.
 #'
