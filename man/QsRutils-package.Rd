@@ -16,7 +16,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: John Quensen \email{quensenj@msu.edu}
+\strong{Maintainer}: John Quensen \email{quensenj@msu.edu} [copyright holder]
 
 }
 \keyword{internal}
