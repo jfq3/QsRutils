@@ -10,10 +10,13 @@ get_plot_limits(plot)
 \item{plot}{A plot created with ggplot2}
 }
 \value{
-A list: xmin, xmax, ymin, ymax
+A list: xmin, xmax, ymin, ymax giving the coordinates of the limits of a ggplot panel.
 }
 \description{
 Gets the ranges for the width and height of a ggplot panel.
+}
+\details{
+Sometimes when adding text to a ggplot, the text is cutoff if it extends beyond the limits of plot panel. This function provides information enabling the user to extend the panel limits so that the text is not cutoff.
 }
 \examples{
 library(ggplot2)
