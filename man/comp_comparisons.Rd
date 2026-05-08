@@ -31,7 +31,7 @@ Calculates the treatment comparison portion of a table comparing relative
 abundances of each taxon among treatments.
 }
 \details{
-The row names are taxa. The columns are of type character and their names are the group names. For each group, the entry gives the mean relative abundance +/- the standard deviation and a compact letter display for the group.
+The row names of the data frame returned are taxa. The columns are of type character and their names are the group names. For each group, the entry gives the mean relative abundance +/- the standard deviation and a compact letter display (CLD) for the group.
 See also the vignette "Compare Relative Abundances Among Treatments."
 }
 \examples{
