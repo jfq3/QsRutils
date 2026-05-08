@@ -12,7 +12,9 @@
 #' @examples
 #' {
 #' data("expt")
-#' vegan_stand(expt, method = "hellinger")
+#' veganotu(expt)[1:5, 1:5]
+#' expt_mod <- vegan_stand(expt, method = "hellinger")
+#' veganotu(expt_mod)[1:5, 1:5]
 #' }
 #'
 #' @importFrom phyloseq taxa_are_rows
