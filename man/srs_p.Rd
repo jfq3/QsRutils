@@ -21,9 +21,12 @@ This is an alternative to "rarefying" an OTU table to a constant sample size.  T
 \examples{
 {
 data("expt")
-phyloseq::sample_sums(expt)
+print("Sample sums before srs_p")
+print(phyloseq::sample_sums(expt))
+cat("\n")
 expt_srs <- srs_p(p =  expt)
-phyloseq::sample_sums(expt_srs)
+print("Sample sums after srs_p")
+print(phyloseq::sample_sums(expt_srs))
 }
 
 }
