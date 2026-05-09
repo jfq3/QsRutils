@@ -22,13 +22,15 @@
 #' data(dune, package = "vegan")
 #' data(dune.env, package = "vegan")
 #' dune.Manure <- vegan::rda(dune ~ Manure, dune.env)
-#' rda_labels(dune.Manure)[1:2]
-#' 
+#' print("For the rda case:)
+#' print(rda_labels(dune.Manure)[1:2])
+#' cat("\n")
 #' # Using vegan::cca()
 #' data(varespec, package = "vegan")
 #' data(varechem, package = "vegan")
 #' vare.cca <- vegan::cca(varespec ~ Al + P*(K + Baresoil), data=varechem)
-#' rda_labels(vare.cca)[1:2]
+#' print("Fore the cca case")
+#' print(rda_labels(vare.cca)[1:2])
 #' }
 #' 
 rda_labels <-
