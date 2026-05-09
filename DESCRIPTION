@@ -9,7 +9,7 @@ Description: A collection of utility functions for community ecology analyses,
     Includes functions for normalizing OTU tables, computing alpha diversity
     via rarefaction (using a fast C++ implementation), differential abundance
     comparisons with compact letter displays, primer checking for amplicon
-    sequencing, and miscellaneous helpers for ordination plots and taxonomic
+    sequencing, plotting QIIME 2/DADA2 generated transition stats and miscellaneous helpers for ordination plots and taxonomic
     name formatting.
 Depends:
     R (>= 4.1.0)
