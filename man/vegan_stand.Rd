@@ -24,6 +24,8 @@ Applies any vegan decostand standardization method to a phyloseq OTU table.
 data("expt")
 print("Before standardization, first 5 rows and columns:")
 print(veganotu(expt)[1:5, 1:5])
+cat("\n")
+
 expt_mod <- vegan_stand(expt, method = "hellinger")
 print("After standardization, first 5 rows and columns:")
 print(veganotu(expt_mod)[1:5, 1:5])
