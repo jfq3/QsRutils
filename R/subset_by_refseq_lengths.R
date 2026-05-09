@@ -12,16 +12,19 @@
 #' @examples
 #' {
 #' data("expt")
+#' print("Refseq length range before subsetting:")
 #' expt@refseq@ranges@width |> 
-#'   summary()
-#' rslt1 <- expt_filt <- subset_by_refseq_lengths(p = expt,
+#'   summary() |> 
+#'   print()
+#' cat("\n"))
+#' 
+#' expt_filt <- subset_by_refseq_lengths(p = expt,
 #'                                       min_len = 400,
 #'                                       max_len = 420)
-#' rslt1
-#' 
-#' rslt2 <- expt_filt@refseq@ranges@width |> 
-#'   summary()
-#' rslt2
+#  print("Refseq length range after subsetting:")
+#' expt_filt@refseq@ranges@width |> 
+#'   summary() |> 
+#'   print()
 #' }
 #' 
 subset_by_refseq_lengths <- function(p, min_len = 252, max_len = 255) {
