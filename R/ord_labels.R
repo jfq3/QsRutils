@@ -35,20 +35,25 @@
 #' data("dune", package = "vegan")
 #' dune_hel <- vegan::decostand(dune, method = "hellinger")
 #' pca <- vegan::rda(dune_hel)
+#' print("For the PCA case:")
 #' print(ord_labels(pca)[1:2])
-#' 
+#' cat("\n")
 #' # For PCoA with negative eigenvalues
 #' d <- vegan::vegdist(dune)
 #' pcoa <- stats::cmdscale(d, k = nrow(dune)-1, eig = TRUE, add = FALSE)
+#' print("For the PCoA case with negative eigenvalues:")
 #' print(ord_labels(pcoa)[1:2])
-#' 
+#' cat("\n")
 #' # For PCoA without negative eigenvalues
 #' pcoa <- stats::cmdscale(d, k = nrow(dune)-1, eig = TRUE, add = TRUE)
+#' print("For the PCoA case without negative eigenvalues:")
 #' print(ord_labels(pcoa)[1:2])
-#' 
+#' cat("\n")
 #' # For correspondence analysis
 #' ca_ord <- vegan::ca(dune)
-#' ord_labels(ca_ord)
+#' (ord_labels(ca_ord))
+#' print("For the CA case:")
+#' print(ord_labels(ca_ord))
 #'}
 
 ord_labels <-
