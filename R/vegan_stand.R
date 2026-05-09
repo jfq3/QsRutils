@@ -12,9 +12,11 @@
 #' @examples
 #' {
 #' data("expt")
-#' veganotu(expt)[1:5, 1:5]
+#' print("Before standardization, first 5 rows and columns:")
+#' print(veganotu(expt)[1:5, 1:5])
 #' expt_mod <- vegan_stand(expt, method = "hellinger")
-#' veganotu(expt_mod)[1:5, 1:5]
+#' print("After standardization, first 5 rows and columns:")
+#' print(veganotu(expt_mod)[1:5, 1:5])
 #' }
 #'
 #' @importFrom phyloseq taxa_are_rows
