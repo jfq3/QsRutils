@@ -19,7 +19,7 @@ each sequence.
 \details{
 Taxa names for the ASV table returned by the R version of DADA2 
 are the sequences themselves. This function renames them with the MD5 hash 
-of each sequences so that the results are directly comparable QIIME2/DADA2 
+of each sequences so that the results are directly comparable to QIIME2/DADA2 
 results.
 }
 \examples{
