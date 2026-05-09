@@ -40,16 +40,16 @@ this case the labels have the form PCAn xx.x \%
 data("dune", package = "vegan")
 dune_hel <- vegan::decostand(dune, method = "hellinger")
 pca <- vegan::rda(dune_hel)
-ord_labels(pca)[1:2]
+print(ord_labels(pca)[1:2])
 
 # For PCoA with negative eigenvalues
 d <- vegan::vegdist(dune)
 pcoa <- stats::cmdscale(d, k = nrow(dune)-1, eig = TRUE, add = FALSE)
-ord_labels(pcoa)[1:2]
+print(ord_labels(pcoa)[1:2])
 
 # For PCoA without negative eigenvalues
 pcoa <- stats::cmdscale(d, k = nrow(dune)-1, eig = TRUE, add = TRUE)
-ord_labels(pcoa)[1:2]
+print(ord_labels(pcoa)[1:2])
 
 # For correspondence analysis
 ca_ord <- vegan::ca(dune)
