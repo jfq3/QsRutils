@@ -16,7 +16,7 @@
 #' expt@refseq@ranges@width |> 
 #'   summary() |> 
 #'   print()
-#' cat("\n"))
+#' cat("\n")
 #' 
 #' expt_filt <- subset_by_refseq_lengths(p = expt,
 #'                                       min_len = 400,
