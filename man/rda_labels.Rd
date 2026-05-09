@@ -24,6 +24,24 @@ Each element of the vector returned has the form "RDAn xx.x%" where
   explained by the axis. The percent of total variance is for the constrained
   portion only.
 }
+\examples{
+{
+# Using vegan::rda()
+data(dune, package = "vegan")
+data(dune.env, package = "vegan")
+dune.Manure <- vegan::rda(dune ~ Manure, dune.env)
+print("For the rda case:")
+print(rda_labels(dune.Manure)[1:2])
+cat("\n")
+# Using vegan::cca()
+data(varespec, package = "vegan")
+data(varechem, package = "vegan")
+vare.cca <- vegan::cca(varespec ~ Al + P*(K + Baresoil), data=varechem)
+print("For the cca case:")
+print(rda_labels(vare.cca)[1:2])
+}
+
+}
 \seealso{
-[ord_labels()]
+ord_labels()
 }

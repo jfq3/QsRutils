@@ -15,21 +15,21 @@
 #'   portion only.
 #'
 #' @export
-#' @seealso [ord_labels()]
+#' @seealso ord_labels()
 #' @examples
 #' {
 #' # Using vegan::rda()
 #' data(dune, package = "vegan")
 #' data(dune.env, package = "vegan")
 #' dune.Manure <- vegan::rda(dune ~ Manure, dune.env)
-#' print("For the rda case:)
+#' print("For the rda case:")
 #' print(rda_labels(dune.Manure)[1:2])
 #' cat("\n")
 #' # Using vegan::cca()
 #' data(varespec, package = "vegan")
 #' data(varechem, package = "vegan")
 #' vare.cca <- vegan::cca(varespec ~ Al + P*(K + Baresoil), data=varechem)
-#' print("Fore the cca case")
+#' print("For the cca case:")
 #' print(rda_labels(vare.cca)[1:2])
 #' }
 #' 
