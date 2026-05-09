@@ -5,7 +5,7 @@
 \alias{QsRutils-package}
 \title{QsRutils: R Functions Useful for Community Ecology}
 \description{
-A collection of utility functions for community ecology analyses, with emphasis on workflows using the 'phyloseq' and 'vegan' packages. Includes functions for normalizing OTU tables, computing alpha diversity via rarefaction (using a fast C++ implementation), differential abundance comparisons with compact letter displays, primer checking for amplicon sequencing, and miscellaneous helpers for ordination plots and taxonomic name formatting.
+A collection of utility functions for community ecology analyses, with emphasis on workflows using the 'phyloseq' and 'vegan' packages. Includes functions for normalizing OTU tables, computing alpha diversity via rarefaction (using a fast C++ implementation), differential abundance comparisons with compact letter displays, primer checking for amplicon sequencing, plotting QIIME 2/DADA2 generated transition stats and miscellaneous helpers for ordination plots and taxonomic name formatting.
 }
 \seealso{
 Useful links:
