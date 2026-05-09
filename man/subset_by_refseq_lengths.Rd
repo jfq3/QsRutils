@@ -25,6 +25,7 @@ Sometimes, due to sequencing errors, reference sequences have lengths less than 
 \examples{
 {
 data("expt")
+
 print("Refseq length range before subsetting:")
 expt@refseq@ranges@width |> 
   summary() |> 
@@ -34,6 +35,8 @@ cat("\n")
 expt_filt <- subset_by_refseq_lengths(p = expt,
                                       min_len = 400,
                                       max_len = 420)
+                                     
+ print("Refseq length range after subsetting:")
 expt_filt@refseq@ranges@width |> 
   summary() |> 
   print()
