@@ -17,12 +17,12 @@
 #' otu <- veganotu(its.root)
 #' d <- vegan::vegdist(otu)
 #' print("Before subsetting:")
-#' dim(as.matrix(d))
+#' print(dim(as.matrix(d)))
 #' cat("\n")
 #' p <- phyloseq::subset_samples(its.root, P_Location == "LR")
 #' d_sub <- subset_dist(p, d)
 #' print("After subsetting:")
-#' dim(as.matrix(d_sub))
+#' print(dim(as.matrix(d_sub)))
 #' }
 
 subset_dist <- function(physeq, d.matrix) {
