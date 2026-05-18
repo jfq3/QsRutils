@@ -20,7 +20,7 @@ Version 0.1.4 adds a function to get ggplot2 plot limits.
 
 Version 0.1.5 adds function srs_p to normalize the OTU table in a phyloseq object. This is an alternative to "rarefying" to the same number of counts per sample.
 
-Version 0.2.0 adds several functions.  
+Version 0.2.1 adds several functions.  
   -  avg_alpha - Calculates Shannon, Observed, Pielou, Simpson and Inverse Simpson alpha-diversity metrics as the mean or median of repetitive samplings of the OTU table.  
   - check_primer_hits - Determines hits of all orientations of the primers to paired sequence files. Used to determine if merging will create overhangs.  
  - format_taxon - Adds *'s around proper parts of taxon names so that the names can be rendered in italics by Rmarkdown. Useful in making ggplots.  
