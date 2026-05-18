@@ -1,7 +1,7 @@
 Package: QsRutils
 Type: Package
 Title: R Functions Useful for Community Ecology
-Version: 0.2.1
+Version: 0.2.1.9000
 Authors@R: person("John", "Quensen", email = "quensenj@msu.edu",
     role = c("aut", "cre", "cph"))
 Description: A collection of utility functions for community ecology analyses,

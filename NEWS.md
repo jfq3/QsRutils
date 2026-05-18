@@ -1,3 +1,5 @@
+# QsRutils (development version)
+
 # QsRutils 0.2.1
 
 * Addressed CRAN comments re version 0.2.0.
