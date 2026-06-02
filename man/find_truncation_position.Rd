@@ -31,6 +31,7 @@ position where the Lower Quartile dips to or below a specified Q-score threshold
 \details{
 Results for all files in a path can be aggregated with \code{purrr::list_rbind()}:
   \preformatted{
+  all_zips <- list.files(path = "path_to_zip_files", pattern = "\\.zip$", full.names = TRUE)
   purrr::map(all_zips, find_truncation_position, "forward") |> purrr::list_rbind()
   purrr::map(all_zips, find_truncation_position, "reverse") |> purrr::list_rbind()
   }
