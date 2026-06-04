@@ -74,7 +74,7 @@ find_truncation_position <- function(zip_path, read_direction = c("forward", "re
     lower_quartile <- as.numeric(parts[4]) # 4th column is Lower Quartile
     
     if (!is.na(lower_quartile) && lower_quartile <= target_q) {
-      result <- paste0("Dips to Q", lower_quartile, " at position ", position)
+      result <- paste0("Lower Quartile dips to Q", lower_quartile, " at position ", position)
       break
     }
   }
