@@ -23,11 +23,17 @@ Version 0.1.5 adds function srs_p to normalize the OTU table in a phyloseq objec
 Version 0.2.1 adds several functions.  
   -  avg_alpha - Calculates Shannon, Observed, Pielou, Simpson and Inverse Simpson alpha-diversity metrics as the mean or median of repetitive samplings of the OTU table.  
   - check_primer_hits - Determines hits of all orientations of the primers to paired sequence files. Used to determine if merging will create overhangs.  
- - format_taxon - Adds *'s around proper parts of taxon names so that the names can be rendered in italics by Rmarkdown. Useful in making ggplots.  
+  - format_taxon - Adds *'s around proper parts of taxon names so that the names can be rendered in italics by Rmarkdown. Useful in making ggplots.  
   - hash_dna_seqs - Converts DNA seequences into hashes encoding the sequences. Useful in shortening the taxa names especially when using the R verision of DADA2 which outputs the OTU column names as the sequences themselves.  
   - plot_transition_stats - Makes a plot of DADA2 transition rates from the transition stats qza file output by QIIME2 DADA2 beginning with QIIME 2 version 2025.7. Useful in determing how well DADA2 corrected sequence errors.  
   - se - calculates the standard eror.  
   - %wo% - given vectors x and y, returns elements of x that are not in y.  
+  
+Version 0.3.0 adds the functions:
+ - extract_adapter_content() - Extracts information on adapter content from FastQC zip files allowing plotting of the proportion of each adapter versus the position in the read using ggplot2.
+ - find_truncation_parameters() - Finds the position in amplicon reads where the 75th percentile of the Q scores first falls below a Q value of 20.
+ - avg_dist() - Modification of vegan::avgdist() to include option for parallelization.  
+
 
 Installation
 ------------
