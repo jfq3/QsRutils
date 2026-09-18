@@ -13,10 +13,10 @@ pca_labels(pca)
 A character vector, each element of which can be used to label the corresponding axis of a PCA plot.
 }
 \description{
-Makes PCA axis labels that include the % total variance explained by each axis.
+Makes PCA axis labels that include the \% total variance explained by each axis.
 }
 \details{
-Each element of the vector returned has the form "PCAn xx.x%" where n is the number of the PCA axis and xx.x is the % of total variance explained by the axis.
+Each element of the vector returned has the form "PCAn xx.x\%" where n is the number of the PCA axis and xx.x is the \% of total variance explained by the axis.
 }
 \examples{
 {

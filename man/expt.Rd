@@ -6,12 +6,12 @@
 \title{A 16S Experiment Level phyloseq Object}
 \format{
 A phyloseq object with otu_table, sample_data, tax_table,
-  phylogenetic tree and refseqs.
-  \describe{
-    \item{Depth}{0-20 cm, 60-80cm}
-    \item{Site}{HNC}
-    \item{Slope}{Top, Middle, Bottom}
-    }
+phylogenetic tree and refseqs.
+\describe{
+\item{Depth}{0-20 cm, 60-80cm}
+\item{Site}{HNC}
+\item{Slope}{Top, Middle, Bottom}
+}
 }
 \usage{
 expt

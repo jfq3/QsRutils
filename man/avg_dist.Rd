@@ -39,14 +39,14 @@ An averaged distance matrix.
 }
 \description{
 The function computes the dissimilarity matrix of a data set
-  multiple times using \code{\link[vegan]{vegdist}} while randomly sub-sampling the
-  dataset each time. All of the subsampled iterations are then averaged
-  (mean) to provide a distance matrix that represents the average of multiple
-  subsampling iterations. This emulates the behavior of the distance matrix
-  calculator within the Mothur microbial ecology toolkit.
+multiple times using \code{\link[vegan]{vegdist}} while randomly sub-sampling the
+dataset each time. All of the subsampled iterations are then averaged
+(mean) to provide a distance matrix that represents the average of multiple
+subsampling iterations. This emulates the behavior of the distance matrix
+calculator within the Mothur microbial ecology toolkit.
 }
 \details{
-**Parallelism.** Each iteration is independent, so the work can be
+\strong{Parallelism.} Each iteration is independent, so the work can be
 distributed across cores with \code{ncores > 1}. Whether this is
 worthwhile depends on the cost of each iteration relative to the fixed
 overhead of spawning a socket cluster (typically 1–2 seconds).
@@ -56,11 +56,11 @@ Benchmarks on a Windows machine with 100 samples × 5000 OTUs
 relative to \code{ncores = 1}:
 
 \tabular{rrr}{
-  \strong{ncores} \tab \strong{50 iters} \tab \strong{200 iters} \cr
-  1  \tab 1.00× (48 s)  \tab 1.00× (204 s) \cr
-  2  \tab 1.44× (33 s)  \tab 1.48× (138 s) \cr
-  4  \tab 1.91× (25 s)  \tab 2.04× (100 s) \cr
-  8  \tab 2.12× (23 s)  \tab 2.37× (86 s)  \cr
+\strong{ncores} \tab \strong{50 iters} \tab \strong{200 iters} \cr
+1  \tab 1.00× (48 s)  \tab 1.00× (204 s) \cr
+2  \tab 1.44× (33 s)  \tab 1.48× (138 s) \cr
+4  \tab 1.91× (25 s)  \tab 2.04× (100 s) \cr
+8  \tab 2.12× (23 s)  \tab 2.37× (86 s)  \cr
 }
 
 Observed speedups are well below the theoretical maximum due to
@@ -81,9 +81,9 @@ mean.avg.dist <- avg_dist(BCI, sample = 50, iterations = 10, ncores = 2)
 mean.avg.dist
 }
 \seealso{
-[vegan::vegdist()]
+\code{\link[vegan:vegdist]{vegan::vegdist()}}
 
-[rarrefy()]
+\code{\link[vegan:rarefy]{vegan::rarefy()}}
 }
 \author{
 Geoffrey Hannigan, with some minor tweaks by Gavin L. Simpson and parallelization by John Quensen.

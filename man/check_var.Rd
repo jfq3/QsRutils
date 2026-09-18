@@ -20,8 +20,8 @@ check_var(otu.pc.transformed, group.vector)
 }
 \value{
 A data frame of class \code{"check_var"} with one row per taxon and
-  columns \code{taxon}, \code{statistic}, \code{df}, and \code{p.value} from
-  the Fligner-Killeen test. The object can be printed with \code{print()}.
+columns \code{taxon}, \code{statistic}, \code{df}, and \code{p.value} from
+the Fligner-Killeen test. The object can be printed with \code{print()}.
 }
 \description{
 Tests for Heterogeneity of Variances in make_comparisons Result

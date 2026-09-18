@@ -53,7 +53,7 @@
 #' @author Geoffrey Hannigan, with some minor tweaks by Gavin L. Simpson and parallelization by John Quensen.
 #' @note The function builds on the function \code{\link[vegan]{rrarefy}} and an additional distance matrix function (e.g. \code{\link[vegan]{vegdist}}) to add more meaningful representations of distances among randomly subsampled datasets by presenting the average of multiple random iterations. This functionality has been utilized in the Mothur standalone microbial ecology toolkit, see https://mothur.org/wiki/Dist.shared.
 #' @seealso [vegan::vegdist()]
-#' @seealso [rarrefy()]
+#' @seealso [vegan::rarefy()]
 #' @keywords multivariate
 #' @examples
 #' # Import an example count dataset

@@ -9,13 +9,13 @@ x \%wo\% y
 \arguments{
 \item{x}{A vector.}
 
-\item{y}{A vector of elements to remove from `x`.}
+\item{y}{A vector of elements to remove from \code{x}.}
 }
 \value{
-A vector containing elements of `x` that are not in `y`.
+A vector containing elements of \code{x} that are not in \code{y}.
 }
 \description{
-Removes elements present in `y` from `x`.
+Removes elements present in \code{y} from \code{x}.
 }
 \examples{
 c(1, 2, 3, 4, 5) \%wo\% c(2, 4)

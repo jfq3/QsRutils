@@ -20,7 +20,7 @@ percentages in the otu_table.}
 }
 \value{
 A list consisting of an OTU table with percentages, an OTU table with
-  transformed data, and a vector of treatment groups.
+transformed data, and a vector of treatment groups.
 }
 \description{
 Make OTU tables for making comparisons of relative abundances among
@@ -28,10 +28,10 @@ treatments.
 }
 \details{
 The transformation applied may be "none" or a user-supplied function name in
-  quotation marks or any of the built-it transformations("arc_sine",
-  "log_arc_sine", or "sqrt_arc_sine"). The "sqrt_arc_sine" has generally
-  proven most effective.  
-  See also the vignette "Compare Relative Abundances Among Treatments."
+quotation marks or any of the built-it transformations("arc_sine",
+"log_arc_sine", or "sqrt_arc_sine"). The "sqrt_arc_sine" has generally
+proven most effective.
+See also the vignette "Compare Relative Abundances Among Treatments."
 }
 \examples{
 {

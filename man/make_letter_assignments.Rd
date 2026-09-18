@@ -29,5 +29,5 @@ make_letter_assignments(ptt.rslt, significance = 0.05)
 
 }
 \references{
-Piepho, H. P. 2004. An algorithm for a letter-based representation of all-pairwise comparisons. Journal of Computational and Graphical Statistics **13**:456-466.
+Piepho, H. P. 2004. An algorithm for a letter-based representation of all-pairwise comparisons. Journal of Computational and Graphical Statistics \strong{13}:456-466.
 }
