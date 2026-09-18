@@ -4,7 +4,7 @@
 \alias{avg_dist}
 \title{Averaged Sub-sampled Dissimilarity Matrices}
 \usage{
-avg_dist(x, sample, distfun = vegdist, meanfun = mean,
+avg_dist(x, sample, distfun = vegan::vegdist, meanfun = mean,
 transf = NULL, iterations = 100, dmethod = "bray",
 diag = TRUE, upper = TRUE, ncores = 1L, ...)
 }
@@ -38,8 +38,8 @@ including Windows.}
 An averaged distance matrix.
 }
 \description{
-The function computes the dissimilarity matrix of a dataset
-  multiple times using \code{\link{vegdist}} while randomly subsampling the
+The function computes the dissimilarity matrix of a data set
+  multiple times using \code{\link[vegan]{vegdist}} while randomly sub-sampling the
   dataset each time. All of the subsampled iterations are then averaged
   (mean) to provide a distance matrix that represents the average of multiple
   subsampling iterations. This emulates the behavior of the distance matrix
@@ -66,45 +66,26 @@ relative to \code{ncores = 1}:
 Observed speedups are well below the theoretical maximum due to
 inter-process communication overhead in socket clusters (the only cluster
 type available on Windows). The relative benefit of parallelism improves
-with more iterations because the fixed cluster overhead is amortised across
+with more iterations because the fixed cluster overhead is amortized across
 a larger amount of work. For small problems (e.g., <50 samples and
-\code{iterations} ≤ 100 with the default \code{vegdist}), the per-iteration
+\code{iterations} ≤ 100 with the default \code{vegan::vegdist}), the per-iteration
 cost is low enough that \code{ncores = 1L} is likely faster.
 }
 \note{
-The function builds on the function \code{\link{rrarefy}} and an additional distance matrix function (e.g. \code{\link{vegdist}}) to add more meaningful representations of distances among randomly subsampled datasets by presenting the average of multiple random iterations. This functionality has been utilized in the Mothur standalone microbial ecology toolkit, see https://mothur.org/wiki/Dist.shared.
+The function builds on the function \code{\link[vegan]{rrarefy}} and an additional distance matrix function (e.g. \code{\link[vegan]{vegdist}}) to add more meaningful representations of distances among randomly subsampled datasets by presenting the average of multiple random iterations. This functionality has been utilized in the Mothur standalone microbial ecology toolkit, see https://mothur.org/wiki/Dist.shared.
 }
 \examples{
 # Import an example count dataset
-data(BCI)
-# Test the base functionality
-mean.avg.dist <- avg_dist(BCI, sample = 50, iterations = 10)
-# Test the transformation function
-mean.avg.dist.t <- avg_dist(BCI, sample = 50, iterations = 10, transf = sqrt)
-# Test the median functionality
-median.avg.dist <- avg_dist(BCI, sample = 50, iterations = 10, meanfun = median)
-# Print the resulting tables
-head(as.matrix(mean.avg.dist))
-head(as.matrix(mean.avg.dist.t))
-head(as.matrix(median.avg.dist))
-# Run example to illustrate low variance of mean, median, and stdev results
-# Mean and median std dev are around 0.05
-sdd <- avg_dist(BCI, sample = 50, iterations = 100, meanfun = sd)
-summary(mean.avg.dist)
-summary(median.avg.dist)
-summary(sdd)
-# Test for when subsampling depth excludes some samples
-# Return samples that are removed for not meeting depth filter
-depth.avg.dist <- avg_dist(BCI, sample = 450, iterations = 10)
-# Print the result
-depth.avg.dist
+data(BCI, package = "vegan")
+mean.avg.dist <- avg_dist(BCI, sample = 50, iterations = 10, ncores = 2)
+mean.avg.dist
 }
 \seealso{
-[vegdist()]
+[vegan::vegdist()]
 
 [rarrefy()]
 }
 \author{
-Geoffrey Hannigan, with some minor tweaks by Gavin L. Simpson.
+Geoffrey Hannigan, with some minor tweaks by Gavin L. Simpson and parallelization by John Quensen.
 }
 \keyword{multivariate}

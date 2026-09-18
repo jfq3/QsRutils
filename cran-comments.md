@@ -1,36 +1,23 @@
-## Resubmission
-
-This is a resubmission. I have addressed the folloiwtn cCRAN comments:
-
-* **Warning: Unexecutable code**: I have removeed the phrase "See vignette" from the example blocks for the functions comp_assemble, comp_comparisons, comp_make_f_tests. comp_means, comp_prepare_otu_tables, comp_prepare_phyloseq and make_comparisons.
-
-* **Missing Rd-tags**: I have added the following for the return value of the function clear_warnings: "No return value, called for side effects. Clears the stored warning list so that stale warnings are no longer reported in the console."
-
-* **Unwrap examples**: All functions now have examples that run in less than 5 seconds. None are wrapped in \dontrun.
-
-* **Do not write information to the console that cannot be easily suppressed**: 
-check_variance now returns a data frame of class check_var which has its own print.check_var function.
-
-* **Do not set a seed**: I removed the line setting a seed from the function generate_passwords.
-
-## Original submission
-
-## R CMD check results
-
-0 errors | 0 warnings | 1 note
-
-* This is a new submission.
-
-* NOTE: "Availability using Additional_repositories specification"
-  Several imported packages (phyloseq, Biostrings, dada2, ShortRead) are
-  hosted on Bioconductor rather than CRAN. The Bioconductor repository is
-  listed in `Additional_repositories` in DESCRIPTION. All packages are
-  available at https://bioconductor.org/packages/release/bioc.
-
 ## Test environments
+* local Windows 11, R 4.6.1
+* Via GitHub Actions:
+  - macos-latest,   r: 'release'
+  - windows-latest, r: 'release'
+  - ubuntu-latest,  r: 'devel'
+  - ubuntu-latest,  r: 'release'
+  - ubuntu-latest,  r: 'oldrel-1'
+          
+## R CMD check results
+There were 0 ERRORS, 0 WARNINGS, and 0 NOTES.
 
-* Windows 11, R 4.5.3 (local)
-* R-hub (ubuntu-latest, R-devel) — via `rhub::rhub_check()`
+
+## Submission summary
+This is a update release that adds the following functions:
+* extract_adapter_content() - Extracts information on adapter content from FastQC zip files allowing plotting of the proportion of each adapter versus the position in the read using ggplot2.
+
+* find_truncation_parameters() - Finds the position in amplicon reads where the 75th percentile of the Q scores first falls below a Q value of 20.
+
+* avg_dist() - Modification of vegan::avgdist() that includes an option for parallelization.  
 
 ## Downstream dependencies
 
