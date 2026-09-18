@@ -16,8 +16,8 @@ A data frame with mean relative abundance and standard deviations by taxon.
 Calculates means and standard deviation for each taxon to be included in a table comparing relative abundances of each taxon among treatments.
 }
 \details{
-The OTU table should be created with comp_prepare_otu_table. 
-The data frame returned has taxa as row names. For each taxa, `mean` is the mean relative abundance and `sd` is the standard deviation.  
+The OTU table should be created with comp_prepare_otu_table.
+The data frame returned has taxa as row names. For each taxa, \code{mean} is the mean relative abundance and \code{sd} is the standard deviation.
 See also the vignette "Compare Relative Abundances Among Treatments."
 }
 \examples{

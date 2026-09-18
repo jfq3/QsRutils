@@ -29,7 +29,7 @@ parallelism).}
 }
 \value{
 Returns a data frame with Shannon, Observed, Pielou, Simpson and
-  Inverse Simpson as the column names for each sample as the row names in an OTU table.
+Inverse Simpson as the column names for each sample as the row names in an OTU table.
 }
 \description{
 Calculates alpha-diversity metrics from n samplings of an OTU table to a
@@ -37,9 +37,11 @@ constant number of counts per sample.
 }
 \details{
 This implementation focuses on speed:
-- vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)
-- uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops
-- optionally parallelizes replicates across cores (platform-aware).
+\itemize{
+\item vectorizes the alpha-metric calculations (avoids repeated calls to vegan::diversity and vegan::specnumber)
+\item uses base R operations (rowSums, logical ops, arithmetic) which are much faster in tight loops
+\item optionally parallelizes replicates across cores (platform-aware).
+}
 
 The OTU data frame supplied must be in typical vegan format: samples
 as row names and taxa as column names. The minimum row sum must be greater

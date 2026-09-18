@@ -11,26 +11,26 @@ find_truncation_position(
 )
 }
 \arguments{
-\item{zip_path}{A character string specifying the path to the FastQC `.zip` file.}
+\item{zip_path}{A character string specifying the path to the FastQC \code{.zip} file.}
 
-\item{read_direction}{A character string, either `"forward"` or `"reverse"`. 
-Matches common patterns like `_R1_`/`_1` for forward and `_R2_`/`_2` for reverse.}
+\item{read_direction}{A character string, either \code{"forward"} or \code{"reverse"}.
+Matches common patterns like \verb{_R1_}/\verb{_1} for forward and \verb{_R2_}/\verb{_2} for reverse.}
 
 \item{target_q}{A numeric value specifying the Lower Quartile Q-score threshold. Default is 20.}
 }
 \value{
-A one-row data frame with columns `sample_name` (file name without `_fastqc.zip`),
-  `direction` (`"forward"` or `"reverse"`), and `position` (quality result string).
-  Returns `NULL` if the file does not match the requested read direction.
+A one-row data frame with columns \code{sample_name} (file name without \verb{_fastqc.zip}),
+\code{direction} (\code{"forward"} or \code{"reverse"}), and \code{position} (quality result string).
+Returns \code{NULL} if the file does not match the requested read direction.
 }
 \description{
-Parses a FastQC `.zip` file for a specific read direction (forward or reverse), 
-looks for the "Per base sequence quality" section, and identifies the first 
+Parses a FastQC \code{.zip} file for a specific read direction (forward or reverse),
+looks for the "Per base sequence quality" section, and identifies the first
 position where the Lower Quartile dips to or below a specified Q-score threshold.
 }
 \details{
 Results for all files in a path can be aggregated with \code{purrr::list_rbind()}:
-  \preformatted{
+\preformatted{
   all_zips <- list.files(path = "path_to_zip_files", pattern = "\\.zip$", full.names = TRUE)
   purrr::map(all_zips, find_truncation_position, "forward") |> purrr::list_rbind()
   purrr::map(all_zips, find_truncation_position, "reverse") |> purrr::list_rbind()

@@ -47,18 +47,18 @@
 #' type available on Windows). The relative benefit of parallelism improves
 #' with more iterations because the fixed cluster overhead is amortized across
 #' a larger amount of work. For small problems (e.g., <50 samples and
-#' \code{iterations} ≤ 100 with the default \code{vegan::vegdist}), the per-iteration
+#' \code{iterations} <= 100 with the default \code{vegan::vegdist}), the per-iteration
 #' cost is low enough that \code{ncores = 1L} is likely faster.
 #' @export
 #' @author Geoffrey Hannigan, with some minor tweaks by Gavin L. Simpson and parallelization by John Quensen.
 #' @note The function builds on the function \code{\link[vegan]{rrarefy}} and an additional distance matrix function (e.g. \code{\link[vegan]{vegdist}}) to add more meaningful representations of distances among randomly subsampled datasets by presenting the average of multiple random iterations. This functionality has been utilized in the Mothur standalone microbial ecology toolkit, see https://mothur.org/wiki/Dist.shared.
 #' @seealso [vegan::vegdist()]
-#' @seealso [rarrefy()]
+#' @seealso [vegan::rarefy()]
 #' @keywords multivariate
 #' @examples
 #' # Import an example count dataset
 #' data(BCI, package = "vegan")
-#' mean.avg.dist <- avg_dist(BCI, sample = 50, iterations = 10, ncores = 2)
+#' mean.avg.dist <- avg_dist(BCI, sample = 50, iterations = 5, ncores = 2)
 #' mean.avg.dist
 
 avg_dist <- function (x, sample, distfun = vegan::vegdist, meanfun = mean, transf = NULL, 

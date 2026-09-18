@@ -14,7 +14,7 @@ be >= \code{depth}.}
 }
 \value{
 Integer matrix of rarefied counts with the same dimensions and
-  dimnames as \code{otu}.
+dimnames as \code{otu}.
 }
 \description{
 For each row, taxa counts are subsampled without replacement to exactly

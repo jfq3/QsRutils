@@ -16,7 +16,7 @@ Character vector of asterisks indicating significance level.
 Indicate Significance with Stars
 }
 \details{
-Returns '***; for p < 0.001, '**' for p < 0.01, '*' for p < 0.05.
+Returns '\emph{\strong{; for p < 0.001, '}' for p < 0.01, '}' for p < 0.05.
 }
 \examples{
 asterix(0.039)

@@ -7,17 +7,17 @@
 extract_adapter_content(zip_path)
 }
 \arguments{
-\item{zip_path}{A character string specifying the path to the FastQC `.zip` file.}
+\item{zip_path}{A character string specifying the path to the FastQC \code{.zip} file.}
 }
 \value{
-A `data.frame` where the first column (`Position`) is an ordered factor,
-  subsequent columns represent the cumulative percentages of different adapter types,
-  and two trailing columns: `sample_id` (derived from the file name by stripping
-  FastQC suffixes and read-direction tags) and `direction` (`"forward"`, `"reverse"`,
-  or `NA` if the direction cannot be determined from the file name). Returns `NULL`
-  if the section is missing or empty.
+A \code{data.frame} where the first column (\code{Position}) is an ordered factor,
+subsequent columns represent the cumulative percentages of different adapter types,
+and two trailing columns: \code{sample_id} (derived from the file name by stripping
+FastQC suffixes and read-direction tags) and \code{direction} (\code{"forward"}, \code{"reverse"},
+or \code{NA} if the direction cannot be determined from the file name). Returns \code{NULL}
+if the section is missing or empty.
 }
 \description{
-Parses a FastQC `.zip` file to locate the "Adapter Content" module and extracts 
+Parses a FastQC \code{.zip} file to locate the "Adapter Content" module and extracts
 the data as a clean data frame, preserving read positions as ordered categories.
 }
