@@ -1,4 +1,4 @@
-# QsRutils (development version)
+# QsRutils 0.3.0
 
 # QsRutils 0.3.0 Adds the following functions:
 
