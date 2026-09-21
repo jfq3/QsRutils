@@ -17,7 +17,6 @@ Imports:
     agricolae,
     ape,
     Biostrings,
-    dada2,
     data.table,
     dplyr,
     ggplot2,
@@ -40,6 +39,7 @@ LazyData: true
 RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 Suggests:
+    dada2,
     dunn.test,
     knitr,
     rmarkdown,

@@ -16,7 +16,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: John Quensen \email{quensenj@msu.edu} [copyright holder]
+\strong{Maintainer}: John Quensen \email{quensenj@msu.edu} (\href{https://orcid.org/0000-0002-7669-1595}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}

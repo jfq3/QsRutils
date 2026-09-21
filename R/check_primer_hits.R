@@ -20,7 +20,6 @@
 #' @importFrom Biostrings reverse
 #' @importFrom Biostrings reverseComplement
 #' @importFrom Biostrings vcountPattern
-#' @importFrom dada2 filterAndTrim
 #' @importFrom ShortRead readFastq
 #' @importFrom ShortRead sread
 #' @examples
@@ -40,38 +39,41 @@
 #' }
 
 check_primer_hits <- function(path,
-                              fwd_pattern= "_R1.fastq",
-                              rev_pattern= "_R2.fastq",
-                              fwd_primer = "GGAAGTAAAAGTCGTAACAAGG", 
+                              fwd_pattern = "_R1.fastq",
+                              rev_pattern = "_R2.fastq",
+                              fwd_primer = "GGAAGTAAAAGTCGTAACAAGG",
                               rev_primer = "GCTGCGTTCTTCATCGATGC")
 {
-  
+  if (!requireNamespace("dada2", quietly = TRUE)) {
+    stop("Package 'dada2' is required. Install it with: BiocManager::install('dada2')")
+  }
+
   fnFs <- sort(list.files(path, pattern = fwd_pattern, full.names = TRUE))
   fnRs <- sort(list.files(path, pattern = rev_pattern, full.names = TRUE))
   allOrients <- function(primer) {
     # Create all orientations of the input sequence
-    dna <- Biostrings::DNAString(primer)  # The Biostrings works w/ DNAString objects rather than character vectors
-    orients <- c(Forward = dna, 
-                 Complement = Biostrings::complement(dna), 
+    dna <- Biostrings::DNAString(primer)
+    orients <- c(Forward = dna,
+                 Complement = Biostrings::complement(dna),
                  Reverse = Biostrings::reverse(dna),
                  RevComp = Biostrings::reverseComplement(dna))
-    return(sapply(orients, toString))  # Convert back to character vector
+    return(sapply(orients, toString))
   }
-  
+
   FWD.orients <- allOrients(fwd_primer)
   REV.orients <- allOrients(rev_primer)
-  
-  fnFs.filtN <- file.path(path, "filtN", basename(fnFs)) # Put N-filtered files in filtN/ subdirectory
+
+  fnFs.filtN <- file.path(path, "filtN", basename(fnFs))
   fnRs.filtN <- file.path(path, "filtN", basename(fnRs))
-  
+
   dada2::filterAndTrim(fnFs, fnFs.filtN, fnRs, fnRs.filtN, maxN = 0, multithread = FALSE)
-  
+
   primerHits <- function(primer, fn) {
     # Counts number of reads in which the primer is found
     nhits <- Biostrings::vcountPattern(primer, sread(ShortRead::readFastq(fn)), fixed = FALSE)
     return(sum(nhits > 0))
   }
-  
+
   rslt <- rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs[[1]]),
                 FWD.ReverseReads = sapply(FWD.orients, primerHits, fn = fnRs[[1]]),
                 REV.ForwardReads = sapply(REV.orients, primerHits, fn = fnFs[[1]]),

@@ -19,6 +19,16 @@ This is a update release that adds the following functions:
 
 * avg_dist() - Modification of vegan::avgdist() that includes an option for parallelization.  
 
+## Response to CRAN check issues
+
+The previous submission (v0.2.1) produced an ERROR on r-oldrel-macos-arm64 because
+the `dada2` Bioconductor package is not available on that platform. This has been
+addressed by moving `dada2` from `Imports` to `Suggests` and adding a
+`requireNamespace("dada2")` check inside `check_primer_hits()`, which is the only
+function that calls `dada2`. Users on platforms where `dada2` is unavailable can
+install the package normally; they will receive an informative error only if they
+call `check_primer_hits()`.
+
 ## Downstream dependencies
 
 There are no downstream dependencies on CRAN.
