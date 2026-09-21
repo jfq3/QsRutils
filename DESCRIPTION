@@ -3,14 +3,14 @@ Type: Package
 Title: R Functions Useful for Community Ecology
 Version: 0.3.0
 Authors@R: person("John", "Quensen", email = "quensenj@msu.edu",
-    role = c("aut", "cre", "cph"))
+    role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-7669-1595"))
 Description: A collection of utility functions for community ecology analyses,
     with emphasis on workflows using the 'phyloseq' and 'vegan' packages.
     Includes functions for normalizing OTU tables, computing alpha diversity
     via rarefaction (using a fast C++ implementation), differential abundance
     comparisons with compact letter displays, primer checking for amplicon
-    sequencing, plotting QIIME 2/DADA2 generated transition stats and miscellaneous helpers for ordination plots and taxonomic
-    name formatting.
+    sequencing, plotting QIIME 2/DADA2 generated transition stats and
+    miscellaneous helpers for ordination plots and taxonomic name formatting.
 Depends:
     R (>= 4.1.0)
 Imports:
