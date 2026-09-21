@@ -77,7 +77,7 @@ The function builds on the function \code{\link[vegan]{rrarefy}} and an addition
 \examples{
 # Import an example count dataset
 data(BCI, package = "vegan")
-mean.avg.dist <- avg_dist(BCI, sample = 200, iterations = 5, ncores = 1)
+mean.avg.dist <- avg_dist(BCI, sample = 50, iterations = 5, ncores = 2)
 mean.avg.dist
 }
 \seealso{
