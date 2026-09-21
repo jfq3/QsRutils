@@ -44,10 +44,6 @@ check_primer_hits <- function(path,
                               fwd_primer = "GGAAGTAAAAGTCGTAACAAGG",
                               rev_primer = "GCTGCGTTCTTCATCGATGC")
 {
-  if (!requireNamespace("dada2", quietly = TRUE)) {
-    stop("Package 'dada2' is required. Install it with: BiocManager::install('dada2')")
-  }
-
   fnFs <- sort(list.files(path, pattern = fwd_pattern, full.names = TRUE))
   fnRs <- sort(list.files(path, pattern = rev_pattern, full.names = TRUE))
   allOrients <- function(primer) {
