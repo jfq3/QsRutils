@@ -31,7 +31,7 @@ jobs:
       - name: Build package (Source or Binary)
         shell: Rscript {0}
         run: |
-          is_binary <- ${{ matrix.config.binary }}
+          is_binary <- as.logical("${{ matrix.config.binary }}")
           devtools::build(binary = is_binary)
 
       - name: Upload build artifact
