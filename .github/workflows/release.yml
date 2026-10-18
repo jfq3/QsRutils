@@ -1,9 +1,9 @@
+yaml
 name: Build and Release R Package
 
 on:
   release:
     types: [published]
-  # Optional: You can also trigger it manually from the Actions tab
   workflow_dispatch:
 
 jobs:
@@ -28,11 +28,13 @@ jobs:
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
 
-      - name: Build package (Source or Binary)
-        shell: Rscript {0}
-        run: |
-          is_binary <- as.logical("${{ matrix.config.binary }}")
-          devtools::build(binary = is_binary)
+      - name: Build Source Package (Linux)
+        if: ${{ matrix.config.binary == false }}
+        run: R CMD build .
+
+      - name: Build Binary Package (Windows / macOS)
+        if: ${{ matrix.config.binary == true }}
+        run: R CMD INSTALL --build .
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
