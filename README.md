@@ -37,14 +37,16 @@ Version 0.3.0 adds the functions:
 
 Installation
 ------------
-Install from CRAN with install.packages("QsRutils")  
+Install version 0.2.1 from CRAN with install.packages("QsRutils")  
 
-You can install the development version of QsRutils from github with:
+If you have development tools installed (Rtools for Windows, Xcode for MacOS) you can install the development version (0.3.0) of QsRutils from github with:
 
 ``` r
 install.packages("pak")
 pak::pak("jfq3/QsRutils")
 ```
+
+Also, see the release notes for instructions on installing from precompiled versions.
 
 References
 ----------
