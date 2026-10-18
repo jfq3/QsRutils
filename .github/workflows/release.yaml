@@ -31,11 +31,15 @@ jobs:
         if: ${{ matrix.config.binary == false }}
         run: R CMD build .
 
-      - name: Build Binary Package (Windows / macOS)
+      - name: Build Binary Package (Windows)
         if: ${{ matrix.config.binary == true }}
         shell: cmd
         run: R CMD INSTALL --build .
-
+        
+      - name: Build Binary Package (macOS)
+        if: ${{ matrix.config.os == 'macos-latest' }}
+        run: R CMD INSTALL --build .
+        
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
