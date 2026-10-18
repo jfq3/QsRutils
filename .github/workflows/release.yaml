@@ -33,6 +33,7 @@ jobs:
 
       - name: Build Binary Package (Windows / macOS)
         if: ${{ matrix.config.binary == true }}
+        shell: cmd
         run: R CMD INSTALL --build .
 
       - name: Upload build artifact
