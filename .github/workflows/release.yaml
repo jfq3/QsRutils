@@ -28,18 +28,18 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
 
       - name: Build Source Package (Linux)
-        if: ${{ matrix.config.binary == false }}
+        if: matrix.config.os == 'ubuntu-latest'
         run: R CMD build .
 
       - name: Build Binary Package (Windows)
-        if: ${{ matrix.config.binary == true }}
+        if: matrix.config.os == 'windows-latest'
         shell: cmd
         run: R CMD INSTALL --build .
-        
+
       - name: Build Binary Package (macOS)
-        if: ${{ matrix.config.os == 'macos-latest' }}
+        if: matrix.config.os == 'macos-latest'
         run: R CMD INSTALL --build .
-        
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
@@ -47,7 +47,7 @@ jobs:
           path: |
             *.tar.gz
             *.zip
-            *.tgz
+            *.tgz          
 
   upload_to_release:
     needs: build
