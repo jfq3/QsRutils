@@ -2,7 +2,7 @@ name: Build and Release R Package
 
 on:
   release:
-    types: [published]
+    types: [published, edited]
   workflow_dispatch:
 
 jobs:
